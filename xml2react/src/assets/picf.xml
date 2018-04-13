@@ -77,9 +77,26 @@
     </article-meta>
   </front>
   <body>
-    <fig>
-      <graphic xlink:href=".\picf.images\img_6_1.png" />
-    </fig>
+    
+<fig id='fig1'>
+  <graphic xlink:href="fig1.jpg" />
+  <caption>
+    <title>Figure 1</title>
+    <p>
+    Fig. 1. Accuracy on the Raven’s matrices and the cognitive control tasks in the hard and easy conditions, for the poor and the rich participants in experiment 1. (Left) Performance on the Raven’s Matrices task. (Right) Performance on the cognitive control task. Error bars reflect T1 SEM. Top horizontal bars show two-way interaction (poor versus rich × hard versus easy). *P < 0.05, **P < 0.01, ***P < 0.001
+    # accuracy, poor, rich, easy, hard, Raven's Matrcies, Cognitive Control
+    </p>
+  </caption>
+</fig>
+<fig id='fig4'>
+  <graphic xlink:href="fig4.jpg" />
+  <caption>
+    <title>Figure 4</title>
+    <p>
+  Fig. 4. Accuracy on the Raven’s matrices and the cognitive control tasks for pre-harvest and post-harvest farmers in the field study. (Left) Performance on Raven’s matrices task. (Middle and Right) Stroop task (measuring cognitive control) response times (RT) and error rates, respectively; error bars reflect T1 SEM. Top horizontal bars show test for main effect of pre- versus post-harvest (***P < 0.001).    </p>
+  # Accuracy, RT, Errors, Raven's Matrices, Cognitive Control, pre-harvest, post-harvest
+  </caption>
+</fig>
     <sec id="sec-1">
       <title>-</title>
       <p>
