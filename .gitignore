@@ -1,3 +1,13 @@
+# projects
+science-parse
+
+# javascript
+node_modules
+
+
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -99,3 +109,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+

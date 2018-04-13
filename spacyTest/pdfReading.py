@@ -1,18 +1,21 @@
+#%%
 import fitz
 import sys
+import os
 
-pdfName = 'Zhang_et_al-2014-Journal_of_the_Association_for_Information_Science_and_Technology.pdf'
-pdfDir = 'E:\\GoogleSync\\pdfs'
-ofile = "zhang.txt"
+pdfName = 'povertyimpedescognitivefunction.pdf'
+pdfDir = 'E:\\code\\spacyTest'
+ofile = "povertyimpedescognitivefunction.html"
 
 doc = fitz.open(pdfDir + '\\' + pdfName)
 pages = len(doc)
 
-fout = open(ofile,"w")
-
+pdfText = ''
 for page in doc:
-    text = page.getText()
-    print(text)
-    # fout.write(text.encode("utf-8"))
+    pdfText = pdfText + page.getText('html')
 
-fout.close()
+
+my_file = os.path.join('E:\\code\\spacyTest', 'pdf.html')
+with open(my_file,'w') as pdf:
+    pdf.write(pdfText)
+print(pdfText)
