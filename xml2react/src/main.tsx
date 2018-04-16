@@ -27,7 +27,7 @@ let imgsCaptions: {[ids:string]: string}[] = $('fig').toArray()
 console.log(imgsCaptions[0])
 
 // todo: util
-let pText: string[] = $('p')
+let pText: string[] = $('p:not(caption p)')
   .toArray()
   .map((el, i) => {
     return $(el).text();
@@ -52,11 +52,15 @@ class App extends React.Component<{ text: string[] }, any> {
   };
 
   render() {
-    let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'g');
+    let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');
 
+
+    const phraseInSentence = 
+          `[A-Z][^\\.;\\?\\!]*(?:${this.state.highlightedPhrase})+[^\\.;\\?\\!]*`
+    const phraseStartsSentence = `${this.state.highlightedPhrase}*[^\\.;\\?\\!]*`
     let sentencePattern = new RegExp(
-      `[A-Z][^\\.;\\?\\!]*(?:${this.state.highlightedPhrase})+[^\\.;\\?\\!]*`,
-      'g'
+      `(${phraseInSentence}|${phraseStartsSentence})`,
+      'gim'
     );
     let divs = this.props.text.map((t, ti) => {
       return (
@@ -120,8 +124,6 @@ function Highlight(props: { text: string; toMatch: string | RegExp }) {
     <span
       key={mi}
       style={{
-        paddingLeft: '6px',
-        paddingRight: '6px',
         fontWeight: 'bold'
       }}
     >
