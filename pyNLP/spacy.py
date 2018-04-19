@@ -10,30 +10,33 @@ en = textacy.load_spacy('en_core_web_lg')
 xmlFilePath = os.path.join(os.getcwd(), 'assets', 'picf.xml');
 with open(xmlFilePath,'r', encoding='utf8') as f:
     qxml = q(f.read())
+qxml("p xref").replaceWith(lambda i, e: ' ' + qxml(e).text() + ' ')
+
 text = qxml("p:not(caption)")
 
 
 def removeStatsEtc(text):
-    text = re.sub('\n','', text)
+    text = textacy.preprocess.normalize_whitespace(text)
+    text = re.sub('\n',' ', text)
     text = re.sub('[Ff]ig.','Fig', text)
     text = re.sub('[\[][^\]]*[^\]]*[\]]', '', text)# remove results in format [ * t( * ]
     text = re.sub('[\(\[][^\)^*\]]*[pP\s]:?[<=>][^\)]*[\)\]]','', text)# if has p values in [] or ()
     text = re.sub('\**?[pP]\s*?[<|=|>][\s]?[\d|\.]*','', text) # if has p values without [] or ()
-    text = re.sub(' \.', '.', text)
     return text
 
 def getSentences(text):
-    doc = nlp(text)
+    doc = nlp(removeStatsEtc(text))
     return doc.sents
 
 for (i, p) in enumerate(text):
     sents = getSentences(p.text)
     sentencesAsSpans = ['<span>' + s.text + '</span>' for s in sents]
-    print(' '.join(sentencesAsSpans))
-    qxml(p).html(' '.join(sentencesAsSpans))
+    print(i, p.text)
+    qxml(p).html('\n' + ' '.join(sentencesAsSpans) )
 
+with open(os.path.join(os.getcwd(), 'assets', 'picf_sentences.xml'),'w', encoding='utf8') as f:
+    f.write(qxml.html())
 
-print(qxml)
 #%% maybe keywords -> filtered noun chunks for map starter?
 import textacy.keyterms
 tdoc = textacy.Doc(text, lang=en)
