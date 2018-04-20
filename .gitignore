@@ -110,3 +110,4 @@ ENV/
 # mypy
 .mypy_cache/
 
+pyNLP/assets/papers-2017-10-30.zip

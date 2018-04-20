@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as cheerio from 'cheerio';
 import * as glamorous from 'glamorous';
-import { ThemeProvider, Div, Img } from 'glamorous';
+import { ThemeProvider, Div, Img, Span } from 'glamorous';
 import * as reactStringReplace from 'react-string-replace';
 import * as d3 from 'd3';
 var colorScale = d3.scaleOrdinal(d3.schemePastel1) as any;
@@ -10,33 +10,44 @@ console.log(colorScale(0).toString());
 const theme = {
   main: { color: 'red' }
 };
+import keydown from 'react-keydown';
 
-const xml = require('@assets/picf.xml');
+const xml = require('@assets/picf_sentences.xml');
 var $ = cheerio.load(xml, {
   xmlMode: true
 });
 
-
-let imgsCaptions: {[ids:string]: string}[] = $('fig').toArray()
-.map((el, i) => {
-  const href = $(el).children('graphic').attr("xlink:href");
-  const caption = $(el).children('caption').text().trim();
-  return {href, caption}
-});
-
-console.log(imgsCaptions[0])
-
-// todo: util
-let pText: string[] = $('p:not(caption p)')
+let imgsCaptions: { [ids: string]: string }[] = $('fig')
   .toArray()
   .map((el, i) => {
-    return $(el).text();
+    const href = $(el)
+      .children('graphic')
+      .attr('xlink:href');
+    const caption = $(el)
+      .children('caption')
+      .text()
+      .trim();
+    return { href, caption };
   });
 
+// todo: util
+let pText: string[][] = $('p:not(caption p)')
+  .toArray()
+  .map((el, i) => {
+    const spansInP = $(el)
+      .children('span')
+      .toArray();
+    return spansInP.map((el, i) => $(el).text());
+  });
+console.log(pText);
 
-class App extends React.Component<{ text: string[] }, any> {
+@keydown
+class App extends React.Component<{ text: string[][] }, any> {
   state = {
-    highlightedPhrase: 'cognitive'
+    highlightedPhrase: 'cognitive',
+    paragraphIx: 0,
+    sentenceIx: 0,
+    key: 'n/a'
   };
 
   updateStateFromSelectedText = () => {
@@ -51,56 +62,77 @@ class App extends React.Component<{ text: string[] }, any> {
     }
   };
 
+  componentWillReceiveProps( nextProps ) {
+    const { keydown: { event } } = nextProps;
+    if ( event ) {
+      switch (event.key) {
+        case 'f': this.setState({sentenceIx: this.state.sentenceIx+1}); break;
+        case 'ArrowLeft': this.setState({sentenceIx: this.state.sentenceIx-1}); break;
+        case 'ArrowRight': this.setState({sentenceIx: this.state.sentenceIx+1}); break;
+        default: break;
+      }
+
+      this.setState( { key: event.key } );
+    }
+  }
+
   render() {
     let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');
 
-
-    const phraseInSentence = 
-          `[A-Z][^\\.;\\?\\!]*(?:${this.state.highlightedPhrase})+[^\\.;\\?\\!]*`
-    const phraseStartsSentence = `${this.state.highlightedPhrase}*[^\\.;\\?\\!]*`
-    let sentencePattern = new RegExp(
-      `(${phraseInSentence}|${phraseStartsSentence})`,
-      'gim'
-    );
-    let divs = this.props.text.map((t, ti) => {
+    let divs = this.props.text.map((p, pi) => {
+      const isParagraphSelected = this.state.paragraphIx === pi;
       return (
-        <Div key={ti} onMouseUp={(e) => this.updateStateFromSelectedText()}>
-          <Div background={colorScale(ti % 9)}>{ti + 1}</Div>
-          <Highlight text={t} toMatch={wordPattern} />
+        <Div key={pi} onMouseUp={(e) => this.updateStateFromSelectedText()}>
+          <Div outline="1px solid black" background="lightgrey" textAlign="center">
+            {pi + 1}
+          </Div>
+          {p.map((sentence, sentencei) => {
+            const doesSentenceIxMatch = this.state.sentenceIx === sentencei;
+            const isSentenceSelected = doesSentenceIxMatch && isParagraphSelected;
+            
+            return (
+              <Span key={sentencei} background={isSentenceSelected ? '#C7E9C0':'none'}>
+                <Highlight text={sentence} toMatch={wordPattern} />
+              </Span>
+            );
+          })}
         </Div>
       );
     });
-    let divsWithMatch = this.props.text.map((t, ti) => {
-      const retext = t.match(sentencePattern);
-      if (retext !== null) {
-        return (
-          <Div key={ti} onMouseUp={(e) => this.updateStateFromSelectedText()}>
-            <Div background={colorScale(ti % 9)}>{ti + 1}</Div>
-            {retext.map((retext, i) => {
-              return (
-                <Div key={i}>
-                  <Highlight text={retext + '.'} toMatch={wordPattern} />
-                </Div>
-              );
-            })}
-          </Div>
-        );
-      } else {
-        return null;
-      }
-    });
+    // let divsWithMatch = this.props.text.map((t, ti) => {
+    //   const retext = t.match(sentencePattern);
+    //   if (retext !== null) {
+    //     return (
+    //       <Div key={ti} onMouseUp={(e) => this.updateStateFromSelectedText()}>
+    //         <Div background={colorScale(ti % 9)}>{ti + 1}</Div>
+    //         {retext.map((retext, i) => {
+    //           return (
+    //             <Div key={i}>
+    //               <Highlight text={retext + '.'} toMatch={wordPattern} />
+    //             </Div>
+    //           );
+    //         })}
+    //       </Div>
+    //     );
+    //   } else {
+    //     return null;
+    //   }
+    // });
 
     return (
       <Div>
-        <Div display='flex' onMouseUp={(e) => this.updateStateFromSelectedText()}>{imgsWithMatch(wordPattern)}</Div>
-        <hr/>
+        {this.state.key}
+        <Div display="flex" onMouseUp={(e) => this.updateStateFromSelectedText()}>
+          {imgsWithMatch(wordPattern)}
+        </Div>
+        <hr />
         <Div display={'flex'} flexDirection="row">
           <Div flex={1} paddingRight="10px">
             {divs}
           </Div>
-          <Div flex={1} paddingLeft="10px" borderLeft="1px solid black">
+          {/* <Div flex={1} paddingLeft="10px" borderLeft="1px solid black">
             {divsWithMatch}
-          </Div>
+          </Div> */}
         </Div>
       </Div>
     );
@@ -108,15 +140,16 @@ class App extends React.Component<{ text: string[] }, any> {
 }
 
 function imgsWithMatch(wordPattern) {
- return imgsCaptions.map((imgCap, i) => {
+  return imgsCaptions.map((imgCap, i) => {
     return (
       <Div>
-        <Img maxWidth={'45vw'} src={require("@assets/" + imgCap.href)} />
+        <Img maxWidth={'45vw'} src={require('@assets/' + imgCap.href)} />
         <Div>
-        <Highlight text={imgCap.caption} toMatch={wordPattern} /> </Div>
+          <Highlight text={imgCap.caption} toMatch={wordPattern} />{' '}
+        </Div>
       </Div>
-    )
-})
+    );
+  });
 }
 
 function Highlight(props: { text: string; toMatch: string | RegExp }) {
@@ -133,3 +166,11 @@ function Highlight(props: { text: string; toMatch: string | RegExp }) {
 }
 
 ReactDOM.render(<App text={pText} />, document.getElementById('root'));
+
+function matchSentencesRegex() {
+  // delete?
+  let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');
+  const phraseInSentence = `[A-Z][^\\.;\\?\\!]*(?:${this.state.highlightedPhrase})+[^\\.;\\?\\!]*`;
+  const phraseStartsSentence = `${this.state.highlightedPhrase}*[^\\.;\\?\\!]*`;
+  let sentencePattern = new RegExp(`(${phraseInSentence}|${phraseStartsSentence})`, 'gim');
+}
