@@ -1,11 +1,10 @@
 # projects
 science-parse
+learningNLP/model/*
+*.bin
 
 # javascript
 node_modules
-
-
-
 
 
 # Byte-compiled / optimized / DLL files
@@ -111,3 +110,4 @@ ENV/
 .mypy_cache/
 
 pyNLP/assets/papers-2017-10-30.zip
+learningNLP/model/tokenizer
