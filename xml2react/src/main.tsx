@@ -1,45 +1,17 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as cheerio from 'cheerio';
 import * as glamorous from 'glamorous';
 import { ThemeProvider, Div, Img, Span } from 'glamorous';
 import * as reactStringReplace from 'react-string-replace';
 import * as d3 from 'd3';
+import {getTextFromXML} from './xml';
+var {pText, imgsCaptions} = getTextFromXML();
+
 var colorScale = d3.scaleOrdinal(d3.schemePastel1) as any;
-console.log(colorScale(0).toString());
 const theme = {
   main: { color: 'red' }
 };
 import keydown from 'react-keydown';
-
-const xml = require('@assets/picf_sentences.xml');
-var $ = cheerio.load(xml, {
-  xmlMode: true
-});
-
-let imgsCaptions: { [ids: string]: string }[] = $('fig')
-  .toArray()
-  .map((el, i) => {
-    const href = $(el)
-      .children('graphic')
-      .attr('xlink:href');
-    const caption = $(el)
-      .children('caption')
-      .text()
-      .trim();
-    return { href, caption };
-  });
-
-// todo: util
-let pText: string[][] = $('p:not(caption p)')
-  .toArray()
-  .map((el, i) => {
-    const spansInP = $(el)
-      .children('span')
-      .toArray();
-    return spansInP.map((el, i) => $(el).text());
-  });
-console.log(pText);
 
 @keydown
 class App extends React.Component<{ text: string[][] }, any> {
