@@ -37,6 +37,7 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
   componentWillReceiveProps( nextProps ) {
     const { keydown: { event } } = nextProps;
     if ( event ) {
+      //todo: arrow to next paragraph
       switch (event.key) {
         case 'f': this.setState({sentenceIx: this.state.sentenceIx+1}); break;
         case 'ArrowLeft': this.setState({sentenceIx: this.state.sentenceIx-1}); break;
@@ -51,6 +52,7 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
   render() {
     let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');
 
+    // todo: replace this with divsWithMatch but set match to 'all'
     let divs = this.props.text.map((p, pi) => {
       const isParagraphSelected = this.state.paragraphIx === pi;
       return (
@@ -71,40 +73,46 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
         </Div>
       );
     });
-    // let divsWithMatch = this.props.text.map((t, ti) => {
-    //   const retext = t.match(sentencePattern);
-    //   if (retext !== null) {
-    //     return (
-    //       <Div key={ti} onMouseUp={(e) => this.updateStateFromSelectedText()}>
-    //         <Div background={colorScale(ti % 9)}>{ti + 1}</Div>
-    //         {retext.map((retext, i) => {
-    //           return (
-    //             <Div key={i}>
-    //               <Highlight text={retext + '.'} toMatch={wordPattern} />
-    //             </Div>
-    //           );
-    //         })}
-    //       </Div>
-    //     );
-    //   } else {
-    //     return null;
-    //   }
-    // });
+
+    // todo: replace divs component above with this but add filter prop
+    let divsWithMatch = this.props.text.map((p, pi) => {
+      const isParagraphSelected = this.state.paragraphIx === pi;
+      return (
+        <Div key={pi} onMouseUp={(e) => this.updateStateFromSelectedText()}>
+          <Div outline="1px solid black" background="lightgrey" textAlign="center">
+            {pi + 1}
+          </Div>
+          {p.map((sentence, sentencei) => {
+            let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');
+            const doesSentenceIxMatch = this.state.sentenceIx === sentencei;
+            const isSentenceSelected = doesSentenceIxMatch && isParagraphSelected;
+            if ((wordPattern as any).test(sentence)) {
+              return (
+                <Span key={sentencei} background={isSentenceSelected ? '#C7E9C0':'none'}>
+                  <Highlight text={sentence} toMatch={wordPattern} />
+                </Span>
+              );
+            } else {
+              return null
+            }
+            
+          })}
+        </Div>
+      );
+    });
 
     return (
       <Div>
-        {this.state.key}
-        <Div display="flex" onMouseUp={(e) => this.updateStateFromSelectedText()}>
-          {imgsWithMatch(wordPattern)}
-        </Div>
-        <hr />
         <Div display={'flex'} flexDirection="row">
           <Div flex={1} paddingRight="10px">
             {divs}
           </Div>
-          {/* <Div flex={1} paddingLeft="10px" borderLeft="1px solid black">
+          <Div flex={1} paddingLeft="10px" borderLeft="1px solid black">
             {divsWithMatch}
-          </Div> */}
+          </Div>
+        </Div>
+        <Div display="flex" onMouseUp={(e) => this.updateStateFromSelectedText()}>
+          {imgsWithMatch(wordPattern)}
         </Div>
       </Div>
     );
@@ -126,6 +134,7 @@ function imgsWithMatch(wordPattern) {
   });
 }
 
+// bold a matched phrase
 function Highlight(props: { text: string; toMatch: string | RegExp }) {
   return reactStringReplace(props.text, props.toMatch, (match, mi) => (
     <span
@@ -139,7 +148,7 @@ function Highlight(props: { text: string; toMatch: string | RegExp }) {
   ));
 }
 
-
+// use this to parse sentences in js with regex
 function matchSentencesRegex() {
   // delete?
   let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');

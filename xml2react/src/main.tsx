@@ -7,7 +7,8 @@ import * as d3 from 'd3';
 import {getTextFromXML} from './xml';
 var {pText, imgsCaptions} = getTextFromXML();
 import * as utils from 'utils'
-
+import {Reader1} from './Reader1'
+import {Linker1} from './Linker1'
 
 var colorScale = d3.scaleOrdinal(d3.schemePastel1) as any;
 const theme = {
@@ -18,13 +19,8 @@ import keydown from 'react-keydown';
 class App extends React.Component<any, any> {
   render(){
     return (
-      <div>{pText[6].map((text,i) => {
-        return (<Div key={i}>
-        {text}
-        <div><Input width='100%' marginBottom={'8px'}></Input></div>
-        </Div>)
-      })}</div>
-
+      // <Reader1 text={pText}></Reader1>
+      <Linker1 />
     )
   }
 }

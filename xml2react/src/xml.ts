@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+var uniqid = require('uniqid');
 
 
 export function getTextFromXML() { //for reader1, dep
@@ -32,30 +33,31 @@ export function getTextFromXML() { //for reader1, dep
       return {pText, imgsCaptions}
 }
 
+// todo: xml utils
 const subTextArray = ($, elem ,subNode: string): string[] => {
     return $(elem).children(subNode).toArray().map((el, i) => $(el).text());
 } 
+let getSpans = ($, node) => $(node).children('span').toArray();
 
-type sentence = {text: string, nounPhrases: string[], paragraphNumber: number}
+type sentence = {id: string, text: string, nounPhrases: string[], paragraphNumber: number}
 export function getJSONFromXML() {
-    // const xml = require('@assets/picf_nounphrases.xml');
-    // var $ = cheerio.load(xml, {
-    //   xmlMode: true
-    // });
+    const xml = require('@assets/picf_nounphrases.xml');
+    var $ = cheerio.load(xml, {
+      xmlMode: true
+    });
 
-    // let pText: sentence[] = $('p:not(caption p)')
-    //   .toArray()
-    //   .map((p, i) => {
-    //     const spans = $(p)
-    //       .children('span')
-    //       .toArray();
-    //       const sentences = spans.map((span, iSpan) => {
-    //         return {text: $(span).text(), 
-    //             nounPhrases: subTextArray($, span, 'np'),
-    //             paragraphNumber: i}
-    //       });
-    //     return sentences
-    //   });
+    let paragraphs= $('p:not(caption p)').toArray()
+    const sentences = paragraphs.map((p, i) => {
+        const spans = getSpans($, p)
+          const sents = spans.map((span, iSpan) => {
+            return {
+                id: uniqid('sentence-'),
+                text: $(span).text(), 
+                nounPhrases: subTextArray($, span, 'np'),
+                paragraphNumber: i}
+          });
+        return sents
+      });
+      return sentences;
 }
 
-getJSONFromXML()
