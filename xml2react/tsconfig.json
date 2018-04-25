@@ -11,7 +11,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": false,
     "strict": false,
-    "outDir": "build",
+    "outDir": "dist",
     "lib": ["es6", "es7", "dom"],
     "baseUrl": "src",
     "rootDirs": ["src", "stories"],

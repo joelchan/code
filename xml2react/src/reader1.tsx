@@ -14,7 +14,7 @@ const theme = {
 import keydown from 'react-keydown';
 
 @keydown
-class Reader1 extends React.Component<{ text: string[][] }, any> {
+export class Reader1 extends React.Component<{ text: string[][] }, any> {
   state = {
     highlightedPhrase: 'cognitive',
     paragraphIx: 0,
@@ -113,9 +113,11 @@ class Reader1 extends React.Component<{ text: string[][] }, any> {
 
 function imgsWithMatch(wordPattern) {
   return imgsCaptions.map((imgCap, i) => {
+    const imgName =imgCap.href.replace(/\\\"/g,"")
+    console.log(imgName)
     return (
       <Div>
-        <Img maxWidth={'45vw'} src={require('@assets/' + imgCap.href)} />
+        <Img maxWidth={'45vw'} src={require('@assets/' + imgName)} />
         <Div>
           <Highlight text={imgCap.caption} toMatch={wordPattern} />{' '}
         </Div>
