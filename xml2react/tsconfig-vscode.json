@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": false,
+    "outDir": "./build",
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "paths": {
+    "@assets/*": ["./assets/*"]
+  }
+}

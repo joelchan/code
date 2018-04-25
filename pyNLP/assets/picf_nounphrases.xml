@@ -1,0 +1,1173 @@
+<body><article xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <journal-meta>
+      <journal-title-group>
+        <journal-title>Science</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0036-8075</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.1126/science.1238041</article-id>
+      <title-group>
+        <article-title>Poverty Impedes Cognitive Function</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <string-name>Anandi Mani</string-name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <string-name>Sendhil Mullainathan</string-name>
+          <email>mullain@fas.harvard.edu</email>
+          <xref ref-type="aff" rid="aff0">0</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <string-name>Eldar Shafir</string-name>
+          <email>shafir@princeton.edu</email>
+          <xref ref-type="aff" rid="aff3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <string-name>Jiaying Zhao</string-name>
+          <xref ref-type="aff" rid="aff2">2</xref>
+        </contrib>
+        <aff id="aff0">
+          <label>0</label>
+          <institution>Department of Economics, Harvard University</institution>
+          ,
+          <addr-line>Cambridge, MA 02138</addr-line>
+          ,
+          <country country="US">USA</country>
+        </aff>
+        <aff id="aff1">
+          <label>1</label>
+          <institution>Department of Economics, University of Warwick</institution>
+          ,
+          <addr-line>Coventry CV4 7AL</addr-line>
+          ,
+          <country country="UK">UK</country>
+        </aff>
+        <aff id="aff2">
+          <label>2</label>
+          <institution>Department of Psychology and Institute for Resources, Environment and Sustainability, University of British Columbia</institution>
+          ,
+          <addr-line>Vancouver, British Columbia V6T 1Z4</addr-line>
+          ,
+          <country country="CA">Canada</country>
+        </aff>
+        <aff id="aff3">
+          <label>3</label>
+          <institution>Department of Psychology and Woodrow Wilson School of Public and International Affairs, Princeton University</institution>
+          ,
+          <addr-line>Princeton, NJ 08540</addr-line>
+          ,
+          <country country="US">USA</country>
+        </aff>
+      </contrib-group>
+      <pub-date>
+        <year>2013</year>
+      </pub-date>
+      <volume>29</volume>
+      <issue>2013</issue>
+      <fpage>976</fpage>
+      <lpage>980</lpage>
+      <abstract>
+        <p>
+<span>The poor often behave in <np>less capable ways</np>, which can further perpetuate <np>poverty</np>.  </span> <span><np>We</np> hypothesize that <np>poverty</np> directly impedes <np>cognitive function</np> and present <np>two  studies</np> that test <np>this hypothesis</np>.</span> <span>First, <np>we</np> experimentally induced <np>thoughts</np> about  <np>finances</np> and found that this reduces <np>cognitive performance</np> among poor but not in  <np><np>we</np>ll-off participants</np>.</span> <span>Second, <np>we</np> examined <np>the cognitive function</np> of <np>farmers</np> over  <np>the planting cycle</np>.</span> <span><np>We</np> found that the same farmer shows diminished <np>cognitive  performance</np> before <np>harvest</np>, when poor, as compared with after <np>harvest</np>, when  rich.</span> <span>This cannot be explained by <np>differences</np> in <np>time</np> available, nutrition,  or work effort.</span> <span>Nor can <np>it</np> be explained w<np>it</np>h <np>stress</np>:</span> <span>Although <np>farmers</np> do  <np>show</np> <np>more stress</np> before <np>harvest</np>, that does not account for <np>diminished  cognitive performance</np>.</span> <span>Instead, <np>it</np> appears <np>that poverty</np> <np>it</np>self reduces  <np>cogn<np>it</np>ive capac<np>it</np>y</np>.</span> <span><np>We</np> suggest that this is because <np>poverty-related  concerns</np> consume <np>mental resources</np>, leaving less for <np>other tasks</np>.  </span> <span><np>These data</np> provide <np>a previously unexamined perspective</np> and help  explain <np>a spectrum</np> of <np>behaviors</np> among the poor.</span> <span><np>We</np> discuss <np>some  implications</np> for <np>poverty policy</np>.</span></p></abstract>
+    </article-meta>
+  </front>
+  
+    
+<fig id="fig1">
+  <graphic xlink:href="fig1.jpg"/>
+  <caption>
+    <title>Figure 1</title>
+    <p>
+<span><np>Fig</np> 1.</span> <span><np>Accuracy</np> on <np>the Raven’s matrices</np> and <np>the cognitive control tasks</np>  in <np>the hard and easy conditions</np>, for the poor and <np>the rich participants</np>  in <np>experiment</np> 1.</span> <span><np>(Left</np>)</span> <span><np>Performance</np> on <np>the Raven’s Matrices task</np>.</span> <span><np>(Right)  Performance</np> on <np>the cognitive control task</np>.</span> <span><np>Error bars</np> reflect <np>T1 SEM</np>.  </span> <span><np>Top horizontal bars</np> show <np>two-way interaction</np> (poor versus rich × hard versus easy).  </span> <span>, ,   # accuracy, poor, rich, easy, hard, Raven's Matrcies, <np>Cognitive Control</np></span></p></caption>
+</fig>
+<fig id="fig4">
+  <graphic xlink:href="fig4.jpg"/>
+  <caption>
+    <title>Figure 4</title>
+    <p>
+<span><np>Fig</np> 4.</span> <span><np>Accuracy</np> on <np>the Raven’s matrices</np> and <np>the cognitive control tasks</np> for pre-harvest  and <np>post-harvest farmers</np> in <np>the field study</np>.</span> <span><np>(Left</np>)</span> <span><np>Performance</np> on <np>Raven</np>’s <np>matrices</np>  <np>task</np>.</span> <span><np>(Middle and Right) Stroop task</np> (measuring <np>cognitive control</np>)</span> <span>response times  <np>(RT</np>) and <np>error rates</np>, respectively; <np>error bars</np> reflect <np>T1 SEM</np>.</span> <span><np>Top horizontal bars</np>  <np>show test</np> for <np>main effect</np> of pre- versus <np>post-harvest</np> ().</span></p></caption>
+</fig>
+    <sec id="sec-1">
+      <title>-</title>
+      <p>
+<span><np>A variety</np> of <np>studies</np> point to <np>a correlation</np>  between <np>poverty</np> and <np>counterproductive  behavior</np>.</span> <span>The poor use <np>less preventive health care</np> (  1 ), fail to adhere to <np>drug regimens</np> (  2 ), are tardier and less likely to keep <np>appointments</np> (  3, 4 ), are <np>less productive workers</np> (  5 ), <np>less attentive parents</np> (  6 ), and <np>worse managers</np> of <np>their finances</np> (  <np>7–9</np> ).</span> <span><np>These behaviors</np> are troubling in <np>their own right</np>, but <np>they</np> are particularly troubling because <np>they</np> can further deepen <np>poverty</np>.</span> <span><np>Some explanations</np> of <np>this correlation focus</np> on <np>the environmental conditions</np> of <np>poverty</np>.</span> <span><np>Predatory lenders</np> in <np>poor areas</np>, for <np>example</np>, may create <np>highinterest-rate borrowing</np>, and <np>unreliable transportation</np> can cause <np>tardiness</np> and <np>absenteeism</np>.</span> <span>More generally, <np>poverty</np> may leave <np>less room</np> for <np>error</np> so that <np>the “same” mistake</np> can lead to <np>worse outcomes</np> (  10, 11 ).</span> <span><np>Other explanations</np> focus on <np>the characteristics</np> of <np>the poor themselves</np>.</span> <span><np>Lower levels</np> of <np>formal education</np>, for <np>example</np>, may create <np>misunderstandings</np> about <np>contract terms</np>, and <np>less parental attention</np> may influence <np>the next generation’s parenting style</np>.</span></p><p>
+<span><np>Our second study</np> takes <np>a different approach</np> and allows <np>us</np> to assess <np>what</np> happens when <np>income</np> varies naturally.</span> <span><np>We</np> conducted <np>a field study</np> that used <np>quasi-experimental variation</np> in <np>actual wealth</np>.</span> <span><np>Indian sugarcane farmers</np> receive <np>income</np> annually at <np>harvest time</np> and find <np>it</np> hard to smooth <np>their consumption</np> (  20 ).</span> <span>As <np>a result</np>, <np>they</np> experience <np>cycles</np> of <np>poverty</np>—poor before <np>harvest</np> and richer after.</span> <span>This allows <np>us</np> to compare <np>cognitive capacity</np> for <np>the same farmer</np> when poor (pre-harvest) vers<np>us</np> richer <np>(post-harvest</np>).</span> <span>Because <np>harvest dates</np> are distributed arbitrarily across <np>farmers</np>, <np>we</np> can further control for <np>calendar effects</np>.</span> <span>In <np>this study</np>, <np>we</np> did not experimentally induce <np>financial concerns</np>; <np>we</np> relied on <np>whatever concerns</np> occurred naturally.</span> <span><np>We</np> were careful to control for <np>other possible changes</np>, such as <np>nutrition</np> and <np>work</np> <np>effort</np>.</span> <span>Additionally, <np>we</np> accounted for <np>the impact</np> of <np>stress</np>.</span> <span><np>Any effect</np> on <np>cognitive performance</np> then observed would thus illustrate <np>a causal relationship</np> between <np>actual income and cognitive function</np> in <np>situ</np>.</span> <span>As such, <np>the two studies</np> are highly complementary.</span> <span><np>The laboratory study</np> has <np>a great deal</np> of <np>internal validity</np> and illustrates <np>our proposed mechanism</np>, whereas <np>the field study</np> boosts <np>the external validity</np> of <np>the laboratory study</np>.</span></p><p>
+<span><np>We</np> note <np>two observations</np> about <np>these studies</np>.</span> <span>First, <np>they</np> sidestep <np>the discussion</np> on whether <np>poverty</np> is best defined in <np>absolute or relative terms</np> (  21 ).</span> <span>Because <np>our hypothesis</np> is about how <np>monetary concerns</np> tax <np>the cognitive system</np>, <np>we</np> define <np>poverty</np> broadly as <np>the gap</np> bet<np>we</np>en <np>one’s needs</np> and <np>the resources</np> available to fulfill <np>them</np>.</span> <span>Because this is based on <np>subjective needs</np>, <np>it</np> encompasses <np>low-income individuals</np> both in <np>the developing</np> and <np>the developed world</np> as well as those experiencing <np>sharp trans<np>it</np>ory income shocks</np>, such as the unemployed.</span> <span>Second, <np>existing theory</np> and <np>data</np> suggest <np>a possibly cumulative long-term impact</np> of <np>poverty</np> on <np>cognition</np> (  22, 23 ):</span> <span><np>Childhood poverty</np> may hinder <np>brain development</np> and eventually reduce <np>adult cognitive capacity</np> (  24 ).</span> <span><np>Our hypothesis</np> and <np>tests</np> focus on <np>an immediate impact</np> of <np>poverty</np> on <np>cognition</np>: <np>Budgetary preoccupations</np> can in <np>real time</np> impede <np>cognitive function</np>.</span> <span><np>Our proposed mechanism</np> does not operate through <np>brain development</np> at <np>early childhood</np> but through <np>an immediate cognitive load</np> caused by <np>financial concerns</np>.</span> <span>Whether <np>this mechanism</np> also contributes to <np>the long-term impacts</np> is <np>an open question</np>.</span></p><p>
+<span><np>We</np> propose <np>a different kind</np> of <np>explanation</np>, which focuses on <np>the mental processes</np> required by <np>poverty</np>.</span> <span>The poor must manage <np>sporadic income</np>, <np>juggle</np> <np>expenses</np>, and make <np>difficult tradeoffs</np>.</span> <span>Even when not actually making <np>a financial decision</np>, <np>these preoccupations</np> can be present and distracting.</span> <span><np>The human cognitive system</np> has <np>limited capacity</np> (  12–15 ).</span> <span><np>Preoccupations</np> with pressing <np>budgetary concerns</np> leave <np>fewer cognitive resources</np> available to guide <np>choice</np> and <np>action</np>.</span> <span>Just as <np>an air traffic controller</np> focusing on <np>a potential collision course</np> is prone to neglect <np>other planes</np> in <np>the air</np>, the poor, when attending to <np>monetary concerns</np>, lose <np>their capacity</np> to give <np>other problems</np> <np>their full consideration</np>.</span></p><p>
+<span>This suggests <np>a causal</np>, not merely correlational, <np>relationship</np> between <np>poverty</np> and <np>mental function</np>.</span> <span><np>We</np> tested this using <np>two very different but complementary designs</np> (  16, 17 ).</span> <span>The first is <np>a laboratory study</np>: <np>We</np> induced <np>richer and poorer participants</np> to think about <np>everyday financial demands</np>.</span> <span><np>We</np> hypothesized that for the rich, these run-of-<np>the-mill</np> financial snags are of <np>little consequence</np>.</span> <span>For the poor, however, <np>these demands</np> can trigger persistent and distracting <np>concerns</np> (  18, 19 ).</span> <span><np>The laboratory study</np> is designed to show that <np>similarly sized financial challenges</np> can have <np>different cognitive impacts</np> on the poor and the rich.</span> <span>But, <np>the study</np> cannot fully capture <np>our hypothesis</np> that in <np>the world</np>, the poor face <np>more challenging demands</np>.</span> <span>In <np>principle</np>, <np>the cognitive impact</np> in <np>situ</np> may be different given that <np>the scale</np> of <np>the problems</np> can vary between the rich and the poor.</span> <span>Perhaps the rich in <np>the world</np> face <np>larger monetary problems</np> that also cause <np>greater load</np>.</span> <span>Perhaps the poor manage to restructure <np>their lives</np> so that <np>they</np> do not face <np>as many cognitively challenging problems</np>.</span> <span>Put simply, <np>the laboratory study</np>, although illustrating <np>the mechanism</np>, does not show <np>its relevance</np> in <np>natural settings</np>.</span></p></sec>
+    <sec id="sec-2">
+      <title>The Laboratory Studies</title>
+      <p>
+<span><np>The first study</np> consisted of <np>four experiments</np>, with <np>shoppers</np> at <np>a New Jersey mall</np> <np>who</np> participated for <np>pay</np> (<np>details</np> are available in <np>the supplementary materials</np>).</span> <span><np>This sample</np> encompasses <np>a diverse income range</np>, with <np>the median household income</np> at roughly $70,000 and a lower bound of roughly $20,000.</span> <span>This, broadly speaking, provides <np>a cross-section</np> of <np>the United States</np>, with the poor in <np>our sample</np> roughly corresponding to those in <np>the lower quartile</np> or third of <np>the U.S. income distribution</np>.</span> <span><np>We</np> computed <np>effective income</np> by dividing <np>household income</np> by <np>the square root</np> of <np>household size</np> (  25 ) and defined <np>“rich”</np> and “poor” through <np>a median split</np> on <np>this variable</np> (  26 ).</span></p><p>
+<span>In <np>experiment</np> 1, <np>participants</np>  were presented with <np>four hypothetical scenarios</np> a few minutes apart.</span> <span><np>Each scenario</np> described <np>a financial problem</np> <np>the participants</np> might experience.</span> <span>For <np>example</np>: “<np>Your car</np> is having <np>some trouble</np> and requires <np>$X</np> to be fixed.</span> <span><np>You</np> can pay in full, take <np>a loan</np>, or take <np>a chance</np> and forego <np>the service</np> at <np>the moment</np>...</span> <span>How would <np>you</np> go about making <np>this decision</np>?</span> <span><np>”</np></span> <span><np>These scenarios</np>, by touching on <np>monetary issues</np>, are meant to trigger <np>thoughts</np> of <np>the participant’s own finances</np>.</span> <span><np>They</np> are intended to bring to <np>the forefront</np> any nascent, easy to activate, <np>financial concerns</np>.</span></p><p>
+<span>After viewing <np>each scenario</np>, and while thinking about how <np>they</np> might go about solving <np>the problem</np>, <np>participants</np> performed <np>two computerbased tasks</np> used to measure <np>cognitive function</np>: <np>SCIENCE Raven’s Progressive Matrices</np> and <np>a spatial compatibility task</np>.</span> <span><np>The Raven’s test</np> involves <np>a sequence</np> of <np>shapes</np> with <np>one shape</np> missing (  27 ).</span> <span><np>Participants</np> must choose which of <np>several alternatives</np> best fits in <np>the missing space</np>.</span> <span><np>Raven’s test</np> is <np>a common component</np> in <np>IQ tests</np> and is used to measure “<np>fluid intelligence</np>,” <np>the capacity</np> to think logically and solve <np>problems</np> in <np>novel situations</np>, independent of <np>acquired knowledge</np> (  28, 29 ).</span> <span><np>The spatial incompatibility task</np> requires <np>participants</np> to respond quickly and often contrary to <np>their initial impulse</np>.</span> <span>Presented with <np>Figres</np> on <np>the screen</np>, <np>they</np> must press <np>the same side</np> in <np>response</np> to <np>some stimuli</np> but press <np>the opposite side</np> in <np>response</np> to <np>others</np>.</span> <span><np>The speed</np> and <np>accuracy</np> of response measures <np>cognitive control</np> (  30 ), <np>the ability</np> to guide <np>thought</np> and <np>action</np> in <np>accordance</np> with <np>internal goals</np> (  31 ).</span> <span>Both are <np>nonverbal tasks</np>, intended to minimize <np>the potential impact</np> of <np>literacy skills</np>.</span> <span>Upon <np>completion</np> of <np>these tasks</np>, <np>participants</np> responded to <np>the original scenario</np> by typing <np>their answers</np> on <np>the computer</np> or speaking to <np>a tape recorder</np> and then moved on to <np>the next scenario</np> (<np>an analysis</np> of <np>participants</np>’ responses to <np>the scenarios</np> is available in <np>table S1</np>).</span> <span><np>We</np> also collected <np>participants’ income information</np> at <np>the end</np> of <np>the experiment</np>.</span></p><p>
+<span><np>Participants</np> were randomly assigned either to <np>a “hard” condition</np>, in which <np>the scenarios</np> involved <np>costs</np> that were relatively high (for <np>example</np>, <np>the car</np> would require $1500 to fix); or to <np>an “easy” condition</np>, where <np>costs</np> were lower (for <np>example</np>, <np>the car</np> would require $150 to fix).</span> <span>Because <np>the sums</np> in <np>the easy condition</np> are small, <np>we</np> expected <np>this condition</np> to evoke few of <np>one’s own monetary concerns</np>, for <np>either poor or rich participants</np>.</span> <span>In <np>contrast</np>, <np>the large sums</np> in <np>the hard condition</np>, <np>we</np> hypothesized, would evoke <np>monetary concerns</np> in the poor but not in <np>the rich participants</np>.</span></p><p>
+<span><np>Cognitive performance</np> in <np>experiment</np> 1 is plotted in <np>Fig</np> 1.</span> <span>For <np>the financially “easy” scenarios</np>, designed to generate <np>relatively trivial concerns</np>, the poor and rich performed similarly .</span> <span>In <np>contrast</np>, in <np>the context</np> of <np>the financially “hard” condition</np>, the poor performed significantly worse than did the rich on <np>both Raven</np>’s  and on <np>cognitive control</np> .</span> <span><np>A two-way analysis</np> of <np>variance</np> revealed <np>a robust interaction</np> between <np>income</np> and <np>condition</np> .</span> <span>In <np>both tasks</np>, the rich were uninfluenced by <np>condition</np> , whereas the poor performed significantly worse in <np>the hard <np>condition</np></np> .</span> <span>As <np>a result</np>, the poor performed reliably worse than the rich performed overall .</span> <span><np>The magnitudes</np> of <np>the effect</np> here are substantial, with <np>Cohen’s d</np> in <np>this and ensuing replications</np> ranging between 0.88 and 0.94.</span></p><p>
+<span>To rule out <np>the effect</np> of <np>“math anxiety</np>,” <np>experiment</np> 2 used <np>the same set</np> of <np>numbers</np> as in <np>experiment</np> 1 but with <np>nonfinancial scenarios</np>.</span> <span>This recreates <np>a mathematical problem</np> but without evoking <np>financial concerns</np>.</span> <span>There was <np>no interaction</np> between <np>the difficulty</np> of <np>the scenario</np> and <np>participants’ income</np> (<np>further details</np> are available in <np>supplementary materials</np>, <np>experiment</np> 2).</span> <span>Thus, <np>the reduced cognitive performance</np> in <np>the poor participants</np> in <np>experiment</np> 1 was not due to <np>anxiety</np> with <np>large numbers</np>.</span></p><p>
+<span><np>Experiment</np> 3 added <np>incentives</np> to experiment 1:</span> <span>In <np>addition</np> to <np>the standard participation fee</np>, <np>participants</np> earned $0.25 for <np>every correct response</np> on <np>both tasks</np>.</span> <span><np>Performance</np> in <np>experiment</np> 3  is summarized in <np>Fig</np> 2.</span> <span>As before, the poor performed similarly to the rich in <np>the easy condition</np>  and worse in <np>the hard condition</np> .</span> <span>The rich performed equally well in <np>the easy and hard conditions</np> , whereas the poor performed significantly worse in <np>the hard condition</np> , yielding <np>a robust interaction</np> between <np>income</np> and <np>scenario</np> .</span> <span>Despite <np>the incentives</np>, and the fact that <np>they</np> presumably needed <np>the money</np> more, the poor performed worse overall  and earned <np>18%</np> ($0.71) less than the rich earned.</span></p><p>
+<span><np>The hypothetical scenarios</np> are intended to trigger participants’ <np>financial concerns</np>.</span> <span>Yet in <np>experiments</np> 1 to 3, the cognitive tests <np>themselves</np> may have created <np>additional load</np> because <np>they</np> were performed while <np>the participant</np> was contemplating <np>the scenarios</np>.</span> <span><np>To rule this out, experiment</np> <np>4  replicated experiment</np> 1, except that <np>participants</np> finished responding to <np>each scenario</np> before proceeding to <np>the Raven’s and cognitive control tasks</np>.</span> <span>That is, <np>participants</np> viewed <np>each scenario</np> as in <np>experiment</np> 1, responded to <np>the scenario</np>, and only then completed <np>the Raven’s and cognitive control tasks</np>.</span> <span>Because there <np>we</np>re <np>no intervening tasks</np> bet<np>we</np>en <np>scenario presentation</np> and <np>response</np>, <np>we</np> added <np>a few scenariorelevant questions</np> in <np>order</np> to equate <np>the time</np> spent with that of <np>experiment</np> 1.</span> <span><np>Performance</np> is summarized in <np>Fig</np> 3.</span></p><p>
+<span><np>The results</np> match those in <np>experiments</np> 1 and 3.</span> <span>As before, there was <np>a robust interaction</np> between <np>income</np> and <np>condition</np> ; the rich and poor performed similarly in <np>the easy <np>condition</np></np> , and the poor performed significantly worse than the rich performed in <np>the hard <np>condition</np></np> .</span> <span><np>Condition</np> was insignificant for the rich , but significant for the poor .</span> <span>Again, the poor performed worse than the rich performed overall .</span></p><p>
+<span>Although remarkably consistent, <np>these findings</np> have <np>limitations</np>.</span> <span><np>The causal attribution</np> made possible by <np>laboratory studies</np> comes at <np>the expense</np> of <np>some external validity</np>.</span> <span>For <np>example</np>, in <np>experiment</np> 4 <np>the hypothetical scenarios</np> themselves— even after <np>answers</np> were given—may still have weighed on <np>people’s minds</np>.</span> <span>More generally, in <np>all the experiments</np> <np>we</np> explicitly primed <np>monetary concerns</np>.</span> <span><np>Such explicit priming</np> may not mirror <np>naturally occurring circumstances</np>.</span> <span><np>It</np> is possible that <np>environments</np> in which <np>one</np> is richer bring to mind <np>other concerns</np> (such as <np>bigger purchases</np>), creating <np>load</np> comparable with that experienced by the poor.</span> <span><np>It</np> is also possible—though less plausible— that <np>the poor structure</np> their lives to avoid these</span></p><p>
+<span><np>concerns</np>.</span> <span>To address <np>these issues</np>, <np>we</np> conducted <np>the field study</np>.</span> <span><np>Our second study</np> examined <np>464 sugarcane farmers</np> living in <np>54 villages</np> in <np>the sugarcanegrowing areas</np> around <np>the districts</np> of <np>Villupuram</np> and <np>Tiruvannamalai</np> in <np>Tamil Nadu</np>, <np>India</np>.</span> <span>These were <np>a random sample</np> of <np>small farmers</np> (with <np>land plots</np> of <np>between 1.5 and 3 acres</np>) <np>who</np> earned <np>at least 60%</np> of <np>their income</np> from <np>sugarcane</np> and were interviewed twice—before and after <np>harvest</np>—over <np>a 4-month period</np> in 2010.</span> <span>There <np>we</np>re <np>occasional nonresponses</np>, but all of <np>our prepost comparisons</np> include <np>only farmers</np> <np>we</np> surveyed twice.</span></p><p>
+<span><np>A challenge</np> with <np>pre-post comparisons</np> is <np>calendar effects</np>: <np>Differences</np> between <np>months</np> (such as <np>a festival</np> or <np>the weather</np>) can create <np>a spurious correlation</np>.</span> <span><np>We</np> overcame this through <np>a particular feature</np> of <np>this context</np>: <np>Farmers’ harvest</np> (and <np>planting) dates</np> are staggered over <np>a 3-</np> to <np>5-month period</np> being set by <np>sugar mills</np> with <np>processing capacity constraints</np>.</span> <span><np>One farmer</np> may harvest, for <np>example</np>, in <np>June</np>, whereas another harvests in <np>August</np>.</span> <span>The same month then is <np>pre-harvest for some farmers</np> and <np>post-harvest</np> for <np>others</np>.</span> <span><np>This feature</np> allows <np>us</np> to control for <np>calendar effects</np>.</span></p><p>
+<span><np>Our data</np> show that <np>farmers</np> indeed faced <np>greater financial pressures</np> pre- as compared with <np>post-harvest</np>: <np>They</np> pawned <np>items</np> at <np>a higher rate</np>  and were more likely to have <np>loans</np> .</span> <span>On average, <np>farmers</np> had <np>1.97 more loans</np> before <np>harvest</np> than <np>they</np> did after <np>it</np>.</span> <span><np>They</np> were also more likely to answer “</span> <span><np>Yes”</np> to <np>the question</np>, “</span> <span>Did <np>you</np> have <np>trouble</np> coping with <np>ordinary bills</np> in <np>the last fifteen days</np>?</span> <span><np>”</np> before <np>harvest</np> than after .</span> <span>(<np>Regressions</np> adjusted to take out <np>farmer</np> and <np>month fixed effects</np> are shown in <np>Table</np> 1, <np>panel A.</np>)</span></p><p>
+<span><np>We</np> again used <np>Raven</np>’s to gauge <np>fluid intelligence</np>.</span> <span>For <np>cognitive control</np>, <np>we</np> could not administer <np>the spatial incompatibility task</np> in the</span></p><sec id="sec-2-1">
+        <title>Raven’s Matrices</title>
+        <p>
+<span><np>field</np>.</span> <span>Instead, <np>we</np> used <np>a numeric version</np> of <np>the traditional Stroop task</np>, which is appropriate for <np>participants</np> with <np>low literacy rates</np>.</span> <span>In <np>a typical trial</np>, <np>participants</np> would see <np>“5 5 5”</np> and have to quickly respond “3,” which is <np>the number</np> of 5s in <np>the sequence</np>, rather than “5” that comes to mind most naturally.</span> <span><np>Both response speed</np> and <np>error rates</np> were recorded.</span> <span><np>Each participant</np> performed <np>75 trials</np> on <np>the numerical Stroop</np>.</span></p><p>
+<span>Pre- and <np>post-harvest</np></span> <span><np>differences</np> on <np>both tests</np> were pronounced and are illustrated in <np>Fig</np> 4.</span> <span>On <np>Raven</np>’s, <np>the farmers</np> scored <np>an average</np> of <np>5.45 items</np> <np>correct post-harvest</np> but <np>only 4.35 items</np> correct pre-harvest .</span> <span>On <np>Stroop</np>, <np>they</np> took <np>an average</np> of <np>131 s</np> to respond to <np>all items post-harvest</np>, as compared with 146 s pre-harvest .</span> <span>In <np>addition</np>, <np>the average number</np> of <np>errors</np> <np>the farmers</np> committed was higher before <np>harvest</np> than after .</span></p><p>
+<span><np>We</np> also report <np>results</np> of <np>regressions</np> that control for <np>farmer</np> and <np>month fixed effects</np> <np>(Table</np> 1, <np>panel B</np>).</span> <span><np>Each cell</np> in <np>Table</np> 1 is <np>a distinct regression</np>.</span> <span><np>Table</np> 1<np>, column</np> 1 shows that even after <np>regression adjustment</np>, <np>strong pre-post harvest differences</np> remain for <np>both Raven’s and Stroop performance</np>.</span> <span>In <np>addition</np> to <np>these pre-post differences</np>, <np>we</np> found that farmers’ perceived <np>intensity</np> of how financially constrained <np>they</np> are—as captured by how <np>they</np> rate <np>their ability</np> to cope with <np>ordinary bills</np> in <np>the preceding 15-day period—</np> correlates negatively with <np>performance</np> on <np>Raven</np>’s and <np>time</np> taken on <np>Stroop tests</np> (<np>table S2</np>).</span></p><p>
+<span><np>Other factors</np> besides <np>income</np> that vary <np>preand post-harvest</np> could drive <np>these effects</np>.</span> <span><np>One major candidate</np> is <np>physical exertion</np>; preparing <np>the land</np> for <np>harvest</np> might involve <np>increased physical labor</np>.</span> <span><np>Another candidate</np> is <np>anxiety</np> over <np>crop yield</np>; <np>farmers</np> might be preoccupied not with making <np>ends</np> meet but with how much <np>they</np> will earn.</span> <span>In <np>practice</np>, neither is likely to be true in <np>the case</np> of <np>sugarcane farming</np>.</span> <span><np>Farmers</np> typically use <np>external labor</np> on <np>their lands</np>, and <np>sugarcane crop size</np> can be readily estimated months before <np>harvest</np>.</span> <span>Still, to address this further <np>we</np> observe that there is <np>a several-<np>we</np>ek delay</np> bet<np>we</np>en <np>physical harvest</np> and <np>the actual receipt</np> of <np>payment</np>.</span></p></sec>
+      <sec id="sec-2-2">
+        <p>
+<span><np>Financial burdens</np> are only relieved at <np>the time</np> of <np>payment</np>, but <np>labor</np> and <np>anxiety</np> over <np>crop size</np> are fully resolved at <np>the time</np> of <np>harvest</np>.</span> <span>For <np>316 farmers</np> in <np>our sample</np>, <np>the “pre-harvest” survey</np> was <np>actually post–physical harvest</np> but pre-payment.</span> <span><np>We</np> reestimated <np>our equation</np> on <np>this subsample</np> as shown in <np>Table</np> 1, <np>column</np> 2, and found <np>highly similar results</np>, which suggests that <np>neither physical exertion</np> nor <np>anxiety</np> pre-harvest drives <np>our results</np>.</span></p><p>
+<span><np>Training effects</np> present <np>another potential confound</np>; <np>post-harvest farmers</np> may do better simply because <np>they</np> are taking <np>the test</np> a second time.</span> <span>To address this, <np>we</np> held back <np>100 randomly selected farmers</np> at <np>the time</np> of <np>initial sampling</np>.</span> <span><np>These farmers</np> were surveyed for <np>the first time postharvest</np>, and <np>their scores</np> were compared with <np>the post-harvest scores</np> of <np>the original sample</np>.</span> <span>If <np>our results</np> <np>we</np>re due to <np>learning</np>, <np>we</np> would expect <np>these novice farmers</np> to do worse.</span> <span>Instead, <np>we</np> found that <np>they</np> performed similarly on <np>Raven’s accuracy</np> and <np>Stroop reaction time</np> (<np>table S3</np>), suggesting <np>no training effect</np>.</span> <span>There is <np>some evidence</np> for <np>training effects</np> on <np>Stroop error rates</np> (<np>table S3</np>), but <np>the overall pattern</np> cannot be attributed to <np>simple test familiarity</np>.</span> <span>Taken together, <np>the two sets</np> of <np>studies</np>—in <np>the New Jersey mall</np> and <np>the Indian fields</np>—illustrate <np>how challenging financial conditions</np>, which are endemic to <np>poverty</np>, can result in <np>diminished cognitive capacity</np>.</span></p><p>
+<span><np>We</np> have argued that <np>the attentional demands</np> created by <np>poverty</np> are <np>a plausible mechanism</np> (  29 ).</span> <span>But there could be <np>other mediating factors</np>.</span> <span><np>Nutrition</np> is <np>one candidate</np>—in <np>the harvest findings</np>, if not in <np>the mall study</np>; <np>farmers</np> may eat less when poor.</span> <span>In 2009, <np>we</np> ran <np>a pilot study</np> with <np>the same design</np> in <np>the districts</np> of <np>Thanjavur</np>, <np>Thiruvarur</np>, <np>Perambalur</np>, and <np>Pudokottai</np> in <np>Tamil Nadu</np>, in which <np>we</np> surveyed <np>188 farmers</np> and also asked about <np>food consumption</np>.</span> <span><np>We</np> found <np>similar effects</np> on <np>Stroop</np> <np>. Pre-harvest farmers</np> were not eating less; <np>they</np> spent <np>2663 rupees</np> a month on <np>food pre-harvest and 2592 rupees postharvest</np> (roughly $53 and $52, respectively, not accounting for purchasing <np>power parity</np>).</span> <span>Additionally, <np>the Stroop results</np> persist even in <np>regressions</np> in which <np>food consumption</np> is included as <np>a control variable</np>.</span></p><p>
+<span><np>A potential explanation</np> of <np>these findings</np> is <np>stress</np>.</span> <span><np>Financial concerns</np> could reasonably induce <np>stress</np> in <np>pre-harvest farmers</np>.</span> <span>Indeed, <np>we</np> examined <np>biological stress</np>.</span> <span>In <np>the 2009 study</np>, <np>we</np> collected <np>two biomarkers</np> of <np>stress</np>: <np>heart rate</np> and <np>blood pressure</np>.</span> <span><np>Both measures</np> showed that <np>the farmers</np> were more stressed before <np>the harvest</np>; <np>heart rate</np> was <np>higher pre-harvest than postharvest</np> , and so were <np>diastolic blood pressure</np>  and <np>systolic blood pressure</np> .</span></p><p>
+<span>However, <np>these differences</np> in <np>stress</np> do not explain <np>our findings</np>.</span> <span>When <np>we</np> reestimated <np>the impact</np> of <np>harvest</np> on <np>Stroop performance</np>, controlling <np>SCIENCE</np> for <np>all three stress measures</np>, <np>the findings</np> remained significant.</span> <span>In <np>fact</np>, <np>the coefficient</np> on <np>post-harvest</np> did not change .</span> <span>This suggests that although <np>the preharvest farmers</np> did experience <np>stress</np>, <np>stress</np> cannot fully explain <np>the impairment</np> in <np>cognitive function</np>.</span> <span><np>Our suggested mechanism</np>—<np>that poverty</np> captures <np>attention</np>, triggers <np>intrusive thoughts</np>, and reduces <np>cognitive resources</np>—could <np>itself</np> be described colloquially as <np>“stress</np>”: <np>persistent mental engagement</np> induced by <np>some trigger</np>.</span> <span><np>The 2009 data</np>, however, suggest that <np>the biological view</np> of <np>stress</np>—as proxied by <np>these biomarkers</np> of <np>stress</np>—is not sufficient to account for <np>our findings</np>.</span> <span>This is consistent with <np>the existing literature</np> on <np>the effects</np> of <np>stress</np> on <np>cognitive function</np>, in which <np>both facilitation</np> and <np>impairment</np> have been found (  32 ).</span> <span>For <np>example</np>, there is <np>evidence</np> that <np>stress</np> can increase <np>working memory capacity</np> (  33 ).</span></p><p>
+<span><np>We</np> find <np>attentional capture</np> to be <np>the most compelling explanatory mechanism</np>.</span> <span><np>It</np> matches <np>findings</np> on <np>the effects</np> of <np>scarcity</np> on <np>borrowing</np> (  34 ) and is consistent with <np>demand</np> and <np>distraction</np> observed in <np>domains</np> of <np>scarcity</np> other than <np>poverty</np>—from <np>insufficient time</np> to <np>limited calorie budgets</np> (  35 ).</span> <span>But surely, <np>other mechanisms</np> might be operating.</span> <span>For <np>example</np>, <np>poverty</np> might influence <np>cognitive load</np> by changing <np>people’s affective state</np> (  36, 37 ).</span> <span><np>We</np> hope <np>future work</np> will test <np>other mechanisms</np> for explaining <np>these findings</np>.</span></p></sec>
+    </sec>
+    <sec id="sec-3">
+      <title>New Perspectives on Policy</title>
+      <p>
+<span><np>The data</np> reported here suggest <np>a different perspective</np> on <np>poverty</np>: Being poor means coping not just with <np>a shortfall</np> of <np>money</np>, but also with <np>a concurrent shortfall</np> of <np>cognitive resources</np>.</span> <span>The poor, in <np>this view</np>, are less capable not because of <np>inherent traits</np>, but because <np>the very context</np> of <np>poverty</np> imposes <np>load</np> and impedes <np>cognitive capacity</np>.</span> <span><np>The findings</np>, in <np>other words</np>, are not about <np>poor people</np>, but about <np>any people</np> <np>who</np> find <np>themselves</np> poor.</span></p><p>
+<span>How large are <np>these effects</np>?</span> <span><np>Sleep researchers</np> have examined <np>the cognitive impact</np> (on Raven’s) of losing <np>a full night</np> of <np>sleep</np> through <np>experimental manipulations</np> (  38 ).</span> <span>In <np>standard deviation terms</np>, <np>the laboratory study findings</np> are of <np>the same size</np>, and <np>the field findings</np> are <np>three quarters</np> that size.</span> <span>Put simply, evoking <np>financial concerns</np> has <np>a cognitive impact</np> comparable with losing <np>a full night</np> of <np>sleep</np>.</span> <span>In <np>addition</np>, <np>similar effect sizes</np> have been observed in <np>the performance</np> on <np>Raven’s matrices</np> of <np>chronic alcoholics</np> versus <np>normal adults</np> (  39 ) and of <np>60- versus 45-year-olds</np> (  40 ).</span> <span>By <np>way</np> of <np>calibration</np>, according to <np>a common approximation</np> used by <np>intelligence researchers</np>, with <np>a mean</np> of 100 and <np>a standard deviation</np> of 15 <np>the effects</np> <np>we</np> observed correspond to <np>~13</np> <np>IQ points</np>.</span> <span><np>These sizable magnitudes</np> suggest <np>the cognitive impact</np> of <np>poverty</np> could have <np>large real consequences</np>.</span></p><p>
+<span><np>This perspective</np> has <np>important policy implications</np>.</span> <span>First, <np>policy-makers</np> should beware of imposing <np>cognitive taxes</np> on the poor just as <np>they</np> avoid <np>monetary taxes</np> on the poor.</span> <span>Filling out <np>long forms</np>, preparing for <np>a lengthy interview</np>, deciphering <np>new rules</np>, or responding to <np>complex incentives</np> all consume <np>cognitive resources</np>.</span> <span><np>Policy-makers</np> rarely recognize <np>these cognitive taxes</np>; yet, <np>our results</np> suggest that <np>they</np> should focus on reducing <np>them</np> (  11 ).</span> <span><np>Simple interventions</np> (  41 ) such as <np>smart defaults</np> (  42 ), help filling <np>forms</np> out (  43 ), <np>planning prompts</np> (  44 ), or <np>even reminders</np> (  45 ) may be particularly helpful to the poor.</span> <span><np>Policy-makers</np> should further recognize and respond to <np>natural variation</np> in <np>the same person’s cognitive capacity</np>.</span> <span><np>Many programs</np> that impose <np>cognitive demand</np> on <np>farmers</np>, for <np>example</np>, from <np>HIV education</np> to <np>agricultural extension services</np> (which provide <np>farmers</np> with <np>information</np> about <np>new seeds</np>, <np>pesticides</np>, and <np>agricultural practices</np>) should be carefully timed.</span> <span>At the very least, as <np>our results</np> suggest, <np>they</np> should be synchronized with <np>the harvest cycle</np>, with <np>greater cognitive capacity</np> available post-harvest.</span> <span><np>One recent study</np> illustrated this with <np>fertilizer</np>.</span> <span><np>Farmers</np> made <np>higher-return investments</np> when <np>the decision</np> was made right after <np>harvest</np> as compared with later in <np>the season</np> (  46 ).</span> <span><np>The data</np> suggest <np>a rarely considered benefit</np> to <np>policies</np> that reduce <np>economic volatility</np>: <np>They</np> are not merely contributing to <np>economic stability</np>—<np>they</np> are actually enabling <np>greater cognitive resources</np>.</span></p></sec>
+    
+  
+  <back>
+    <ref-list>
+      <ref id="ref1">
+        <mixed-citation>
+          1.
+          <string-name>
+            <given-names>S. J.</given-names>
+            <surname>Katz</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>T. P.</given-names>
+            <surname>Hofer</surname>
+          </string-name>
+          , JAMA
+          <volume>272</volume>
+          ,
+          <fpage>530</fpage>
+          -
+          <lpage>534</lpage>
+          (
+          <year>1994</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref2">
+        <mixed-citation>
+          2.
+          <string-name>
+            <surname>M. R. DiMatteo</surname>
+          </string-name>
+          , P. J.
+          <string-name>
+            <surname>Giordani</surname>
+            ,
+            <given-names>H. S.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Lepper</surname>
+            ,
+            <given-names>T. W.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Croghan</surname>
+          </string-name>
+          ,
+          <source>Med. Care</source>
+          <volume>40</volume>
+          ,
+          <fpage>794</fpage>
+          -
+          <lpage>811</lpage>
+          (
+          <year>2002</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref3">
+        <mixed-citation>
+          3.
+          <string-name>
+            <given-names>A. J.</given-names>
+            <surname>Karter</surname>
+          </string-name>
+          et al.,
+          <source>Med. Care</source>
+          <volume>42</volume>
+          ,
+          <fpage>110</fpage>
+          -
+          <lpage>115</lpage>
+          (
+          <year>2004</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref4">
+        <mixed-citation>
+          4.
+          <string-name>
+            <surname>R. D.</surname>
+          </string-name>
+          Neal et al.,
+          <source>Br. J. Gen. Pract</source>
+          .
+          <volume>51</volume>
+          ,
+          <fpage>830</fpage>
+          -
+          <lpage>832</lpage>
+          (
+          <year>2001</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref5">
+        <mixed-citation>
+          5.
+          <string-name>
+            <given-names>J.</given-names>
+            <surname>Kim</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>B.</given-names>
+            <surname>Sorhaindo</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>E. T.</given-names>
+            <surname>Garman</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>J.</given-names>
+            <surname>Fam</surname>
+          </string-name>
+          .
+          <source>Econ. Issues</source>
+          <volume>27</volume>
+          ,
+          <fpage>458</fpage>
+          -
+          <lpage>478</lpage>
+          (
+          <year>2006</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref6">
+        <mixed-citation>
+          6. V.
+          <string-name>
+            <surname>C. McLoyd</surname>
+          </string-name>
+          ,
+          <source>Am. Psychol</source>
+          .
+          <volume>53</volume>
+          ,
+          <fpage>185</fpage>
+          -
+          <lpage>204</lpage>
+          (
+          <year>1998</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref7">
+        <mixed-citation>
+          7.
+          <string-name>
+            <given-names>M. S.</given-names>
+            <surname>Barr</surname>
+          </string-name>
+          , No Slack:
+          <article-title>The Financial Lives of Low-Income Americans (Brookings Institution Press</article-title>
+          , Washington, DC,
+          <year>2012</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref8">
+        <mixed-citation>
+          8.
+          <string-name>
+            <surname>R. M. Blank</surname>
+            ,
+            <given-names>M. S.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Barr</surname>
+          </string-name>
+          , Insufficient Funds: Savings, Assets, Credit, and
+          <string-name>
+            <surname>Banking Among</surname>
+          </string-name>
+          Low-Income
+          <string-name>
+            <surname>Households (Russell Sage Foundation Publications</surname>
+          </string-name>
+          , New York,
+          <year>2009</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref9">
+        <mixed-citation>
+          9.
+          <string-name>
+            <given-names>K.</given-names>
+            <surname>Edin</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>L.</given-names>
+            <surname>Lein</surname>
+          </string-name>
+          , Making Ends Meet:
+          <article-title>How Single Mothers Survive Welfare</article-title>
+          and
+          <string-name>
+            <surname>Low-Wage Work (Russell Sage Foundation Publications</surname>
+          </string-name>
+          , New York,
+          <year>1997</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref10">
+        <mixed-citation>
+          10.
+          <string-name>
+            <surname>M. Bertrand</surname>
+            ,
+            <given-names>S.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Mullainathan</surname>
+          </string-name>
+          , E. Shafir,
+          <source>Am. Econ. Rev</source>
+          .
+          <volume>94</volume>
+          ,
+          <fpage>419</fpage>
+          -
+          <lpage>423</lpage>
+          (
+          <year>2004</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref11">
+        <mixed-citation>
+          11.
+          <string-name>
+            <surname>M. Bertrand</surname>
+            ,
+            <given-names>S.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Mullainathan</surname>
+            ,
+            <given-names>E.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Shafir</surname>
+          </string-name>
+          , J. Public Policy Mark.
+          <volume>25</volume>
+          ,
+          <fpage>8</fpage>
+          -
+          <lpage>23</lpage>
+          (
+          <year>2006</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref12">
+        <mixed-citation>
+          12.
+          <string-name>
+            <given-names>A.</given-names>
+            <surname>Baddeley</surname>
+          </string-name>
+          ,
+          <string-name>
+            <surname>G.</surname>
+          </string-name>
+          <article-title>Hitch, in The Psychology of Learning and Motivation</article-title>
+          , G. Bower, Ed. (Academic Press, New York,
+          <year>1974</year>
+          ), pp.
+          <fpage>47</fpage>
+          -
+          <lpage>89</lpage>
+          .
+        </mixed-citation>
+      </ref>
+      <ref id="ref13">
+        <mixed-citation>
+          13.
+          <string-name>
+            <given-names>S. J.</given-names>
+            <surname>Luck</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>E. K.</given-names>
+            <surname>Vogel</surname>
+          </string-name>
+          ,
+          <source>Nature</source>
+          <volume>390</volume>
+          ,
+          <fpage>279</fpage>
+          -
+          <lpage>281</lpage>
+          (
+          <year>1997</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref14">
+        <mixed-citation>
+          14.
+          <string-name>
+            <given-names>G. A.</given-names>
+            <surname>Miller</surname>
+          </string-name>
+          , Psychol. Rev.
+          <volume>63</volume>
+          ,
+          <fpage>81</fpage>
+          -
+          <lpage>97</lpage>
+          (
+          <year>1956</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref15">
+        <mixed-citation>
+          15. U. Neisser,
+          <article-title>Cognition and Reality: Principles and Implications of Cognitive Psychology (Freeman</article-title>
+          , San Francisco,
+          <year>1976</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref16">
+        <mixed-citation>
+          16.
+          <string-name>
+            <given-names>P.</given-names>
+            <surname>Butterworth</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>N.</given-names>
+            <surname>Cherbuin</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>P.</given-names>
+            <surname>Sachdev</surname>
+          </string-name>
+          , K.
+          <source>J. Anstey, Soc. Cogn. Affect. Neurosci. 7</source>
+          ,
+          <fpage>548</fpage>
+          -
+          <lpage>556</lpage>
+          (
+          <year>2012</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref17">
+        <mixed-citation>
+          17.
+          <string-name>
+            <given-names>S. J.</given-names>
+            <surname>Lupie</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>S.</given-names>
+            <surname>King</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>M. J.</given-names>
+            <surname>Meaney</surname>
+          </string-name>
+          ,
+          <string-name>
+            <surname>B. S. McEwen</surname>
+          </string-name>
+          , Dev. Psychopathol.
+          <volume>13</volume>
+          ,
+          <fpage>653</fpage>
+          -
+          <lpage>676</lpage>
+          (
+          <year>2001</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref18">
+        <mixed-citation>
+          18.
+          <article-title>This design resembles “stereotype threat” studies, in which identity-relevant primes diminish cognitive performance (19).</article-title>
+        </mixed-citation>
+      </ref>
+      <ref id="ref19">
+        <mixed-citation>
+          19.
+          <string-name>
+            <surname>C. M. Steele</surname>
+            ,
+            <given-names>J.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Aronson</surname>
+          </string-name>
+          ,
+          <source>J. Pers. Soc. Psychol</source>
+          .
+          <volume>69</volume>
+          ,
+          <fpage>797</fpage>
+          -
+          <lpage>811</lpage>
+          (
+          <year>1995</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref20">
+        <mixed-citation>
+          20.
+          <string-name>
+            <given-names>D.</given-names>
+            <surname>Laibson</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>Q. J.</given-names>
+            <surname>Econ</surname>
+          </string-name>
+          .
+          <volume>112</volume>
+          ,
+          <fpage>443</fpage>
+          -
+          <lpage>478</lpage>
+          (
+          <year>1997</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref21">
+        <mixed-citation>
+          21. A. Deaton, “Measuring poverty” (Working Paper, Princeton Research Program in Development Studies,
+          <year>2004</year>
+          ); available at http://papers.ssrn.com/sol3/papers. cfm?abstract_id=
+          <fpage>564001</fpage>
+          .
+        </mixed-citation>
+      </ref>
+      <ref id="ref22">
+        <mixed-citation>
+          22.
+          <string-name>
+            <surname>C. H. Karelis</surname>
+          </string-name>
+          ,
+          <article-title>The Persistence of Poverty: Why the Economics of the Well-Off Can't Help the Poor (Yale Univ</article-title>
+          . Press, New Haven, CT,
+          <year>2007</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref23">
+        <mixed-citation>
+          23.
+          <string-name>
+            <given-names>J. P.</given-names>
+            <surname>Shonkoff</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>P.</given-names>
+            <surname>Deborah</surname>
+          </string-name>
+          , From Neurons to Neighborhoods:
+          <article-title>The Science of Early Childhood Development (National Academies Press</article-title>
+          , Washington, DC,
+          <year>2000</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref24">
+        <mixed-citation>
+          24.
+          <string-name>
+            <given-names>G. W.</given-names>
+            <surname>Evans</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>M. A.</given-names>
+            <surname>Schamberg</surname>
+          </string-name>
+          ,
+          <source>Proc. Natl. Acad. Sci</source>
+          . U.S.A.
+          <volume>106</volume>
+          ,
+          <fpage>6545</fpage>
+          -
+          <lpage>6549</lpage>
+          (
+          <year>2009</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref25">
+        <mixed-citation>
+          25.
+          <string-name>
+            <given-names>B.</given-names>
+            <surname>Buhmann</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>L.</given-names>
+            <surname>Rainwater</surname>
+          </string-name>
+          , G. Schmaus,
+          <string-name>
+            <given-names>T. M.</given-names>
+            <surname>Smeeding</surname>
+          </string-name>
+          , Rev.
+          <source>Income Wealth</source>
+          <volume>34</volume>
+          ,
+          <fpage>115</fpage>
+          -
+          <lpage>142</lpage>
+          (
+          <year>1988</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref26">
+        <mixed-citation>
+          26.
+          <article-title>Alternative measures, such as dividing household income by number of people in the household, yield similar findings</article-title>
+          .
+        </mixed-citation>
+      </ref>
+      <ref id="ref27">
+        <mixed-citation>
+          27.
+          <string-name>
+            <surname>J. Raven</surname>
+          </string-name>
+          , Cognit. Psychol.
+          <volume>41</volume>
+          ,
+          <fpage>1</fpage>
+          -
+          <lpage>48</lpage>
+          (
+          <year>2000</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref28">
+        <mixed-citation>
+          28.
+          <string-name>
+            <given-names>R. W.</given-names>
+            <surname>Engle</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>S. W.</given-names>
+            <surname>Tuholski</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>J. E.</given-names>
+            <surname>Laughlin</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>A. R.</given-names>
+            <surname>Conway</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>J.</given-names>
+            <surname>Exp</surname>
+          </string-name>
+          . Psychol. Gen.
+          <volume>128</volume>
+          ,
+          <fpage>309</fpage>
+          -
+          <lpage>331</lpage>
+          (
+          <year>1999</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref29">
+        <mixed-citation>
+          29. E. Hunt, Human
+          <string-name>
+            <surname>Intelligence</surname>
+          </string-name>
+          (Cambridge Univ. Press, New York,
+          <year>2010</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref30">
+        <mixed-citation>
+          30.
+          <string-name>
+            <surname>M. C. Davidson</surname>
+            ,
+            <given-names>D.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Amso</surname>
+            ,
+            <given-names>L. C.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Anderson</surname>
+            ,
+            <given-names>A.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Diamond</surname>
+          </string-name>
+          , Neuropsychologia
+          <volume>44</volume>
+          ,
+          <fpage>2037</fpage>
+          -
+          <lpage>2078</lpage>
+          (
+          <year>2006</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref31">
+        <mixed-citation>
+          31.
+          <string-name>
+            <surname>M. I. Posner</surname>
+          </string-name>
+          , G. J. DiGirolamo, in The Attentive Brain, R. Parasuraman, Ed. (MIT Press, Cambridge, MA,
+          <year>1998</year>
+          ), pp.
+          <fpage>401</fpage>
+          -
+          <lpage>423</lpage>
+          .
+        </mixed-citation>
+      </ref>
+      <ref id="ref32">
+        <mixed-citation>
+          32.
+          <string-name>
+            <surname>M. Joëls</surname>
+            ,
+            <given-names>Z.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Pu</surname>
+            ,
+            <given-names>O.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Wiegert</surname>
+            ,
+            <given-names>M. S.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Oitzl</surname>
+            ,
+            <given-names>H. J.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Krugers</surname>
+          </string-name>
+          , Trends Cogn. Sci.
+          <volume>10</volume>
+          ,
+          <fpage>152</fpage>
+          -
+          <lpage>158</lpage>
+          (
+          <year>2006</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref33">
+        <mixed-citation>
+          33. E. Y. Yuen et al.,
+          <source>Proc. Natl. Acad. Sci</source>
+          . U.S.A.
+          <volume>106</volume>
+          ,
+          <fpage>14075</fpage>
+          -
+          <lpage>14079</lpage>
+          (
+          <year>2009</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref34">
+        <mixed-citation>
+          34.
+          <string-name>
+            <surname>A. K. Shah</surname>
+            ,
+            <given-names>S.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Mullainathan</surname>
+          </string-name>
+          , E. Shafir,
+          <source>Science</source>
+          <volume>338</volume>
+          ,
+          <fpage>682</fpage>
+          -
+          <lpage>685</lpage>
+          (
+          <year>2012</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref35">
+        <mixed-citation>
+          35.
+          <string-name>
+            <given-names>S.</given-names>
+            <surname>Mullainathan</surname>
+          </string-name>
+          , E. Shafir,
+          <string-name>
+            <surname>Scarcity: Why Having Too Little Means So Much (Henry Holt</surname>
+          </string-name>
+          , New York,
+          <year>2013</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref36">
+        <mixed-citation>
+          36.
+          <string-name>
+            <given-names>B.</given-names>
+            <surname>Hermalin</surname>
+          </string-name>
+          ,
+          <string-name>
+            <surname>A</surname>
+          </string-name>
+          . Isen,
+          <source>(USC CLEO Research Paper C01-5</source>
+          ,
+          <year>2000</year>
+          ); available at http://ideas.repec.org/p/wpa/wuwpmh/ 9912001.html.
+        </mixed-citation>
+      </ref>
+      <ref id="ref37">
+        <mixed-citation>
+          37.
+          <string-name>
+            <given-names>A.</given-names>
+            <surname>Oswald</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>E.</given-names>
+            <surname>Proto</surname>
+          </string-name>
+          ,
+          <string-name>
+            <surname>D. Sgroi</surname>
+          </string-name>
+          , (Working Paper,
+          <source>Univ. of Warwick</source>
+          ,
+          <year>2012</year>
+          ); available at www.sire.ac.uk/funded-events/ relativity/invited/24MarchOsProSgroiPaper2009.pdf.
+        </mixed-citation>
+      </ref>
+      <ref id="ref38">
+        <mixed-citation>
+          38. L.
+          <string-name>
+            <surname>Linde</surname>
+            ,
+            <given-names>M.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Bergström</surname>
+          </string-name>
+          , Psychol. Res.
+          <volume>54</volume>
+          ,
+          <fpage>127</fpage>
+          -
+          <lpage>136</lpage>
+          (
+          <year>1992</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref39">
+        <mixed-citation>
+          39.
+          <string-name>
+            <given-names>B.</given-names>
+            <surname>Jones</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>O. A.</given-names>
+            <surname>Parsons</surname>
+          </string-name>
+          , Arch.
+          <source>Gen. Psychiatry</source>
+          <volume>24</volume>
+          ,
+          <fpage>71</fpage>
+          -
+          <lpage>75</lpage>
+          (
+          <year>1971</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref40">
+        <mixed-citation>
+          40.
+          <string-name>
+            <surname>M. O. Pontón</surname>
+          </string-name>
+          et al.,
+          <source>J. Int. Neuropsychol. Soc. 2</source>
+          ,
+          <fpage>96</fpage>
+          -
+          <lpage>104</lpage>
+          (
+          <year>1996</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref41">
+        <mixed-citation>
+          41.
+          <string-name>
+            <surname>R. H. Thaler</surname>
+            ,
+            <given-names>C. R.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Sunstein</surname>
+          </string-name>
+          , Nudge: Improving Decisions About Health, Wealth, and
+          <string-name>
+            <surname>Happiness</surname>
+          </string-name>
+          (Yale Univ. Press, New Haven, CT,
+          <year>2008</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref42">
+        <mixed-citation>
+          42.
+          <string-name>
+            <given-names>C. N.</given-names>
+            <surname>Smith</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>D.</given-names>
+            <surname>Goldstein</surname>
+          </string-name>
+          ,
+          <string-name>
+            <surname>E. J. Johnson</surname>
+          </string-name>
+          , (Working Paper,
+          <string-name>
+            <surname>INSEAD</surname>
+          </string-name>
+          ,
+          <year>2009</year>
+          ); available at http://papers.ssrn.com/sol3/ papers.cfm?abstract_id=
+          <fpage>1116650</fpage>
+          .
+        </mixed-citation>
+      </ref>
+      <ref id="ref43">
+        <mixed-citation>
+          43.
+          <string-name>
+            <given-names>E. P.</given-names>
+            <surname>Bettinger</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>B. T.</given-names>
+            <surname>Long</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>P.</given-names>
+            <surname>Oreopoulos</surname>
+          </string-name>
+          ,
+          <string-name>
+            <surname>L. Sanbonmatsu,</surname>
+          </string-name>
+          (Working Papers,
+          <string-name>
+            <surname>NBER</surname>
+          </string-name>
+          ,
+          <year>2012</year>
+          ); available at www.nber.org/papers/w15361.
+        </mixed-citation>
+      </ref>
+      <ref id="ref44">
+        <mixed-citation>
+          44.
+          <string-name>
+            <surname>K. L. Milkman</surname>
+            ,
+            <given-names>J.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Beshears</surname>
+            ,
+            <given-names>J. J.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Choi</surname>
+            ,
+            <given-names>D.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Laibson</surname>
+            ,
+            <given-names>B. C.</given-names>
+          </string-name>
+          <string-name>
+            <surname>Madrian</surname>
+          </string-name>
+          ,
+          <source>Proc. Natl. Acad. Sci</source>
+          . U.S.A.
+          <volume>108</volume>
+          ,
+          <fpage>10415</fpage>
+          -
+          <lpage>10420</lpage>
+          (
+          <year>2011</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref45">
+        <mixed-citation>
+          45.
+          <string-name>
+            <given-names>N.</given-names>
+            <surname>Ashraf</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>D.</given-names>
+            <surname>Karlan</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>W.</given-names>
+            <surname>Yin</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>Q. J.</given-names>
+            <surname>Econ</surname>
+          </string-name>
+          .
+          <volume>121</volume>
+          ,
+          <fpage>635</fpage>
+          -
+          <lpage>672</lpage>
+          (
+          <year>2006</year>
+          ).
+        </mixed-citation>
+      </ref>
+      <ref id="ref46">
+        <mixed-citation>
+          46. E. Duflo,
+          <string-name>
+            <given-names>M.</given-names>
+            <surname>Kremer</surname>
+          </string-name>
+          ,
+          <string-name>
+            <given-names>J.</given-names>
+            <surname>Robinson</surname>
+          </string-name>
+          ,
+          <source>Am. Econ. Rev</source>
+          .
+          <volume>101</volume>
+          ,
+          <fpage>2350</fpage>
+          -
+          <lpage>2390</lpage>
+          (
+          <year>2011</year>
+          ).
+        </mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article></body>
