@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio';
 var uniqid = require('uniqid');
-
+import * as _ from 'lodash'
 
 export function getTextFromXML() { //for reader1, dep
     const xml = require('@assets/picf_nounphrases.xml');
@@ -40,7 +40,7 @@ const subTextArray = ($, elem ,subNode: string): string[] => {
 let getSpans = ($, node) => $(node).children('span').toArray();
 
 type sentence = {id: string, text: string, nounPhrases: string[], paragraphNumber: number}
-export function getJSONFromXML() {
+export function getJSONFromXML(): sentence[] {
     const xml = require('@assets/picf_nounphrases.xml');
     var $ = cheerio.load(xml, {
       xmlMode: true
@@ -58,6 +58,6 @@ export function getJSONFromXML() {
           });
         return sents
       });
-      return sentences;
+      return _.flatten(sentences);
 }
 
