@@ -30,27 +30,57 @@ export class Linker1 extends React.Component<any, { sentences: sentence[]; value
   // Item = ({ entity: { name, char } }) => <div>{`${name}: ${char}`}</div>
   render() {
     const sentences = this.state.sentences.filter((s) => s.paragraphNumber === 6);
-    const connectors = ['has', 'is', 'contains', 'happen in'].map(x=>({name: x}))
+    const connectors = ['has', 'is', 'contains', 'happen in', 'is defined by'].map(x=>({value: x, label: x}))
     return (
-      <div>
-        {[sentences[0]].map((sentence, i) => {
-          const nounPhrases = sentence.nounPhrases.map(x=>({name: x}))
+      <Div display='flex' flexDirection='column' justifyContent='space-around'>
+        {sentences.map((sentence, i) => {
+          const nounPhrases = sentence.nounPhrases.map(x=>({value: x, label: x}))
           console.log(nounPhrases)
           return (
             <Div key={sentence.id}>
               {sentence.text}
-              <Div display='flex' width="100%">
-                 <AutoComplete suggestions={nounPhrases}></AutoComplete>
-                 <AutoComplete suggestions={connectors}></AutoComplete>
-                 <AutoComplete suggestions={nounPhrases}></AutoComplete>
+              <Div display='flex' width="100%" marginBottom='50px'>
+                 <CreatableMulti options={nounPhrases}></CreatableMulti>
+                 <CreatableMulti options={connectors}></CreatableMulti>
+                 <CreatableMulti options={nounPhrases}></CreatableMulti>
               </Div>
             </Div>
           );
         })}
-      </div>
+      </Div>
     );
   }
 }
+
+import CreatableSelect from 'react-select/lib/Creatable';
+
+export class CreatableMulti extends React.Component<any, any> {
+  handleChange = (newValue: any, actionMeta: any) => {
+    console.group('Value Changed');
+    console.log(newValue);
+    console.log(actionMeta);
+    console.groupEnd();
+  };
+  customStyles = {
+    input: (base, state) => ({
+      ...base,
+      width: '30vw'
+    }),
+
+  }
+  render() {
+    return (
+      <CreatableSelect
+        styles={this.customStyles}
+        isMulti
+        onChange={this.handleChange}
+        options={this.props.options}
+      />
+    );
+  }
+}
+
+
 import Autosuggest from 'react-autosuggest';
 
 // Imagine you have a list of languages that you'd like to autosuggest.
