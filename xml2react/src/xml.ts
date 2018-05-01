@@ -39,7 +39,7 @@ const subTextArray = ($, elem ,subNode: string): string[] => {
 } 
 let getSpans = ($, node) => $(node).children('span').toArray();
 
-type sentence = {id: string, text: string, nounPhrases: string[], paragraphNumber: number}
+
 export function getJSONFromXML(): sentence[] {
     const xml = require('@assets/picf_nounphrases.xml');
     var $ = cheerio.load(xml, {

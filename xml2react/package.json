@@ -72,7 +72,7 @@
     "react-tinymce-mention": "^0.3.0",
     "slate": "^0.33.4",
     "slate-react": "^0.12.4",
-    "slate-suggestions": "^0.4.0",
+    "slate-suggestions": "git+https://github.com/jaxrtech/slate-suggestions.git",
     "uniqid": "^4.1.1"
   }
 }

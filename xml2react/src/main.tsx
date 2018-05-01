@@ -9,7 +9,7 @@ var {pText, imgsCaptions} = getTextFromXML();
 import * as utils from 'utils'
 import {Reader1} from './Reader1'
 import {Linker1} from './Linker1'
-
+import {SlateEditor} from './SlateEditor'
 var colorScale = d3.scaleOrdinal(d3.schemePastel1) as any;
 const theme = {
   main: { color: 'red' }
@@ -20,7 +20,7 @@ class App extends React.Component<any, any> {
   render(){
     return (
       // <Reader1 text={pText}></Reader1>
-      <Linker1 />
+      <SlateEditor />
     )
   }
 }

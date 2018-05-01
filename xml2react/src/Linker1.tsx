@@ -39,7 +39,7 @@ export class Linker1 extends React.Component<any, { sentences: sentence[]; value
           return (
             <Div key={sentence.id}>
               {sentence.text}
-              <Div display='flex' width="100%" marginBottom='50px'>
+              <Div display='flex' width="100%" marginBottom='50px' marginTop='10px'>
                  <CreatableMulti options={nounPhrases}></CreatableMulti>
                  <CreatableMulti options={connectors}></CreatableMulti>
                  <CreatableMulti options={nounPhrases}></CreatableMulti>
