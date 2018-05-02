@@ -9,7 +9,7 @@ var {pText, imgsCaptions} = getTextFromXML();
 import * as utils from 'utils'
 import {Reader1} from './Reader1'
 import {Linker1} from './Linker1'
-import {SlateEditor} from './SlateEditor'
+import {SlateEditor} from './SlateEditor/SlateEditor'
 var colorScale = d3.scaleOrdinal(d3.schemePastel1) as any;
 const theme = {
   main: { color: 'red' }

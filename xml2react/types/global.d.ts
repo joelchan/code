@@ -12,3 +12,16 @@ type Omit<T, K extends keyof T> = { [P in Diff<keyof T, K>]: T[P] };
 
 type PartialPick<T, K extends keyof T> = Partial<T> & Pick<T, K>;
 type sentence = {id: string, text: string, nounPhrases: string[], paragraphNumber: number}
+
+
+// slatejs editor types
+interface SlateSelection {
+  object: string;
+  anchorKey: string;
+  anchorOffset: number;
+  focusKey: string;
+  focusOffset: number;
+  isBackward: boolean;
+  isFocused: boolean;
+  marks?: any;
+}

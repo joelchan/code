@@ -7,7 +7,6 @@ import * as d3 from 'd3';
 import { getTextFromXML, getJSONFromXML } from './xml';
 var { pText, imgsCaptions } = getTextFromXML();
 import * as utils from 'utils';
-import { SlateEditor } from './SlateEditor';
 import { Button } from 'antd';
 import 'antd/lib/button/style/index.css';
 import { Tags } from './Tags/index';
