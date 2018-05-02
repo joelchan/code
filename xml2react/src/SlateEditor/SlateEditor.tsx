@@ -1,43 +1,33 @@
 import { Editor } from 'slate-react';
 import { Value } from 'slate';
 import * as React from 'React';
-import Plain from 'slate-plain-serializer'
+import Plain from 'slate-plain-serializer';
 
 // Add the plugin to your set of plugins...
-import {WordCount} from './WordCountPlugin'
-import {MarkHotkey} from './MarkHotKeyPlugin'
-import {WrapInlineHotKey} from './WrapInlineHotKeyPlugin'
-import * as slateUtils from './slateUtils'
-import {Span} from 'glamorous'
-import styled from 'styled-components';
+import { WordCount } from './WordCountPlugin';
+import { MarkHotkey } from './MarkHotKeyPlugin';
+import { WrapInlineHotKey } from './WrapInlineHotKeyPlugin';
+import * as slateUtils from './slateUtils';
+import { Span } from 'glamorous';
+import { Portal } from 'react-portal';
 
-
-const initialValue = Plain.deserialize(
-  'This is editable plain text, just like a <textarea>!'
-); // slate needs a fairly complex data structure of nested nodes
+const initialValue = Plain.deserialize('This is editable plain text, just like a <textarea>!'); // slate needs a fairly complex data structure of nested nodes
 
 const boldPlugin = MarkHotkey({
   type: 'bold',
   key: 'b'
 });
 
-const wrapInline = WrapInlineHotKey({key: '`', type: "meta"})
-const plugins = [boldPlugin,  wrapInline];
-const SpanUp = styled.span`
-  border-radius: 3px;
-  padding-left: 3px;
-  padding-right: 3px;
-  background: transparent;
-  color: palevioletred;
-  border: 1px solid palevioletred;
-`;
+const wrapInline = WrapInlineHotKey({ key: '`', type: 'meta' });
+const plugins = [boldPlugin, wrapInline];
 
 // selection, document, history all create a change object
 // marks vs inline: marks attach to chars and don't change the structure
 // The anchor is where a range starts, and the focus is where it ends.
 export class SlateEditor extends React.Component<any, any> {
   state = {
-    value: initialValue
+    value: initialValue,
+    isPortalActive: true
   };
 
   onChange = ({ value }) => {
@@ -51,9 +41,16 @@ export class SlateEditor extends React.Component<any, any> {
   }
 
   renderNode = (props) => {
+    const { node, attributes, children } = props;
+
     switch (props.node.type) {
       case 'meta':
-        return <Span {...props} contentEditable={false} title='meta test' />;
+        return (
+          <Span {...attributes} contentEditable={false} title="meta test">
+            {' '}
+            {children}{' '}
+          </Span>
+        );
       default:
         return null;
     }
@@ -71,8 +68,10 @@ export class SlateEditor extends React.Component<any, any> {
 
   // Render the editor.
   render() {
+    const { isPortalActive } = this.state;
     return (
       <div>
+        <button onClick={() => this.setState({ isPortalActive: !isPortalActive })} />
         <Editor
           plugins={plugins}
           value={this.state.value}
@@ -81,6 +80,7 @@ export class SlateEditor extends React.Component<any, any> {
           renderMark={this.renderMark}
           style={{ border: '1px solid #4885ed', 'borderRadius:': '10px' }}
         />
+        {isPortalActive && <Portal>This text is portaled at the end of document.body!</Portal>}
       </div>
     );
   }
