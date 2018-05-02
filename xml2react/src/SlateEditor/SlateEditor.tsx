@@ -8,8 +8,24 @@ import { WordCount } from './WordCountPlugin';
 import { MarkHotkey } from './MarkHotKeyPlugin';
 import { WrapInlineHotKey } from './WrapInlineHotKeyPlugin';
 import * as slateUtils from './slateUtils';
-import { Span } from 'glamorous';
+import { Span, P } from 'glamorous';
 import { Portal } from 'react-portal';
+import  SuggestionsPlugin from './slate-suggestions/lib/index'
+import position from './Tooltip/caret-position'
+import { PortalWithState } from 'react-portal';
+
+const suggestions = [
+  {
+    key: 'Jon Snow',
+    value: '@Jon Snow',
+    suggestion: '@Jon Snow' // Can be either string or react component
+  },
+  {
+    key: 'John Evans',
+    value: '@John Evans',
+    suggestion: '@John Evans'
+  }
+]
 
 const initialValue = Plain.deserialize('This is editable plain text, just like a <textarea>!'); // slate needs a fairly complex data structure of nested nodes
 
@@ -29,9 +45,29 @@ export class SlateEditor extends React.Component<any, any> {
     value: initialValue,
     isPortalActive: true
   };
+  
+  suggestionsPlugin = SuggestionsPlugin({
+    trigger: '@',
+    capture: /@([\w]*)/,
+    suggestions,
+    onEnter: (suggestion, change) => {
+      const { anchorText, anchorOffset } = this.state.value
+      const text = anchorText.text
+      let index = { start: anchorOffset - 1, end: anchorOffset }
+      if (text[anchorOffset - 1] !== '@') {
+        index = slateUtils.getCurrentWord(text, anchorOffset - 1, anchorOffset - 1)
+      }
+      const newText = `${text.substring(0, index.start)}${suggestion.value} `
+      change
+        .deleteBackward(anchorOffset)
+        .insertText(newText)
+      return true;
+    }
+  })
+  SuggestionPortal = this.suggestionsPlugin.SuggestionPortal;
 
   onChange = ({ value }) => {
-    slateUtils.logSelectionRange(value);
+    // slateUtils.logSelectionRange(value);
     this.setState({ value });
   };
 
@@ -68,10 +104,11 @@ export class SlateEditor extends React.Component<any, any> {
 
   // Render the editor.
   render() {
-    const { isPortalActive } = this.state;
+    const { SuggestionPortal } = this.suggestionsPlugin
+    const pos = position() || {left: 0, top: 0}
     return (
-      <div>
-        <button onClick={() => this.setState({ isPortalActive: !isPortalActive })} />
+      <P marginLeft='20px'>
+        <P position='absolute' left={pos.left}></P>
         <Editor
           plugins={plugins}
           value={this.state.value}
@@ -80,8 +117,24 @@ export class SlateEditor extends React.Component<any, any> {
           renderMark={this.renderMark}
           style={{ border: '1px solid #4885ed', 'borderRadius:': '10px' }}
         />
-        {isPortalActive && <Portal>This text is portaled at the end of document.body!</Portal>}
-      </div>
+    <PortalWithState closeOnEsc>
+      {({ openPortal, closePortal, isOpen, portal }) => {
+      return (
+        <React.Fragment>
+          <button onClick={openPortal}>
+            Open Portal
+          </button>
+          {portal(
+            <P position='absolute' left={pos.left + 'px'} top={pos.top + 'px'}>
+              This is more advanced Portal. It handles its own state.{' '}
+              <button onClick={closePortal}>Close me!</button>, hit ESC or
+              click outside of me.
+            </P>
+          )}
+        </React.Fragment>
+      )}}
+    </PortalWithState>
+      </P>
     );
   }
 }

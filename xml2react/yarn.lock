@@ -7937,13 +7937,17 @@ react-onclickoutside@^6.5.0:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.7.1.tgz#6a5b5b8b4eae6b776259712c89c8a2b36b17be93"
 
+react-portal-tooltip@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-portal-tooltip/-/react-portal-tooltip-2.4.0.tgz#0f2d558d9eb20ef5ab344c87572e63e7c373b229"
+
 react-portal@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-3.2.0.tgz#4224e19b2b05d5cbe730a7ba0e34ec7585de0043"
   dependencies:
     prop-types "^15.5.8"
 
-react-portal@^4.0.0, react-portal@^4.1.5:
+react-portal@^4.1.5:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-4.1.5.tgz#6665d4d2a92d47d6f8b07a6529e26fc52d5cccde"
   dependencies:
@@ -8763,12 +8767,6 @@ slate-react@^0.12.4:
 slate-schema-violations@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/slate-schema-violations/-/slate-schema-violations-0.1.8.tgz#b6bfbcc4defaa4971a96bf2d324c5b67fb4a4e20"
-
-"slate-suggestions@git+https://github.com/jaxrtech/slate-suggestions.git":
-  version "0.4.8"
-  resolved "git+https://github.com/jaxrtech/slate-suggestions.git#07f175bd80b2dbd4d1fed587207609d74793c752"
-  dependencies:
-    react-portal "^4.0.0"
 
 slate@^0.33.4:
   version "0.33.4"

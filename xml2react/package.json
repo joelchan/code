@@ -70,6 +70,7 @@
     "react-json-view": "^1.16.6",
     "react-keydown": "^1.9.7",
     "react-portal": "^4.1.5",
+    "react-portal-tooltip": "^2.4.0",
     "react-select": "^2.0.0-beta.2",
     "react-string-replace": "^0.4.1",
     "react-tag-input": "^5.0.1",
@@ -78,7 +79,6 @@
     "slate": "^0.33.4",
     "slate-plain-serializer": "^0.5.11",
     "slate-react": "^0.12.4",
-    "slate-suggestions": "git+https://github.com/jaxrtech/slate-suggestions.git",
     "styled-components": "^3.2.6",
     "uniqid": "^4.1.1"
   }

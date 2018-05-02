@@ -38,11 +38,6 @@ export function getSpaceIndexes(str) {
   return results;
 }
 
-export function nearest(num: number, numArr: number[]) {
-  // left and right
-  // return textnode start/end for edge words
-}
-
 export function hasSomeOfTypeInNode(
   change,
   valueNode: 'block' | 'span' | 'mark',
@@ -78,4 +73,20 @@ export function extendToWord(change, editor) {
 
   console.log(startOfWord, endOfWord);
   change.moveOffsetsTo(startOffset - startOfWord, endOffset + endOfWord);
+}
+
+
+export function getCurrentWord(text, index, initialIndex) {
+  if (index === initialIndex) {
+    return { start: getCurrentWord(text, index - 1, initialIndex), end: getCurrentWord(text, index + 1, initialIndex) }
+  }
+  if (text[index] === " " || text[index] === "@" || text[index] === undefined) {
+    return index
+  }
+  if (index < initialIndex) {
+    return getCurrentWord(text, index - 1, initialIndex)
+  }
+  if (index > initialIndex) {
+    return getCurrentWord(text, index + 1, initialIndex)
+  }
 }
