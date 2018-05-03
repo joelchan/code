@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 export function logText(value, byNode: boolean = false) {
   if (byNode) {
     let textNodes = value.document.getTexts();
@@ -45,45 +46,43 @@ export function hasSomeOfTypeInNode(
   return change.value[valueNode].some((node) => node.type == nodeType);
 }
 
-export function extendToWord(change, editor) {
-  // Expand the current selection to the nearest space
-  const currentTextNode = change.value.anchorText;
+export function extendToWord(change, startOfWord, endOfWord) {
   const startOffset = change.value.selection.startOffset;
   const endOffset = change.value.selection.endOffset;
-  const endSearchText = currentTextNode.text.slice(endOffset);
-  const startSearchText = currentTextNode.text
-    .slice(0, startOffset)
-    .split('')
-    .reverse()
-    .join('');
-  console.log(startSearchText, endSearchText);
-  let endOfWord = endSearchText.search(/\s/);
-  let startOfWord = startSearchText.search(/\s/);
-  if (endOfWord === -1) {
-    endOfWord = endSearchText.length;
-  } else {
-    // endOfWord-- // We don't want to select the actual space character too
-  }
-  if (startOfWord === -1) {
-    startOfWord = startSearchText.length;
-  } else {
-    //startOfWord; // We don't want to select the actual space character too
-  }
-
-  console.log(startOfWord, endOfWord);
-  change.moveOffsetsTo(startOffset - startOfWord, endOffset + endOfWord);
+  change.moveOffsetsTo(startOfWord - startOffset, endOfWord - endOffset);
 }
 
 import { greaterNumber, lowerNumber } from 'get-closest';
 export function getCurrentWord(text: string, cursorLocInText: number) {
   const spaceIndexes: number[] = getSpaceIndexes(text);
-  const isIndexSpace = spaceIndexes.includes(cursorLocInText-1);
-  const ix: number = isIndexSpace ? cursorLocInText : cursorLocInText-1;
+  const isIndexSpace = spaceIndexes.includes(cursorLocInText - 1);
+  const ix: number = isIndexSpace ? cursorLocInText : cursorLocInText - 1;
   const spaceToTheLeft: number = spaceIndexes[lowerNumber(ix, spaceIndexes)] | 0;
-  const spaceToTheRight: number = spaceIndexes[greaterNumber(ix, spaceIndexes)];
+  const _spaceToTheRight: number = spaceIndexes[greaterNumber(ix, spaceIndexes)];
+  const spaceToTheRight = _spaceToTheRight !== undefined ? _spaceToTheRight : text.length;
+
   return {
     start: spaceToTheLeft,
     end: spaceToTheRight,
-    text: text.slice(spaceToTheLeft, spaceToTheRight).trim()
+    text: text.slice(spaceToTheLeft, spaceToTheRight).trim(),
+    spaceBefore: spaceToTheLeft > 0 ? ' ' : '',
+    spaceAfter: spaceToTheRight < text.length ? ' ' : ''
   };
+}
+
+export function keyCommandToReplaceText(currentWord, suggestions, change) {
+  const { text, start, end, spaceBefore, spaceAfter } = currentWord;
+  const keyCommand2Index = { f: 0, d: 1, s: 2, a: 3 };
+  const [word, keyCommand] = text.split(';');
+  const suggestionIx = _.get(keyCommand2Index, keyCommand, null);
+  const isWordCap = /^[A-Z]/.test(word);
+  console.log(word, isWordCap);
+  if (suggestionIx !== null) {
+    const sug = suggestions[suggestionIx];
+    const textToInsert = isWordCap
+      ? sug.charAt(0).toUpperCase() + sug.slice(1)
+      : sug;
+    change.moveOffsetsTo(start, end);
+    change.insertText(spaceBefore + textToInsert);
+  }
 }
