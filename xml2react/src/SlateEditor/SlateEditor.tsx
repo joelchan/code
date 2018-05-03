@@ -13,6 +13,8 @@ import { Portal } from 'react-portal';
 import position from './Tooltip/caret-position';
 import { getCaretRect } from './Tooltip/caret-position';
 import { PortalWithState } from 'react-portal';
+import * as fuzzy from 'fuzzy';
+import renderHTML from 'react-render-html';
 
 const initialValue = Plain.deserialize(
   'This is editable plain text, just like a <textarea>! \n asdf'
@@ -34,7 +36,15 @@ export class SlateEditor extends React.Component<any, any> {
     value: initialValue,
     caretRect: null,
     isPortalActive: true,
-    currentWord: ''
+    currentWord: '',
+    suggestionsToSearch: [
+      'sensemaking',
+      'formalism',
+      'information management',
+      'visualization',
+      'data viz'
+    ],
+    suggestionsToShow: []
   };
   editorRef;
   setEditorRef = (element) => {
@@ -42,15 +52,18 @@ export class SlateEditor extends React.Component<any, any> {
   };
 
   onChange = ({ value }) => {
+    // editor has changed (including cursor/selection)
     const caretRect = getCaretRect();
-    const { anchorText, anchorOffset } = value;
-    const currentWordIndex = slateUtils.getCurrentWord(
-      anchorText.text,
-      anchorOffset
-    );
-    const currentWord = anchorText.text.slice(currentWordIndex.start, currentWordIndex.end);
-    console.log('state', currentWord);
-    this.setState({ value, caretRect, currentWord });
+    const { text } = slateUtils.getCurrentWord(value.anchorText.text, value.anchorOffset);
+    if (text.length > 0) {
+      var options = { pre: '<b>', post: '</b>' };
+
+      var results = fuzzy.filter(text, this.state.suggestionsToSearch, options);
+      this.setState({ suggestionsToShow: results.map((el) => el.string) });
+      console.log(text, this.state.suggestionsToSearch, results.map((el) => el.string));
+    }
+
+    this.setState({ value, caretRect, currentWord: text });
   };
 
   // Define a React component to render bold text with.
@@ -95,7 +108,7 @@ export class SlateEditor extends React.Component<any, any> {
 
   // Render the editor.
   render() {
-    const { caretRect, currentWord } = this.state;
+    const { caretRect, currentWord, suggestionsToShow } = this.state;
     const magicalOffset = 16;
 
     return (
@@ -115,16 +128,22 @@ export class SlateEditor extends React.Component<any, any> {
                 <button onClick={openPortal}>Open Portal</button>
                 {caretRect &&
                   portal(
-                    <P
+                    <Div
                       position="absolute"
                       left={caretRect.left + 'px'}
-                      top={caretRect.top - magicalOffset + 20 + 'px'}
-                      width={caretRect.width + 'px'}
-                      height={caretRect.height + 'px'}
+                      top={caretRect.top - magicalOffset + 36 + 'px'}
                       outline="1px solid green"
+                      background="white"
+                      {...this.editorStyle}
+                      padding="2px"
+                      margin="0px"
                     >
-                      {currentWord}
-                    </P>
+                      <ul>
+                        {suggestionsToShow.map((sug) => {
+                          return <li> {renderHTML(sug)}</li>;
+                        })}
+                      </ul>
+                    </Div>
                   )}
               </React.Fragment>
             );
