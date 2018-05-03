@@ -121,12 +121,12 @@ export class SlateEditor extends React.Component<any, any> {
           renderMark={this.renderMark}
           style={this.editorStyle}
         />
-        <PortalWithState closeOnEsc>
+        <PortalWithState closeOnEsc defaultOpen>
           {({ openPortal, closePortal, isOpen, portal }) => {
             return (
               <React.Fragment>
                 <button onClick={openPortal}>Open Portal</button>
-                {caretRect &&
+                {caretRect && suggestionsToShow.length > 0 &&
                   portal(
                     <Div
                       position="absolute"
