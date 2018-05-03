@@ -14,8 +14,9 @@ import position from './Tooltip/caret-position';
 import { getCaretRect } from './Tooltip/caret-position';
 import { PortalWithState } from 'react-portal';
 
-
-const initialValue = Plain.deserialize('This is editable plain text, just like a <textarea>! \n asdf'); // slate needs a fairly complex data structure of nested nodes
+const initialValue = Plain.deserialize(
+  'This is editable plain text, just like a <textarea>! \n asdf'
+); // slate needs a fairly complex data structure of nested nodes
 
 const boldPlugin = MarkHotkey({
   type: 'bold',
@@ -31,16 +32,25 @@ const plugins = [boldPlugin, wrapInline];
 export class SlateEditor extends React.Component<any, any> {
   state = {
     value: initialValue,
-    isPortalActive: true
+    caretRect: null,
+    isPortalActive: true,
+    currentWord: ''
   };
-  editorRef
+  editorRef;
   setEditorRef = (element) => {
     this.editorRef = element;
   };
-  
+
   onChange = ({ value }) => {
-    // slateUtils.logSelectionRange(value);
-    this.setState({ value });
+    const caretRect = getCaretRect();
+    const { anchorText, anchorOffset } = value;
+    const currentWordIndex = slateUtils.getCurrentWord(
+      anchorText.text,
+      anchorOffset
+    );
+    const currentWord = anchorText.text.slice(currentWordIndex.start, currentWordIndex.end);
+    console.log('state', currentWord);
+    this.setState({ value, caretRect, currentWord });
   };
 
   // Define a React component to render bold text with.
@@ -74,10 +84,19 @@ export class SlateEditor extends React.Component<any, any> {
     }
   };
 
+  // todo: reuse as shadow drop
+  editorStyle = {
+    boxShadow: '0 2px 3px rgba(0,0,0,0.16), 0 2px 3px rgba(0,0,0,0.23)',
+    borderRadius: '2px',
+    padding: '6px',
+    margin: '10px',
+    outline: '1px solid lightgrey'
+  };
+
   // Render the editor.
   render() {
-    const pos = position() || { left: 0, top: 0 };
-    const caretRect = getCaretRect();
+    const { caretRect, currentWord } = this.state;
+    const magicalOffset = 16;
 
     return (
       <div ref={this.setEditorRef}>
@@ -87,29 +106,30 @@ export class SlateEditor extends React.Component<any, any> {
           onChange={this.onChange}
           renderNode={this.renderNode}
           renderMark={this.renderMark}
-          style={{ border: '1px solid #4885ed', 'borderRadius:': '10px', fontSize: '20px' }}
+          style={this.editorStyle}
         />
-             <PortalWithState closeOnEsc>
+        <PortalWithState closeOnEsc>
           {({ openPortal, closePortal, isOpen, portal }) => {
             return (
               <React.Fragment>
                 <button onClick={openPortal}>Open Portal</button>
                 {caretRect &&
                   portal(
-                    <P position="absolute" 
-                    left={caretRect.left + 'px'} 
-                    top={caretRect.top  - 16 + 'px'} 
-                    width={caretRect.width + 'px'}
-                    height={caretRect.height + 'px'}
-                    outline='1px solid green'>
-                      &nbsp;
+                    <P
+                      position="absolute"
+                      left={caretRect.left + 'px'}
+                      top={caretRect.top - magicalOffset + 20 + 'px'}
+                      width={caretRect.width + 'px'}
+                      height={caretRect.height + 'px'}
+                      outline="1px solid green"
+                    >
+                      {currentWord}
                     </P>
                   )}
               </React.Fragment>
             );
           }}
         </PortalWithState>
-
       </div>
     );
   }

@@ -24,14 +24,13 @@ export function logSelectionRange(value) {
   console.log('regex', getSpaceIndexes(value.anchorText.text));
 }
 
-export function getSpaceIndexes(str) {
+export function getSpaceIndexes(str: string): number[] {
   var re = /\s/g;
   let match;
   let results = [];
   do {
     match = re.exec(str);
     if (match) {
-      console.log(match.index);
       results.push(match.index);
     }
   } while (match);
@@ -54,9 +53,9 @@ export function extendToWord(change, editor) {
   const endSearchText = currentTextNode.text.slice(endOffset);
   const startSearchText = currentTextNode.text
     .slice(0, startOffset)
-    .split("")
+    .split('')
     .reverse()
-    .join("");
+    .join('');
   console.log(startSearchText, endSearchText);
   let endOfWord = endSearchText.search(/\s/);
   let startOfWord = startSearchText.search(/\s/);
@@ -75,18 +74,16 @@ export function extendToWord(change, editor) {
   change.moveOffsetsTo(startOffset - startOfWord, endOffset + endOfWord);
 }
 
-
-export function getCurrentWord(text, index, initialIndex) {
-  if (index === initialIndex) {
-    return { start: getCurrentWord(text, index - 1, initialIndex), end: getCurrentWord(text, index + 1, initialIndex) }
-  }
-  if (text[index] === " " || text[index] === "@" || text[index] === undefined) {
-    return index
-  }
-  if (index < initialIndex) {
-    return getCurrentWord(text, index - 1, initialIndex)
-  }
-  if (index > initialIndex) {
-    return getCurrentWord(text, index + 1, initialIndex)
-  }
+import { greaterNumber, lowerNumber } from 'get-closest';
+export function getCurrentWord(text: string, cursorLocInText: number) {
+  const spaceIndexes: number[] = getSpaceIndexes(text);
+  const isIndexSpace = spaceIndexes.includes(cursorLocInText-1);
+  const ix: number = isIndexSpace ? cursorLocInText : cursorLocInText-1;
+  const spaceToTheLeft: number = spaceIndexes[lowerNumber(ix, spaceIndexes)] | 0;
+  const spaceToTheRight: number = spaceIndexes[greaterNumber(ix, spaceIndexes)];
+  return {
+    start: spaceToTheLeft,
+    end: spaceToTheRight,
+    text: text.slice(spaceToTheLeft, spaceToTheRight).trim()
+  };
 }
