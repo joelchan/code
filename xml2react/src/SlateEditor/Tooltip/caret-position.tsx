@@ -1,21 +1,15 @@
 // Acquire from http://jsfiddle.net/gliheng/vbucs/12/
 // see https://codepen.io/pc035860/pen/FeIEj?editors=0010
-var RangeFix = require( 'rangefix' );
 
-export function getCaretRect() {
-  // var rect = container ? container.getBoundingClientRect() : null;
-  // console.log('container rect', rect)
-
+export function getCaretRect() { 
+  // had to hardcode a 16px offset for top that works with any margin/padding
   const selection = document.getSelection();
   if (selection.rangeCount === 0) return null;
   const range = selection.getRangeAt(0).cloneRange();
-  
-  const rects = RangeFix.getClientRects( range );
-  console.log('rects', rects)
-  return RangeFix.getBoundingClientRect( range );
-
+  return range.getBoundingClientRect( );
 }
 
+// delete this
 function position($node?, offsetx?, offsety?) {
   offsetx = offsetx || 0;
   offsety = offsety || 0;
