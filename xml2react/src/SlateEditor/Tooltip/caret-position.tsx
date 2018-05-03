@@ -1,4 +1,21 @@
 // Acquire from http://jsfiddle.net/gliheng/vbucs/12/
+// see https://codepen.io/pc035860/pen/FeIEj?editors=0010
+var RangeFix = require( 'rangefix' );
+
+export function getCaretRect() {
+  // var rect = container ? container.getBoundingClientRect() : null;
+  // console.log('container rect', rect)
+
+  const selection = document.getSelection();
+  if (selection.rangeCount === 0) return null;
+  const range = selection.getRangeAt(0).cloneRange();
+  
+  const rects = RangeFix.getClientRects( range );
+  console.log('rects', rects)
+  return RangeFix.getBoundingClientRect( range );
+
+}
+
 function position($node?, offsetx?, offsety?) {
   offsetx = offsetx || 0;
   offsety = offsety || 0;
@@ -10,7 +27,7 @@ function position($node?, offsetx?, offsety?) {
     nodeTop = $node.offsetTop;
   }
 
-  const pos = { left: 0, top: 0 };
+  const pos = { left: 0, top: 0, right: 0, bottom: 0 };
   let doc: any = document;
   if (doc.selection) {
     const range = doc.selection.createRange();
@@ -26,7 +43,6 @@ function position($node?, offsetx?, offsety?) {
     } catch (e) {}
 
     const rect = range.getBoundingClientRect();
-    console.log('rect', rect)
     if (range.endOffset === 0 || range.toString() === '') {
       // first char of line
       if (range.startContainer === $node) {
@@ -36,6 +52,7 @@ function position($node?, offsetx?, offsety?) {
           pos.left = 0;
         } else {
           // firefox need this
+          console.log('UNTESTED IN FIREFOX');
           const range2 = range.cloneRange();
           range2.setStart(range2.startContainer, 0);
           const rect2 = range2.getBoundingClientRect();
@@ -47,7 +64,8 @@ function position($node?, offsetx?, offsety?) {
         pos.left = (range.startContainer as any).offsetLeft;
       }
     } else {
-      pos.left = rect.left + rect.width + offsetx - nodeLeft;
+      pos.left = rect.left + offsetx - nodeLeft;
+      pos.right = rect.right + offsetx - nodeLeft;
       pos.top = rect.top + offsety - nodeTop;
     }
   }

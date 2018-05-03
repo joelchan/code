@@ -9,7 +9,6 @@ var { pText, imgsCaptions } = getTextFromXML();
 import * as utils from 'utils';
 import { Button } from 'antd';
 import 'antd/lib/button/style/index.css';
-import { Tags } from './Tags/index';
 
 export class Linker1 extends React.Component<any, { sentences: sentence[]; value: any }> {
   state = {

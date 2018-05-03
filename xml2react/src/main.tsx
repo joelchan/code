@@ -16,7 +16,7 @@ const theme = {
 };
 import keydown from 'react-keydown';
 
-class App extends React.Component<any, any> {
+class App extends React.Component {
   render(){
     return (
       // <Reader1 text={pText}></Reader1>
@@ -28,4 +28,4 @@ class App extends React.Component<any, any> {
 // "hard" condition -> high cost scenario -> imagine needing a ~$1500 car repair -> high monetary concerns -> the poor only
 // "easy" condition -> low cost scenario  -> imagine needing a ~$150 car repair -> low monetary concerns -> poor & rich
 
-ReactDOM.render(<App text={pText} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
