@@ -88,5 +88,8 @@ export function keyCommandToReplaceText(currentWord, suggestions, nodeText, chan
       : sug;
     change.moveOffsetsTo(start, end);
     change.insertText(spaceBefore + textToInsert);
+    return sug
   }
+  return null
+  
 }

@@ -135,12 +135,13 @@ function imgsWithMatch(wordPattern) {
 }
 
 // bold a matched phrase
-function Highlight(props: { text: string; toMatch: string | RegExp }) {
+export function Highlight(props: { text: string; toMatch: string | RegExp }) {
   return reactStringReplace(props.text, props.toMatch, (match, mi) => (
     <span
       key={mi}
       style={{
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#4078F2'
       }}
     >
       {match}

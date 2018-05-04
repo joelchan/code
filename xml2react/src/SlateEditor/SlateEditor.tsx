@@ -16,9 +16,11 @@ import { BoldMark, renderNode, renderMark } from './EditorRenderers';
 import { md_shadow } from './Css';
 import { topics } from './exampleData';
 import * as _ from 'lodash';
-
-const initialValue = Plain.deserialize('Sensemakin is cool yo. Dataviz also sweet. \n asdf'); // slate needs a fairly complex data structure of nested nodes
-
+import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
+import { Reader1 } from '../Reader1';
+const initialValue = Plain.deserialize(''); // slate needs a fairly complex data structure of nested nodes
+import { getTextFromXML, getJSONFromXML } from '../xml';
+import {Highlight} from '../Reader1'
 const boldPlugin = MarkHotkey({
   type: 'bold',
   key: 'b'
@@ -37,13 +39,25 @@ export class SlateEditor extends React.Component<any, any> {
     isPortalActive: true,
     currentWord: '',
     suggestionsToSearch: topics,
-    suggestionsToShow: []
+    suggestionsToShow: [],
+    sentences: [{ text: '', id: '', nounPhrases: [], paragraphNumber: 0 }],
+    readingLocation: { sentenceNumber: 0, paragraphNumber: 0 },
+    nounPhrases: [], //todo: not used?
+    addedPhrases: [] //todo: delete if deleted from editor
   };
 
   editorRef;
   setEditorRef = (element) => {
     this.editorRef = element;
   };
+
+  UNSAFE_componentWillMount() {
+    // todo: derived state
+    const sentences = getJSONFromXML();
+    this.setState({ sentences });
+    const text2show = extractSentenceData(sentences, this.state.readingLocation);
+    this.setState({ suggestionsToSearch: text2show.nounPhrases });
+  }
 
   onChange = (change) => {
     let { value } = change; //this value won't update, but change.value will
@@ -57,6 +71,7 @@ export class SlateEditor extends React.Component<any, any> {
     if (!hasSemicolon && isLongEnough) {
       //if semicolon then dont update
       var options = { pre: '<b>', post: '</b>' };
+      console.log(this.state.suggestionsToSearch);
       var results = fuzzy.filter(text, this.state.suggestionsToSearch, options);
       const toShow = results.map((el) => ({ html: el.string, text: el.original }));
       this.setState({ suggestionsToShow: toShow });
@@ -65,7 +80,18 @@ export class SlateEditor extends React.Component<any, any> {
     if (hasSemicolon && isLongEnough) {
       const suggestions = this.state.suggestionsToShow.map((x) => x.text);
       if (text.split(';').length === 2) {
-        slateUtils.keyCommandToReplaceText(currentWord, suggestions, text, change);
+        const selectedSuggestion = slateUtils.keyCommandToReplaceText(
+          currentWord,
+          suggestions,
+          text,
+          change
+        );
+        if (selectedSuggestion !== null) {
+          console.log(selectedSuggestion);
+          this.setState({
+            addedPhrases: [...this.state.addedPhrases, selectedSuggestion]
+          });
+        }
       }
     }
 
@@ -74,24 +100,41 @@ export class SlateEditor extends React.Component<any, any> {
 
   // Render the editor.
   render() {
+    //todo: actual entity nodes in editor and reader
+    let wordPattern = new RegExp(`(${this.state.addedPhrases.join('|')})`, 'gim');
+    const { sentences, readingLocation, addedPhrases } = this.state;
+    const text2show = extractSentenceData(sentences, readingLocation);
     const { caretRect, currentWord, suggestionsToShow } = this.state;
     const magicalOffset = 16;
 
     return (
-      <div ref={this.setEditorRef}>
+      <div ref={this.setEditorRef} style={{ margin: '6px' }}>
+        <Highlight text={text2show.text} toMatch={wordPattern} />
         <Editor
+          spellCheck={false}
           plugins={plugins}
           value={this.state.value}
           onChange={this.onChange}
           renderNode={renderNode}
           renderMark={renderMark}
-          style={{ ...md_shadow, padding: '2px', margin: '6px' }}
+          style={{
+            borderRadius: '20px',
+            outline: '1px solid grey',
+            padding: '2px',
+            marginTop: '10px'
+          }}
         />
         <PortalWithState closeOnEsc defaultOpen>
           {({ openPortal, closePortal, isOpen, portal }) => {
             return (
               <React.Fragment>
-                <button onClick={openPortal}>Open Portal</button>
+                <DefaultButton
+                  style={{ margin: '5px' }}
+                  primary={true}
+                  data-automation-id="test"
+                  text={isOpen ? 'Close Auto' : 'Open Auto'}
+                  onClick={isOpen ? closePortal : openPortal}
+                />
                 {caretRect &&
                   suggestionsToShow.length > 0 &&
                   portal(
@@ -108,22 +151,27 @@ export class SlateEditor extends React.Component<any, any> {
                       <ul style={{ listStyleType: 'none', padding: '4px', margin: '0' }}>
                         {suggestionsToShow.slice(0, 4).map((sug, i) => {
                           return (
-                            <li key={i} style={{ border: '1px sold lightgrey',
-                            marginBottom: '4px' }}>
-                            {/* todo: seperate component */}
-                              <Span 
-                                borderRadius='20%' 
-                                background='lightblue'
-                                display='inline-block'
-                                width='8px'
-                                marginRight='6px'
-                                paddingLeft='4px'
-                                paddingRight='4px'
-                                fontWeight='bold'
-                                textAlign='center'
-                                verticalAlign='middle'
+                            <li
+                              key={i}
+                              style={{
+                                border: '1px sold lightgrey',
+                                marginBottom: '4px'
+                              }}
+                            >
+                              {/* todo: seperate component */}
+                              <Span
+                                borderRadius="20%"
+                                background="lightblue"
+                                display="inline-block"
+                                width="8px"
+                                marginRight="6px"
+                                paddingLeft="4px"
+                                paddingRight="4px"
+                                fontWeight="bold"
+                                textAlign="center"
+                                verticalAlign="middle"
                               >
-                                {_.get(slateUtils.Index2KeyCommanrd, i, '.') }
+                                {_.get(slateUtils.Index2KeyCommanrd, i, '.')}
                               </Span>
                               {renderHTML(sug.html)}
                             </li>
@@ -139,4 +187,12 @@ export class SlateEditor extends React.Component<any, any> {
       </div>
     );
   }
+}
+
+function extractSentenceData(sentences, readingIndex) {
+  const sents: sentence[] = sentences.filter(
+    (s) => s.paragraphNumber === readingIndex.paragraphNumber
+  );
+  const nounPhrases = _.flattenDeep(sents.map((s) => s.nounPhrases))
+  return { text: sents.map((s) => s.text).join(' '), nounPhrases };
 }
