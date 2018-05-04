@@ -69,17 +69,21 @@ export function getCurrentWord(text: string, cursorLocInText: number) {
     spaceAfter: spaceToTheRight < text.length ? ' ' : ''
   };
 }
-
-export function keyCommandToReplaceText(currentWord, suggestions, change) {
+export const keyCommand2Index = { f: 0, d: 1, s: 2, a: 3 };
+export const Index2KeyCommanrd = _.invert(keyCommand2Index)
+console.log(Index2KeyCommanrd)
+export function keyCommandToReplaceText(currentWord, suggestions, nodeText, change) {
   const { text, start, end, spaceBefore, spaceAfter } = currentWord;
-  const keyCommand2Index = { f: 0, d: 1, s: 2, a: 3 };
   const [word, keyCommand] = text.split(';');
   const suggestionIx = _.get(keyCommand2Index, keyCommand, null);
   const isWordCap = /^[A-Z]/.test(word);
-  console.log(word, isWordCap);
+  //todo: caps after .space with regex
+  const reDotSpace = /\.\s+/;
+  let isSentenceStart = false;
+  
   if (suggestionIx !== null) {
     const sug = suggestions[suggestionIx];
-    const textToInsert = isWordCap
+    const textToInsert = (isWordCap || start === 0 || isSentenceStart)
       ? sug.charAt(0).toUpperCase() + sug.slice(1)
       : sug;
     change.moveOffsetsTo(start, end);

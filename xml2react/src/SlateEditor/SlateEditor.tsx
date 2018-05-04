@@ -15,6 +15,7 @@ import renderHTML from 'react-render-html';
 import { BoldMark, renderNode, renderMark } from './EditorRenderers';
 import { md_shadow } from './Css';
 import { topics } from './exampleData';
+import * as _ from 'lodash';
 
 const initialValue = Plain.deserialize('Sensemakin is cool yo. Dataviz also sweet. \n asdf'); // slate needs a fairly complex data structure of nested nodes
 
@@ -64,7 +65,7 @@ export class SlateEditor extends React.Component<any, any> {
     if (hasSemicolon && isLongEnough) {
       const suggestions = this.state.suggestionsToShow.map((x) => x.text);
       if (text.split(';').length === 2) {
-        slateUtils.keyCommandToReplaceText(currentWord, suggestions, change);
+        slateUtils.keyCommandToReplaceText(currentWord, suggestions, text, change);
       }
     }
 
@@ -104,11 +105,26 @@ export class SlateEditor extends React.Component<any, any> {
                       padding="2px"
                       margin="0px"
                     >
-                      <ul style={{ listStyleType: 'none', padding: '6px', margin: '0' }}>
-                        {suggestionsToShow.map((sug, i) => {
+                      <ul style={{ listStyleType: 'none', padding: '4px', margin: '0' }}>
+                        {suggestionsToShow.slice(0, 4).map((sug, i) => {
                           return (
-                            <li key={i} style={{ border: '1px sold lightgrey' }}>
-                              {' '}
+                            <li key={i} style={{ border: '1px sold lightgrey',
+                            marginBottom: '4px' }}>
+                            {/* todo: seperate component */}
+                              <Span 
+                                borderRadius='20%' 
+                                background='lightblue'
+                                display='inline-block'
+                                width='8px'
+                                marginRight='6px'
+                                paddingLeft='4px'
+                                paddingRight='4px'
+                                fontWeight='bold'
+                                textAlign='center'
+                                verticalAlign='middle'
+                              >
+                                {_.get(slateUtils.Index2KeyCommanrd, i, '.') }
+                              </Span>
                               {renderHTML(sug.html)}
                             </li>
                           );
