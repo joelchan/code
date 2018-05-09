@@ -6,7 +6,7 @@ import { WordCount } from './WordCountPlugin'; // wraps around the slate editor
 import { MarkHotkey } from './MarkHotKeyPlugin';
 import { WrapInlineHotKey } from './WrapInlineHotKeyPlugin';
 import * as slateUtils from './slateUtils';
-import { Span, P, Div } from 'glamorous';
+import { Span, P, Div, Textarea } from 'glamorous';
 import { Portal } from 'react-portal';
 import { getCaretRect } from './Tooltip/caret-position';
 import { PortalWithState } from 'react-portal';
@@ -43,7 +43,8 @@ export class SlateEditor extends React.Component<any, any> {
     sentences: [{ text: '', id: '', nounPhrases: [], paragraphNumber: 0 }],
     readingLocation: { sentenceNumber: 0, paragraphNumber: 0 },
     nounPhrases: [], //todo: not used?
-    addedPhrases: [] //todo: delete if deleted from editor
+    addedPhrases: [], //todo: delete if deleted from editor
+    pastedText: 'We discuss some implications for poverty policy.'
   };
 
   editorRef;
@@ -99,6 +100,11 @@ export class SlateEditor extends React.Component<any, any> {
 
     this.setState({ value: change.value, caretRect, currentWord: text });
   };
+
+  onSubmitText = (value) => {
+    console.log('E', value)
+    this.setState({pastedText: value})
+  }
 
   // Render the editor.
   render() {
@@ -186,7 +192,10 @@ export class SlateEditor extends React.Component<any, any> {
             );
           }}
         </PortalWithState>
-        <XmlFromNLP text='A short sentence is good'></XmlFromNLP>
+        <br/>
+        <XmlFromNLP text={this.state.pastedText}
+                    onSubmit={this.onSubmitText}
+        ></XmlFromNLP>
       </div>
     );
   }
@@ -208,19 +217,36 @@ query getXMLFromNLP($text: String){
   xmlFromNLP(text: $text)
 }
 `;
-function XmlFromNLP ({text}) {
+function XmlFromNLP ({text, onSubmit}) {
+  let input;
   return (
     <Query query={fetchXmlTagsFromNLP} variables={{text}}>
-    {({ loading, error, data }) => {
+    {({ loading, error, data, refetch, networkStatus }) => {
+      if (networkStatus === 4) return <div>"Refetching"</div>;;
       if (loading) return <div>Loading...</div>;
       if (error) {
         console.log(error)
         return <div>Error :(</div>
       }
-      console.log(text, data)
+      console.log('DATA', data.xmlFromNLP)
       return (
         <Div> 
           {data.xmlFromNLP}
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              console.log('refetch')
+              refetch()
+              onSubmit(input.value)
+            }}
+          >
+            <input
+              ref={node => {
+                input = node;
+              }}
+            />
+            <button type="submit">Get NLP Tags</button>
+          </form>
         </Div>
       )
     }}

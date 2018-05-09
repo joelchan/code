@@ -63,8 +63,6 @@ def writeXMLToDisk(qxml):
     with open(os.path.join(os.getcwd(), 'assets', 'picf_nounphrases.xml'), 'w', encoding='utf8') as f:
         f.write(qxml.html())
 
-
-
 addNLPTagsToPlainText(text)
 # %% maybe keywords -> filtered noun chunks for map starter?
 # import nlp.textacy.keyterms

@@ -16,10 +16,15 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 // Pass your GraphQL endpoint to uri
-const client = new ApolloClient({ uri: 'http://127.0.0.1:5000/graphql' });
+const client = new ApolloClient({ 
+  
+  uri: 'http://127.0.0.1:5000/graphql' });
 const theme = {
   main: { color: 'red' }
 };
+
+import { Pivot, PivotItem, PivotLinkFormat, PivotLinkSize } from 'office-ui-fabric-react/lib/Pivot';
+import { Label } from 'office-ui-fabric-react/lib/Label';
 
 class App extends React.Component {
   render() {
