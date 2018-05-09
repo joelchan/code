@@ -1,11 +1,11 @@
 from graphene import ObjectType, Schema, String
-from textProcessing.app import addNLPTagsToPlainText as addNLPTags
+from textProcessing.app import addNLPTagsToPlainText
 
 
 class Query(ObjectType):
-    hello = String(name=String(default_value="yo"))
+    xmlFromNLP = String(text=String(default_value=""))
 
-    def resolve_hello(self, info, name):
-        return addNLPTags(name)
+    def resolve_xmlFromNLP(self, info, text):
+        return ' '.join(addNLPTagsToPlainText(text))
 
 schema = Schema(query=Query)

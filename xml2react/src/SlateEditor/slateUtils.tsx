@@ -71,7 +71,6 @@ export function getCurrentWord(text: string, cursorLocInText: number) {
 }
 export const keyCommand2Index = { f: 0, d: 1, s: 2, a: 3 };
 export const Index2KeyCommanrd = _.invert(keyCommand2Index)
-console.log(Index2KeyCommanrd)
 export function keyCommandToReplaceText(currentWord, suggestions, nodeText, change) {
   const { text, start, end, spaceBefore, spaceAfter } = currentWord;
   const [word, keyCommand] = text.split(';');

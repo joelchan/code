@@ -52,6 +52,8 @@ export class SlateEditor extends React.Component<any, any> {
   };
 
   UNSAFE_componentWillMount() {
+    console.log(1234)
+
     // todo: derived state
     const sentences = getJSONFromXML();
     this.setState({ sentences });
@@ -184,6 +186,7 @@ export class SlateEditor extends React.Component<any, any> {
             );
           }}
         </PortalWithState>
+        <XmlFromNLP text='A short sentence is good'></XmlFromNLP>
       </div>
     );
   }
@@ -195,4 +198,32 @@ function extractSentenceData(sentences, readingIndex) {
   );
   const nounPhrases = _.flattenDeep(sents.map((s) => s.nounPhrases))
   return { text: sents.map((s) => s.text).join(' '), nounPhrases };
+}
+
+import { gql } from 'apollo-boost';
+import { Query } from 'react-apollo';
+
+const fetchXmlTagsFromNLP = gql`
+query getXMLFromNLP($text: String){
+  xmlFromNLP(text: $text)
+}
+`;
+function XmlFromNLP ({text}) {
+  return (
+    <Query query={fetchXmlTagsFromNLP} variables={{text}}>
+    {({ loading, error, data }) => {
+      if (loading) return <div>Loading...</div>;
+      if (error) {
+        console.log(error)
+        return <div>Error :(</div>
+      }
+      console.log(text, data)
+      return (
+        <Div> 
+          {data.xmlFromNLP}
+        </Div>
+      )
+    }}
+  </Query>
+  )
 }
