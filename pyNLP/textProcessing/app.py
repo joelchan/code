@@ -3,7 +3,7 @@ from pyquery import PyQuery as q
 import os, re
 from preprocessText import removeStatsEtc
 
-nlp = spacy.load('en_core_web_lg')
+nlp = spacy.load('en')
 
 # %%
 text = "This feature allows us to control for calendar effects."
