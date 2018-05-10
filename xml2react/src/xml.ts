@@ -40,8 +40,8 @@ const subTextArray = ($, elem ,subNode: string): string[] => {
 let getSpans = ($, node) => $(node).children('span').toArray();
 
 
-export function getJSONFromXML(): sentence[] {
-    const xml = require('@assets/picf_nounphrases.xml');
+export function getJSONFromXML(xml): sentence[] {
+    if (!xml) xml = ''; //require('@assets/picf_nounphrases.xml');
     var $ = cheerio.load(xml, {
       xmlMode: true
     });

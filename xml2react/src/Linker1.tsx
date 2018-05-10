@@ -17,7 +17,7 @@ export class Linker1 extends React.Component<any, { sentences: sentence[]; value
   };
 
   componentWillMount() {
-    this.setState({ sentences: getJSONFromXML() });
+    // this.setState({ sentences: getJSONFromXML('test') });
   }
 
   filterSentences(sentences) {}

@@ -16,15 +16,22 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 // Pass your GraphQL endpoint to uri
+const defaults = {
+  readingText: ''
+}
+
+const resolvers = {};
+const typeDefs = ``
+
 const client = new ApolloClient({ 
-  
-  uri: 'http://127.0.0.1:5000/graphql' });
+  uri: 'http://127.0.0.1:5000/graphql',
+clientState: {
+  defaults, resolvers, typeDefs
+} });
 const theme = {
   main: { color: 'red' }
 };
 
-import { Pivot, PivotItem, PivotLinkFormat, PivotLinkSize } from 'office-ui-fabric-react/lib/Pivot';
-import { Label } from 'office-ui-fabric-react/lib/Label';
 
 class App extends React.Component {
   render() {
@@ -36,8 +43,5 @@ class App extends React.Component {
     );
   }
 }
-
-// "hard" condition -> high cost scenario -> imagine needing a ~$1500 car repair -> high monetary concerns -> the poor only
-// "easy" condition -> low cost scenario  -> imagine needing a ~$150 car repair -> low monetary concerns -> poor & rich
 
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -20,7 +20,7 @@ import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { Reader1 } from '../Reader1';
 const initialValue = Plain.deserialize(''); // slate needs a fairly complex data structure of nested nodes
 import { getTextFromXML, getJSONFromXML } from '../xml';
-import {Highlight} from '../Reader1'
+import { Highlight } from '../Reader1';
 const boldPlugin = MarkHotkey({
   type: 'bold',
   key: 'b'
@@ -29,10 +29,23 @@ const boldPlugin = MarkHotkey({
 const wrapInline = WrapInlineHotKey({ key: '`', type: 'meta' });
 const plugins = [boldPlugin, wrapInline];
 
+const getReadingText = gql`
+  {
+    readingText @client
+  }
+`;
+
 // selection, document, history all create a change object
 // marks vs inline: marks attach to chars and don't change the structure
 // The anchor is where a range starts, and the focus is where it ends.
-export class SlateEditor extends React.Component<any, any> {
+interface EditorProps {
+  readingText: string;
+  suggestionsToSearch: any[];
+}
+// todo: regex things ()[] in autocomplete cause errors
+class _SlateEditor extends React.Component<EditorProps, any> {
+  editorRef;
+  // todo: clear out unused state, add interface
   state = {
     value: initialValue,
     caretRect: null,
@@ -47,20 +60,17 @@ export class SlateEditor extends React.Component<any, any> {
     pastedText: 'We discuss some implications for poverty policy.'
   };
 
-  editorRef;
   setEditorRef = (element) => {
     this.editorRef = element;
   };
 
-  UNSAFE_componentWillMount() {
-    console.log(1234)
-
-    // todo: derived state
-    const sentences = getJSONFromXML();
+  updateSentences = (xml: string) => {
+    const sentences = getJSONFromXML(xml);
     this.setState({ sentences });
     const text2show = extractSentenceData(sentences, this.state.readingLocation);
     this.setState({ suggestionsToSearch: text2show.nounPhrases });
-  }
+    console.log('update', text2show);
+  };
 
   onChange = (change) => {
     let { value } = change; //this value won't update, but change.value will
@@ -74,8 +84,7 @@ export class SlateEditor extends React.Component<any, any> {
     if (!hasSemicolon && isLongEnough) {
       //if semicolon then dont update
       var options = { pre: '<b>', post: '</b>' };
-      console.log(this.state.suggestionsToSearch);
-      var results = fuzzy.filter(text, this.state.suggestionsToSearch, options);
+      var results = fuzzy.filter(text, this.props.suggestionsToSearch, options);
       const toShow = results.map((el) => ({ html: el.string, text: el.original }));
       this.setState({ suggestionsToShow: toShow });
     }
@@ -101,10 +110,11 @@ export class SlateEditor extends React.Component<any, any> {
     this.setState({ value: change.value, caretRect, currentWord: text });
   };
 
-  onSubmitText = (value) => {
-    console.log('E', value)
-    this.setState({pastedText: value})
-  }
+  onSubmitText = (value: string, xml: string) => {
+    console.log('xml update', value, xml);
+    this.setState({ pastedText: value });
+    this.updateSentences(xml);
+  };
 
   // Render the editor.
   render() {
@@ -114,24 +124,27 @@ export class SlateEditor extends React.Component<any, any> {
     const text2show = extractSentenceData(sentences, readingLocation);
     const { caretRect, currentWord, suggestionsToShow } = this.state;
     const magicalOffset = 16;
-
+    const loaded = this.props.readingText !== '' && this.props.suggestionsToSearch.length > 0;
     return (
       <div ref={this.setEditorRef} style={{ margin: '6px' }}>
-        <Highlight text={text2show.text} toMatch={wordPattern} />
-        <Editor
-          spellCheck={false}
-          plugins={plugins}
-          value={this.state.value}
-          onChange={this.onChange}
-          renderNode={renderNode}
-          renderMark={renderMark}
-          style={{
-            borderRadius: '20px',
-            outline: '1px solid grey',
-            padding: '2px',
-            marginTop: '10px'
-          }}
-        />
+      {!loaded && <Div>Enter text bellow to test out autocomplete on your text.</Div>}
+        <Highlight text={this.props.readingText} toMatch={wordPattern} />
+          <Editor
+            spellCheck={false}
+            plugins={plugins}
+            value={this.state.value}
+            onChange={this.onChange}
+            renderNode={renderNode}
+            renderMark={renderMark}
+            style={{
+              borderRadius: '20px',
+              outline: '1px solid grey',
+              padding: '2px',
+              marginTop: '10px'
+            }}
+          />
+        
+
         <PortalWithState closeOnEsc defaultOpen>
           {({ openPortal, closePortal, isOpen, portal }) => {
             return (
@@ -140,7 +153,7 @@ export class SlateEditor extends React.Component<any, any> {
                   style={{ margin: '5px' }}
                   primary={true}
                   data-automation-id="test"
-                  text={isOpen ? 'Close Auto' : 'Open Auto'}
+                  text={isOpen ? 'Hide AutoComplete' : 'Show AutoComplete'}
                   onClick={isOpen ? closePortal : openPortal}
                 />
                 {caretRect &&
@@ -192,64 +205,102 @@ export class SlateEditor extends React.Component<any, any> {
             );
           }}
         </PortalWithState>
-        <br/>
-        <XmlFromNLP text={this.state.pastedText}
-                    onSubmit={this.onSubmitText}
-        ></XmlFromNLP>
+        
+
+        {loaded && (
+          <Div fontSize='12px'>
+            Text parsed by server. Input with nounphrase autocomplete enabled. Try typing things in
+            the text area and type ;fdsa to autocomplete. Esc hides the autocomplete popup.
+          </Div>
+        )}
+        {!loaded && <ReadingTextForm /> }
       </div>
     );
   }
+}
+
+const fetchXmlTagsFromNLP = gql`
+  query getXMLFromNLP($text: String) {
+    xmlFromNLP(text: $text)
+  }
+`;
+
+// todo: is there a way to not do nest queries for local -> remote queries?
+export function SlateEditor() {
+  return (
+    <Query query={getReadingText}>
+      {(q1) => {
+        return (
+          <Query query={fetchXmlTagsFromNLP} variables={{ text: q1.data.readingText }}>
+            {({ data }) => {
+              const sentences = getJSONFromXML(data.xmlFromNLP);
+              // todo: readingIndex is for moving through multiple paragraphs/sentences
+              const text2show = extractSentenceData(sentences, { paragraphNumber: 0 });
+              return (
+                <_SlateEditor
+                  readingText={text2show.text}
+                  suggestionsToSearch={text2show.nounPhrases}
+                />
+              );
+            }}
+          </Query>
+        );
+      }}
+    </Query>
+  );
 }
 
 function extractSentenceData(sentences, readingIndex) {
   const sents: sentence[] = sentences.filter(
     (s) => s.paragraphNumber === readingIndex.paragraphNumber
   );
-  const nounPhrases = _.flattenDeep(sents.map((s) => s.nounPhrases))
+  const nounPhrases = _.flattenDeep(sents.map((s) => s.nounPhrases));
   return { text: sents.map((s) => s.text).join(' '), nounPhrases };
 }
 
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 
-const fetchXmlTagsFromNLP = gql`
-query getXMLFromNLP($text: String){
-  xmlFromNLP(text: $text)
-}
-`;
-function XmlFromNLP ({text, onSubmit}) {
+function ReadingTextForm() {
   let input;
   return (
-    <Query query={fetchXmlTagsFromNLP} variables={{text}}>
-    {({ loading, error, data, refetch, networkStatus }) => {
-      if (networkStatus === 4) return <div>"Refetching"</div>;;
-      if (loading) return <div>Loading...</div>;
-      if (error) {
-        console.log(error)
-        return <div>Error :(</div>
-      }
-      console.log('DATA', data.xmlFromNLP)
-      return (
-        <Div> 
-          {data.xmlFromNLP}
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              console.log('refetch')
-              refetch()
-              onSubmit(input.value)
-            }}
+    <Query query={getReadingText}>
+      {({ loading, error, data, refetch, networkStatus, client }) => {
+        return (
+          <Div
+            position='absolute'
+            bottom={0}
+            width='90%'
+            marginBottom='20px'
           >
-            <input
-              ref={node => {
-                input = node;
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                client.writeData({
+                  data: {
+                    readingText: input.value
+                  }
+                });
+                input.value = '';
               }}
-            />
-            <button type="submit">Get NLP Tags</button>
-          </form>
-        </Div>
-      )
-    }}
-  </Query>
-  )
+            >
+              <Div>Enter plain text here to be processed by server. It will then
+                be added to the above autocomplete component. </Div>
+              <textarea
+                style={{ width: '100%', height: '100px' }}
+                defaultValue={''}
+                ref={(node) => {
+                  input = node;
+                }}
+              />
+              <br />
+              <DefaultButton type="submit">
+                Send To Server & Fetch Noun Phrases
+              </DefaultButton>
+            </form>
+          </Div>
+        );
+      }}
+    </Query>
+  );
 }
