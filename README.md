@@ -5,6 +5,7 @@ git clone git@github.com:matt-erhart/code.git
 #need powershell not gitbash for windows
 cd code/pyNLP
 #this puts the built docker image in 'docker land' which you can only access with docker commands.
+# increase docker memory to 8gb
 docker build -t pynlp:latest . # run again if you change anything (for now)
 #takes a while the first time
 docker images # see your built images in dockers memory/storage: includes pynlp
