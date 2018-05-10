@@ -4,8 +4,8 @@ import * as glamorous from 'glamorous';
 import { ThemeProvider, Div, Img, Span } from 'glamorous';
 import * as reactStringReplace from 'react-string-replace';
 import * as d3 from 'd3';
-import {getTextFromXML} from './xml';
-var {pText, imgsCaptions} = getTextFromXML();
+import { getTextFromXML } from './xml';
+var { pText, imgsCaptions } = getTextFromXML();
 
 var colorScale = d3.scaleOrdinal(d3.schemePastel1) as any;
 const theme = {
@@ -34,18 +34,27 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
     }
   };
 
-  componentWillReceiveProps( nextProps ) {
-    const { keydown: { event } } = nextProps;
-    if ( event ) {
+  componentWillReceiveProps(nextProps) {
+    const {
+      keydown: { event }
+    } = nextProps;
+    if (event) {
       //todo: arrow to next paragraph
       switch (event.key) {
-        case 'f': this.setState({sentenceIx: this.state.sentenceIx+1}); break;
-        case 'ArrowLeft': this.setState({sentenceIx: this.state.sentenceIx-1}); break;
-        case 'ArrowRight': this.setState({sentenceIx: this.state.sentenceIx+1}); break;
-        default: break;
+        case 'f':
+          this.setState({ sentenceIx: this.state.sentenceIx + 1 });
+          break;
+        case 'ArrowLeft':
+          this.setState({ sentenceIx: this.state.sentenceIx - 1 });
+          break;
+        case 'ArrowRight':
+          this.setState({ sentenceIx: this.state.sentenceIx + 1 });
+          break;
+        default:
+          break;
       }
 
-      this.setState( { key: event.key } );
+      this.setState({ key: event.key });
     }
   }
 
@@ -57,15 +66,23 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
       const isParagraphSelected = this.state.paragraphIx === pi;
       return (
         <Div key={pi} onMouseUp={(e) => this.updateStateFromSelectedText()}>
-          <Div outline="1px solid black" background="lightgrey" textAlign="center">
+          <Div
+            outline="1px solid black"
+            background="lightgrey"
+            textAlign="center"
+          >
             {pi + 1}
           </Div>
           {p.map((sentence, sentencei) => {
             const doesSentenceIxMatch = this.state.sentenceIx === sentencei;
-            const isSentenceSelected = doesSentenceIxMatch && isParagraphSelected;
-            
+            const isSentenceSelected =
+              doesSentenceIxMatch && isParagraphSelected;
+
             return (
-              <Span key={sentencei} background={isSentenceSelected ? '#C7E9C0':'none'}>
+              <Span
+                key={sentencei}
+                background={isSentenceSelected ? '#C7E9C0' : 'none'}
+              >
                 <Highlight text={sentence} toMatch={wordPattern} />
               </Span>
             );
@@ -79,23 +96,33 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
       const isParagraphSelected = this.state.paragraphIx === pi;
       return (
         <Div key={pi} onMouseUp={(e) => this.updateStateFromSelectedText()}>
-          <Div outline="1px solid black" background="lightgrey" textAlign="center">
+          <Div
+            outline="1px solid black"
+            background="lightgrey"
+            textAlign="center"
+          >
             {pi + 1}
           </Div>
           {p.map((sentence, sentencei) => {
-            let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');
+            let wordPattern = new RegExp(
+              `(${this.state.highlightedPhrase})`,
+              'gim'
+            );
             const doesSentenceIxMatch = this.state.sentenceIx === sentencei;
-            const isSentenceSelected = doesSentenceIxMatch && isParagraphSelected;
+            const isSentenceSelected =
+              doesSentenceIxMatch && isParagraphSelected;
             if ((wordPattern as any).test(sentence)) {
               return (
-                <Span key={sentencei} background={isSentenceSelected ? '#C7E9C0':'none'}>
+                <Span
+                  key={sentencei}
+                  background={isSentenceSelected ? '#C7E9C0' : 'none'}
+                >
                   <Highlight text={sentence} toMatch={wordPattern} />
                 </Span>
               );
             } else {
-              return null
+              return null;
             }
-            
           })}
         </Div>
       );
@@ -111,7 +138,10 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
             {divsWithMatch}
           </Div>
         </Div>
-        <Div display="flex" onMouseUp={(e) => this.updateStateFromSelectedText()}>
+        <Div
+          display="flex"
+          onMouseUp={(e) => this.updateStateFromSelectedText()}
+        >
           {imgsWithMatch(wordPattern)}
         </Div>
       </Div>
@@ -121,8 +151,8 @@ export class Reader1 extends React.Component<{ text: string[][] }, any> {
 
 function imgsWithMatch(wordPattern) {
   return imgsCaptions.map((imgCap, i) => {
-    const imgName =imgCap.href.replace(/\\\"/g,"")
-    console.log(imgName)
+    const imgName = imgCap.href.replace(/\\\"/g, '');
+    console.log(imgName);
     return (
       <Div>
         <Img maxWidth={'45vw'} src={require('@assets/' + imgName)} />
@@ -153,7 +183,12 @@ export function Highlight(props: { text: string; toMatch: string | RegExp }) {
 function matchSentencesRegex() {
   // delete?
   let wordPattern = new RegExp(`(${this.state.highlightedPhrase})`, 'gim');
-  const phraseInSentence = `[A-Z][^\\.;\\?\\!]*(?:${this.state.highlightedPhrase})+[^\\.;\\?\\!]*`;
+  const phraseInSentence = `[A-Z][^\\.;\\?\\!]*(?:${
+    this.state.highlightedPhrase
+  })+[^\\.;\\?\\!]*`;
   const phraseStartsSentence = `${this.state.highlightedPhrase}*[^\\.;\\?\\!]*`;
-  let sentencePattern = new RegExp(`(${phraseInSentence}|${phraseStartsSentence})`, 'gim');
+  let sentencePattern = new RegExp(
+    `(${phraseInSentence}|${phraseStartsSentence})`,
+    'gim'
+  );
 }

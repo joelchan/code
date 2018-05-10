@@ -67,7 +67,10 @@ class _SlateEditor extends React.Component<EditorProps, any> {
   updateSentences = (xml: string) => {
     const sentences = getJSONFromXML(xml);
     this.setState({ sentences });
-    const text2show = extractSentenceData(sentences, this.state.readingLocation);
+    const text2show = extractSentenceData(
+      sentences,
+      this.state.readingLocation
+    );
     this.setState({ suggestionsToSearch: text2show.nounPhrases });
     console.log('update', text2show);
   };
@@ -76,7 +79,10 @@ class _SlateEditor extends React.Component<EditorProps, any> {
     let { value } = change; //this value won't update, but change.value will
     // editor has changed (including cursor/selection)
     const caretRect = getCaretRect();
-    const currentWord = slateUtils.getCurrentWord(value.anchorText.text, value.anchorOffset);
+    const currentWord = slateUtils.getCurrentWord(
+      value.anchorText.text,
+      value.anchorOffset
+    );
     const { text, start, end, spaceBefore, spaceAfter } = currentWord;
     const hasSemicolon = text.includes(';');
     const isLongEnough = text.length > 0;
@@ -85,7 +91,10 @@ class _SlateEditor extends React.Component<EditorProps, any> {
       //if semicolon then dont update
       var options = { pre: '<b>', post: '</b>' };
       var results = fuzzy.filter(text, this.props.suggestionsToSearch, options);
-      const toShow = results.map((el) => ({ html: el.string, text: el.original }));
+      const toShow = results.map((el) => ({
+        html: el.string,
+        text: el.original
+      }));
       this.setState({ suggestionsToShow: toShow });
     }
 
@@ -119,31 +128,37 @@ class _SlateEditor extends React.Component<EditorProps, any> {
   // Render the editor.
   render() {
     //todo: actual entity nodes in editor and reader
-    let wordPattern = new RegExp(`(${this.state.addedPhrases.join('|')})`, 'gim');
+    let wordPattern = new RegExp(
+      `(${this.state.addedPhrases.join('|')})`,
+      'gim'
+    );
     const { sentences, readingLocation, addedPhrases } = this.state;
     const text2show = extractSentenceData(sentences, readingLocation);
     const { caretRect, currentWord, suggestionsToShow } = this.state;
     const magicalOffset = 16;
-    const loaded = this.props.readingText !== '' && this.props.suggestionsToSearch.length > 0;
+    const loaded =
+      this.props.readingText !== '' &&
+      this.props.suggestionsToSearch.length > 0;
     return (
       <div ref={this.setEditorRef} style={{ margin: '6px' }}>
-      {!loaded && <Div>Enter text bellow to test out autocomplete on your text.</Div>}
+        {!loaded && (
+          <Div>Enter text bellow to test out autocomplete on your text.</Div>
+        )}
         <Highlight text={this.props.readingText} toMatch={wordPattern} />
-          <Editor
-            spellCheck={false}
-            plugins={plugins}
-            value={this.state.value}
-            onChange={this.onChange}
-            renderNode={renderNode}
-            renderMark={renderMark}
-            style={{
-              borderRadius: '20px',
-              outline: '1px solid grey',
-              padding: '2px',
-              marginTop: '10px'
-            }}
-          />
-        
+        <Editor
+          spellCheck={false}
+          plugins={plugins}
+          value={this.state.value}
+          onChange={this.onChange}
+          renderNode={renderNode}
+          renderMark={renderMark}
+          style={{
+            borderRadius: '20px',
+            outline: '1px solid grey',
+            padding: '2px',
+            marginTop: '10px'
+          }}
+        />
 
         <PortalWithState closeOnEsc defaultOpen>
           {({ openPortal, closePortal, isOpen, portal }) => {
@@ -169,7 +184,13 @@ class _SlateEditor extends React.Component<EditorProps, any> {
                       padding="2px"
                       margin="0px"
                     >
-                      <ul style={{ listStyleType: 'none', padding: '4px', margin: '0' }}>
+                      <ul
+                        style={{
+                          listStyleType: 'none',
+                          padding: '4px',
+                          margin: '0'
+                        }}
+                      >
                         {suggestionsToShow.slice(0, 4).map((sug, i) => {
                           return (
                             <li
@@ -205,15 +226,15 @@ class _SlateEditor extends React.Component<EditorProps, any> {
             );
           }}
         </PortalWithState>
-        
 
         {loaded && (
-          <Div fontSize='12px'>
-            Text parsed by server. Input with nounphrase autocomplete enabled. Try typing things in
-            the text area and type ;fdsa to autocomplete. Esc hides the autocomplete popup.
+          <Div fontSize="12px">
+            Text parsed by server. Input with nounphrase autocomplete enabled.
+            Try typing things in the text area and type ;fdsa to autocomplete.
+            Esc hides the autocomplete popup.
           </Div>
         )}
-        {!loaded && <ReadingTextForm /> }
+        {!loaded && <ReadingTextForm />}
       </div>
     );
   }
@@ -231,11 +252,16 @@ export function SlateEditor() {
     <Query query={getReadingText}>
       {(q1) => {
         return (
-          <Query query={fetchXmlTagsFromNLP} variables={{ text: q1.data.readingText }}>
+          <Query
+            query={fetchXmlTagsFromNLP}
+            variables={{ text: q1.data.readingText }}
+          >
             {({ data }) => {
               const sentences = getJSONFromXML(data.xmlFromNLP);
               // todo: readingIndex is for moving through multiple paragraphs/sentences
-              const text2show = extractSentenceData(sentences, { paragraphNumber: 0 });
+              const text2show = extractSentenceData(sentences, {
+                paragraphNumber: 0
+              });
               return (
                 <_SlateEditor
                   readingText={text2show.text}
@@ -267,12 +293,7 @@ function ReadingTextForm() {
     <Query query={getReadingText}>
       {({ loading, error, data, refetch, networkStatus, client }) => {
         return (
-          <Div
-            position='absolute'
-            bottom={0}
-            width='90%'
-            marginBottom='20px'
-          >
+          <Div position="absolute" bottom={0} width="90%" marginBottom="20px">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -284,8 +305,10 @@ function ReadingTextForm() {
                 input.value = '';
               }}
             >
-              <Div>Enter plain text here to be processed by server. It will then
-                be added to the above autocomplete component. </Div>
+              <Div>
+                Enter plain text here to be processed by server. It will then be
+                added to the above autocomplete component.{' '}
+              </Div>
               <textarea
                 style={{ width: '100%', height: '100px' }}
                 defaultValue={''}

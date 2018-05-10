@@ -10,7 +10,10 @@ import * as utils from 'utils';
 import { Button } from 'antd';
 import 'antd/lib/button/style/index.css';
 
-export class Linker1 extends React.Component<any, { sentences: sentence[]; value: any }> {
+export class Linker1 extends React.Component<
+  any,
+  { sentences: sentence[]; value: any }
+> {
   state = {
     sentences: [{ text: '', id: '', nounPhrases: [], paragraphNumber: 0 }],
     value: ''
@@ -27,20 +30,36 @@ export class Linker1 extends React.Component<any, { sentences: sentence[]; value
   };
   // Item = ({ entity: { name, char } }) => <div>{`${name}: ${char}`}</div>
   render() {
-    const sentences = this.state.sentences.filter((s) => s.paragraphNumber === 6);
-    const connectors = ['has', 'is', 'contains', 'happen in', 'is defined by'].map(x=>({value: x, label: x}))
+    const sentences = this.state.sentences.filter(
+      (s) => s.paragraphNumber === 6
+    );
+    const connectors = [
+      'has',
+      'is',
+      'contains',
+      'happen in',
+      'is defined by'
+    ].map((x) => ({ value: x, label: x }));
     return (
-      <Div display='flex' flexDirection='column' justifyContent='space-around'>
+      <Div display="flex" flexDirection="column" justifyContent="space-around">
         {sentences.map((sentence, i) => {
-          const nounPhrases = sentence.nounPhrases.map(x=>({value: x, label: x}))
-          console.log(nounPhrases)
+          const nounPhrases = sentence.nounPhrases.map((x) => ({
+            value: x,
+            label: x
+          }));
+          console.log(nounPhrases);
           return (
             <Div key={sentence.id}>
               {sentence.text}
-              <Div display='flex' width="100%" marginBottom='50px' marginTop='10px'>
-                 <CreatableMulti options={nounPhrases}></CreatableMulti>
-                 <CreatableMulti options={connectors}></CreatableMulti>
-                 <CreatableMulti options={nounPhrases}></CreatableMulti>
+              <Div
+                display="flex"
+                width="100%"
+                marginBottom="50px"
+                marginTop="10px"
+              >
+                <CreatableMulti options={nounPhrases} />
+                <CreatableMulti options={connectors} />
+                <CreatableMulti options={nounPhrases} />
               </Div>
             </Div>
           );
@@ -63,9 +82,8 @@ export class CreatableMulti extends React.Component<any, any> {
     input: (base, state) => ({
       ...base,
       width: '30vw'
-    }),
-
-  }
+    })
+  };
   render() {
     return (
       <CreatableSelect
@@ -78,11 +96,9 @@ export class CreatableMulti extends React.Component<any, any> {
   }
 }
 
-
 import Autosuggest from 'react-autosuggest';
 
 // Imagine you have a list of languages that you'd like to autosuggest.
-
 
 class AutoComplete extends React.Component<any, any> {
   state = {
@@ -99,28 +115,26 @@ class AutoComplete extends React.Component<any, any> {
       year: 2012
     }
   ];
-  
+
   // Teach Autosuggest how to calculate suggestions for any given input value.
   getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
-  
-    return inputLength === 0 ? [] : this.props.suggestions.filter(lang =>
-      lang.name.toLowerCase().slice(0, inputLength) === inputValue
-    );
+
+    return inputLength === 0
+      ? []
+      : this.props.suggestions.filter(
+          (lang) => lang.name.toLowerCase().slice(0, inputLength) === inputValue
+        );
   };
-  
+
   // When suggestion is clicked, Autosuggest needs to populate the input
   // based on the clicked suggestion. Teach Autosuggest how to calculate the
   // input value for every given suggestion.
-  getSuggestionValue = suggestion => suggestion.name;
-  
+  getSuggestionValue = (suggestion) => suggestion.name;
+
   // Use your imagination to render suggestions.
-  renderSuggestion = suggestion => (
-    <div>
-      {suggestion.name}
-    </div>
-  );
+  renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
 
   onChange = (event, { newValue }) => {
     this.setState({

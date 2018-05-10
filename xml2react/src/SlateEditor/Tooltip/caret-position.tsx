@@ -1,12 +1,12 @@
 // Acquire from http://jsfiddle.net/gliheng/vbucs/12/
 // see https://codepen.io/pc035860/pen/FeIEj?editors=0010
 
-export function getCaretRect() { 
+export function getCaretRect() {
   // had to hardcode a 16px offset for top that works with any margin/padding
   const selection = document.getSelection();
   if (selection.rangeCount === 0) return null;
   const range = selection.getRangeAt(0).cloneRange();
-  return range.getBoundingClientRect( );
+  return range.getBoundingClientRect();
 }
 
 // delete this

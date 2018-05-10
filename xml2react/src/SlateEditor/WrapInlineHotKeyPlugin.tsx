@@ -1,6 +1,6 @@
-import { extendToWord } from "./slateUtils";
+import { extendToWord } from './slateUtils';
 
-export function WrapInlineHotKey(options: {type: 'meta', key: string}) {
+export function WrapInlineHotKey(options: { type: 'meta'; key: string }) {
   const { type, key } = options;
 
   // Return our "plugin" object, containing the `onKeyDown` handler.

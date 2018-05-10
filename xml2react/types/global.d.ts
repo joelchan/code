@@ -7,12 +7,17 @@ declare module '*.css' {
 }
 
 // Omit type https://github.com/Microsoft/TypeScript/issues/12215
-type Diff<T extends string, U extends string> = ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
+type Diff<T extends string, U extends string> = ({ [P in T]: P } &
+  { [P in U]: never } & { [x: string]: never })[T];
 type Omit<T, K extends keyof T> = { [P in Diff<keyof T, K>]: T[P] };
 
 type PartialPick<T, K extends keyof T> = Partial<T> & Pick<T, K>;
-type sentence = {id: string, text: string, nounPhrases: string[], paragraphNumber: number}
-
+type sentence = {
+  id: string;
+  text: string;
+  nounPhrases: string[];
+  paragraphNumber: number;
+};
 
 // slatejs editor types
 interface SlateSelection {

@@ -18,20 +18,22 @@ import { ApolloProvider } from 'react-apollo';
 // Pass your GraphQL endpoint to uri
 const defaults = {
   readingText: ''
-}
+};
 
 const resolvers = {};
-const typeDefs = ``
+const typeDefs = ``;
 
-const client = new ApolloClient({ 
+const client = new ApolloClient({
   uri: 'http://127.0.0.1:5000/graphql',
-clientState: {
-  defaults, resolvers, typeDefs
-} });
+  clientState: {
+    defaults,
+    resolvers,
+    typeDefs
+  }
+});
 const theme = {
   main: { color: 'red' }
 };
-
 
 class App extends React.Component {
   render() {

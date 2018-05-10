@@ -57,9 +57,12 @@ export function getCurrentWord(text: string, cursorLocInText: number) {
   const spaceIndexes: number[] = getSpaceIndexes(text);
   const isIndexSpace = spaceIndexes.includes(cursorLocInText - 1);
   const ix: number = isIndexSpace ? cursorLocInText : cursorLocInText - 1;
-  const spaceToTheLeft: number = spaceIndexes[lowerNumber(ix, spaceIndexes)] | 0;
-  const _spaceToTheRight: number = spaceIndexes[greaterNumber(ix, spaceIndexes)];
-  const spaceToTheRight = _spaceToTheRight !== undefined ? _spaceToTheRight : text.length;
+  const spaceToTheLeft: number =
+    spaceIndexes[lowerNumber(ix, spaceIndexes)] | 0;
+  const _spaceToTheRight: number =
+    spaceIndexes[greaterNumber(ix, spaceIndexes)];
+  const spaceToTheRight =
+    _spaceToTheRight !== undefined ? _spaceToTheRight : text.length;
 
   return {
     start: spaceToTheLeft,
@@ -70,8 +73,13 @@ export function getCurrentWord(text: string, cursorLocInText: number) {
   };
 }
 export const keyCommand2Index = { f: 0, d: 1, s: 2, a: 3 };
-export const Index2KeyCommanrd = _.invert(keyCommand2Index)
-export function keyCommandToReplaceText(currentWord, suggestions, nodeText, change) {
+export const Index2KeyCommanrd = _.invert(keyCommand2Index);
+export function keyCommandToReplaceText(
+  currentWord,
+  suggestions,
+  nodeText,
+  change
+) {
   const { text, start, end, spaceBefore, spaceAfter } = currentWord;
   const [word, keyCommand] = text.split(';');
   const suggestionIx = _.get(keyCommand2Index, keyCommand, null);
@@ -79,16 +87,16 @@ export function keyCommandToReplaceText(currentWord, suggestions, nodeText, chan
   //todo: caps after .space with regex
   const reDotSpace = /\.\s+/;
   let isSentenceStart = false;
-  
+
   if (suggestionIx !== null) {
     const sug = suggestions[suggestionIx];
-    const textToInsert = (isWordCap || start === 0 || isSentenceStart)
-      ? sug.charAt(0).toUpperCase() + sug.slice(1)
-      : sug;
+    const textToInsert =
+      isWordCap || start === 0 || isSentenceStart
+        ? sug.charAt(0).toUpperCase() + sug.slice(1)
+        : sug;
     change.moveOffsetsTo(start, end);
     change.insertText(spaceBefore + textToInsert);
-    return sug
+    return sug;
   }
-  return null
-  
+  return null;
 }
