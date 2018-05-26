@@ -2,11 +2,13 @@
 science-parse
 learningNLP/model/*
 *.bin
-
+*.gz*
+corpus-2018-05-03
 # javascript
 node_modules
-
-
+*.lock
+*.stackdump
+worker-*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

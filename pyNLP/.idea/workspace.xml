@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fdfdafb-f8b6-495a-b30c-c3f244a3460e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daskLearning.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snippets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/textProcessing/readS2Corpus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textProcessing/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/textProcessing/app.py" afterDir="false" />
     </list>
     <ignored mask="*.zip" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,56 +21,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textProcessing/app.py">
+      <file leaf-file-name="readS2Corpus.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/textProcessing/readS2Corpus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="420">
+              <caret line="14" column="82" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/app.py">
+      <file leaf-file-name="journal_counts.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/txt/journal_counts.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-240">
+              <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/dockertest/app.py">
+      <file leaf-file-name="daskLearning.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/daskLearning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/schema.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -97,6 +74,11 @@
       <find>sec-1</find>
       <find>Cognitive Control Cognitive Control</find>
       <find>textacy</find>
+      <find>cognitive</find>
+      <find>psych</find>
+      <find>psychol</find>
+      <find>acm</find>
+      <find>sigchi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,6 +104,11 @@
         <option value="$PROJECT_DIR$/textProcessing/app.py" />
         <option value="$USER_HOME$/Desktop/dockertest/app.py" />
         <option value="$PROJECT_DIR$/server/app.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/snippets.py" />
+        <option value="$PROJECT_DIR$/textProcessing/test_semanticScholarCorpus.py" />
+        <option value="$PROJECT_DIR$/daskLearning.py" />
+        <option value="$PROJECT_DIR$/textProcessing/readS2Corpus.py" />
       </list>
     </option>
   </component>
@@ -144,6 +131,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,11 +139,28 @@
               <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
+              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
+              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
+              <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
+              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
+              <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
+              <item name="txt" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -191,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.readS2Corpus">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="pyNLP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -249,14 +254,57 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="readS2Corpus" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyNLP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/textProcessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/textProcessing/readS2Corpus.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="test_semanticScholarCorpus" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyNLP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/textProcessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/textProcessing/test_semanticScholarCorpus.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
       <item itemvalue="Python.preprocessText" />
       <item itemvalue="Python.app" />
+      <item itemvalue="Python.test_semanticScholarCorpus" />
+      <item itemvalue="Python.readS2Corpus" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.readS2Corpus" />
+        <item itemvalue="Python.readS2Corpus" />
+        <item itemvalue="Python.readS2Corpus" />
+        <item itemvalue="Python.test_semanticScholarCorpus" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.preprocessText" />
       </list>
     </recent_temporary>
   </component>
@@ -301,15 +349,16 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
-      <window_info anchor="right" x="0" y="0" width="462" height="1927" id="Documentation" order="6" sideWeight="0.5076177" side_tool="true" visible="true" weight="0.24205285" />
+      <window_info anchor="right" x="0" y="0" width="624" height="1927" id="Documentation" order="6" sideWeight="0.51131225" side_tool="true" visible="true" weight="0.3224818" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49880895" weight="0.32971576" />
-      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.9124532" weight="0.28527132" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32971576" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.25374678" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.49238226" visible="true" weight="0.24205285" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.9124532" weight="0.3736434" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35710594" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31472868" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.48868778" visible="true" weight="0.3224818" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32971576" />
       <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.31099546" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -322,7 +371,6 @@
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49953184" weight="0.32971576" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,52 +385,16 @@
     <MESSAGE value="save sentences from spacy as spans in xml to file" />
     <option name="LAST_COMMIT_MESSAGE" value="save sentences from spacy as spans in xml to file" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/textacyTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/preprocessText.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -390,9 +402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -428,9 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -441,13 +447,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py" />
     <entry file="file://$PROJECT_DIR$/../xml2react/src/main.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -466,9 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -486,13 +483,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py" />
     <entry file="file://$PROJECT_DIR$/../xml2react/src/main.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -511,9 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -531,13 +519,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py" />
     <entry file="file://$PROJECT_DIR$/../xml2react/src/main.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -563,19 +545,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
           <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py" />
     <entry file="file://$PROJECT_DIR$/../xml2react/src/main.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -594,9 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -607,13 +577,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../spacyTest/start.py" />
     <entry file="file://$PROJECT_DIR$/assets/picf_sentences.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2100">
@@ -651,61 +615,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/preprocessText.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py" />
-    <entry file="file://$PROJECT_DIR$/server/schema.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/dockertest/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/dockertest/Dockerfile" />
+    <entry file="file://$USER_HOME$/Desktop/dockertest/app.py" />
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/dockertest/app.py">
+    <entry file="file://$PROJECT_DIR$/server/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="270">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/preprocessText.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        <state relative-caret-position="60">
+          <caret line="2" column="6" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snippets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="18" column="90" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/test_semanticScholarCorpus.py" />
+    <entry file="file://$PROJECT_DIR$/daskLearning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/txt/journal_counts.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240">
+          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/readS2Corpus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="82" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
