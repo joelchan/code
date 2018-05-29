@@ -6,7 +6,6 @@ import dask.bag as bag
 from dask.distributed import Client
 
 from dask.distributed import Client, progress
-client
 
 #%%
 import dask.array as da
