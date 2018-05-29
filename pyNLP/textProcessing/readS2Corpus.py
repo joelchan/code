@@ -4,6 +4,8 @@ import json
 import dask.bag as bag
 from dask.diagnostics import ProgressBar
 from dask.distributed import Client
+# from ipyparallel import Client
+
 ProgressBar().register()
 import time
 from operator import itemgetter
@@ -12,30 +14,39 @@ global __file__ #relative paths that work in ipython dev or some other relative 
 __file__ = globals().get('x', 'E:\\code\\pyNLP\\textProcessing')
 thisFilesPath = Path(os.path.dirname(os.path.realpath(__file__)))
 fileDir = os.path.dirname(os.path.realpath(__file__))
-corpusPath = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03\\txt\\s2-corpus-*.txt'
+corpusPath = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03\\txt\\s2-corpus-00.txt'
 corpusDirPath = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03\\txt'
 samplePath = Path('E:\\code\\pyNLP\\textProcessing\\sample-S2-records.gz')
+outDir = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03\\filtered'
 # with gzip.open(corpusPath, 'r') as f:
 #     corpusString = f.read().decode('utf-8')
 # print(time.process_time())
 # # papers = [json.loads(p) for p in corpusString.strip().split('\n')]
-def loadCorpus():
-    b = bag.read_text(str( corpusPath ), encoding='utf-8', linedelimiter='\n').str.strip().map(json.loads)
-    x = b.pluck('journalName').frequencies()
-    out = sorted(x.compute(), key=itemgetter(1), reverse=True)
+def corpusFilesToDaskBag(pathOrGlobWithFiles):
+    return bag.read_text(str( pathOrGlobWithFiles ), encoding='utf-8', linedelimiter='\n')\
+                .str.strip().map(json.loads)
+
+def saveCsv(listOfTuples):
     with open(corpusDirPath + '/journal_counts.csv', 'w', newline='',encoding='utf-8') as o:
         csv_out = csv.writer(o)
         csv_out.writerow(['name', 'freq'])
-        for row in out:
+        for row in listOfTuples:
             csv_out.writerow(row)
-    print(out)
+    print(listOfTuples)
+
+# if __name__ == '__main__':
+client = Client(processes=False, threads_per_worker=4, n_workers=1, memory_limit='3GB')
+#%%time
+
+from corpusFilters import filterByJournal
+
+bag1 = corpusFilesToDaskBag(corpusPath);
+bag2 = bag1.filter(filterByJournal)
+bag2.to_textfiles(outDir, name_function=None, compression='infer',
+             encoding='utf-8', compute=True, get=None, storage_options=None)
+# print(len(filteredArticles))
 
 
-if __name__ == '__main__':
-    client = Client(processes=False, threads_per_worker=4, n_workers=1, memory_limit='3GB')
-    start = time.process_time()
-    loadCorpus()
-    print(time.process_time())
 
 #%%
 
