@@ -1,15 +1,15 @@
 import csv, json
-import os.path.join as join
+from os import path
 import dask.bag as bag # a bag is an unsorted list that we can work with in parallel
 from dask.distributed import Client #e.g. Client(processes=False, threads_per_worker=4, n_workers=1, memory_limit='3GB')
 from operator import itemgetter #for faster sorting
 
 ioRoot = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03'
 ioPaths = {
-    'corpusAll':    join(ioRoot, "txt", "s2-corpus-*.txt"),
-    'corpusFirst':  join(ioRoot, "txt", "s2-corpus-00.txt"),
-    'sample':       join(ioRoot, "sample-S2-records.gz"),
-    'filtered':     join(ioRoot, "filtered")
+    'corpusAll':    path.join(ioRoot, "txt", "s2-corpus-*.txt"),
+    'corpusFirst':  path.join(ioRoot, "txt", "s2-corpus-00.txt"),
+    'sample':       path.join(ioRoot, "sample-S2-records.gz"),
+    'filtered':     path.join(ioRoot, "filtered")
 }
 
 def corpusFilesToDaskBag(pathOrGlobWithFiles):
@@ -36,7 +36,7 @@ from corpusFilters import filterByVenue
 bag1 = corpusFilesToDaskBag(ioPaths.corpusAll)
 bag2 = bag1.filter(filterByVenue)
 # bag of dicts needs .map(json.dumps). bag of strings doesnt
-bag2.map(json.dumps).to_textfiles(join(ioPaths.filtered, 'venueFiltered-*.json'))
+bag2.map(json.dumps).to_textfiles(path.join(ioPaths.filtered, 'venueFiltered-*.json'))
 
 
 
