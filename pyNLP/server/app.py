@@ -21,10 +21,6 @@ app.debug = True
 
 app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=False))
 
-# @app.teardown_appcontext
-# def shutdown_session(exception=None):
-#     # db_session.remove()
-
 if __name__ == '__main__':
     print(platform.system())
     if (platform.system() == 'Windows'):

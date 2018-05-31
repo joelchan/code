@@ -1,7 +1,7 @@
 import re
 # import textacy
 
-
+#todo: add all text general stuff here
 def removeStatsEtc(text):
     # text = textacy.preprocess.normalize_whitespace(text)
     text = re.sub('\n',' ', text)
