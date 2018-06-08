@@ -100,7 +100,7 @@ for i, txt in enumerate(words):
 # todo: table of sim rankd for domain
 # todo: transfer learning with fasttext wiki corpus
 # todo: spacy + abstracts
-# todo:
+# todo: 80 char width
 
 #%%
 

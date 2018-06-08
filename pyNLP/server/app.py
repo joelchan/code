@@ -3,6 +3,7 @@ from pathlib import Path
 thisFilesDir = os.path.dirname(os.path.realpath(__file__))
 upDir = Path(thisFilesDir).parent
 import platform
+webDistDir = 'dist'
 
 sys.path.extend(
     [str(upDir),
@@ -10,16 +11,19 @@ sys.path.extend(
      str(upDir / 'textProcessing')
      ])
 
-from flask import Flask
+from flask import Flask, make_response, jsonify, request, render_template
 from flask_graphql import GraphQLView
 from flask_cors import CORS
 
 from schema import schema
-app = Flask(__name__)
+app = Flask(__name__, static_folder=webDistDir, template_folder=webDistDir)
 CORS(app)
 app.debug = True
 
-app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=False))
+app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
+@app.route("/")
+def index():
+    return render_template(f'index.html')
 
 if __name__ == '__main__':
     print(platform.system())
