@@ -26,9 +26,16 @@ yarn #no args, will install everything in package.json
 yarn start # 'start' command defined in package.json: launches dev server
 ```
 
-# Roadmap
-- one docker container hosted remotely to handle js & python in one command
-- cermine is how I extracted xml from pdfs, well want to work that into the server
-- learningNLP has some good snippets in it, but will be deleted
+# AWS EC2 
+cd ~/.ssh
+
+ssh -i ~/.ssh/id_rsa ubuntu@34.221.165.5 -L8888:localhost:8888 //only need id_rsa once. ip changes.
+//now on aws instance
+cd fastai
+git pull
+python -m spacy download en
+conda env update #once a month
+jupyter notebook
+
 
 
