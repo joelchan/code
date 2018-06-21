@@ -7,6 +7,8 @@ venueNames =[
         "Plos One"
     ]
 
+venueNames = ['cscw', 'sigchi']
+
 keepList =["brain",
     "neuro",
     "cogn",
@@ -31,6 +33,8 @@ keepList =["brain",
 removeList = ['cryptography', 'animal', 'rat', 'mice', 'geneti','radiology',
               'surg', 'medic', 'physics', 'sex', 'chemi', 'clinic', 'doctor', 'nurse', 'patient',
               'disease', 'blood', 'nucle', 'tissue', 'protein','peptide', 'dna', 'rna', 'acid']
+
+
 
 def keepRemove(keepList, removeList, searchString):
     for strToMatch in removeList:
@@ -57,11 +61,15 @@ def filterByVenue(article):
         venue = article['journalName'].lower()
 
     if venue in venueNames:
-        ents = [item for sublist in article['entities'] for item in sublist]
-        searchString = ents.lower() + ' ' + article['paperAbstract'].lower() + ' ' + article['title']
-        return keepRemove(keepList, removeList, searchString)
+        print(venue)
+        return True
 
-    return keepRemove(keepList, removeList, article['paperAbstract'].lower())
+        # bellow filters by keep/remove
+    #     ents = [item for sublist in article['entities'] for item in sublist]
+    #     searchString = ents.lower() + ' ' + article['paperAbstract'].lower() + ' ' + article['title']
+    #     return keepRemove(keepList, removeList, searchString)
+    #
+    # return keepRemove(keepList, removeList, article['paperAbstract'].lower())
 
     return False
 

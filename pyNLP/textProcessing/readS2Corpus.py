@@ -1,17 +1,18 @@
+#%%
 import csv, json
 from os import path
 import dask.bag as bag
 from dask.distributed import Client
 from operator import itemgetter
 from corpusFilters import filterByVenue
-
 ioRoot = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03'
 #todo: change to a dataclass or named tuple and add to seperate file
 ioPaths = {
     'corpusAll':    path.join(ioRoot, "txt", "s2-corpus-*.txt"),
-    'corpusFirst':  path.join(ioRoot, "txt", "s2-corpus-00.txt"),
+    'corpusFirst':  path.join(ioRoot, "txt", "s2-corpus-01.txt"),
     'sample':       path.join(ioRoot, "sample-S2-records.gz"),
-    'filtered':     path.join(ioRoot, "filtered")
+    'filtered':     path.join(ioRoot, "filtered"),
+    'cscw':     path.join(ioRoot, "cscw")
 }
 
 def corpusFilesToDaskBag(pathOrGlobWithFiles):
@@ -28,15 +29,22 @@ def saveCsv(listOfTuples, outFileName): #todo: pandas?
 # if __name__ == '__main__':
 client = Client(processes=False, threads_per_worker=4, n_workers=1, memory_limit='3GB')
 
-def calcFrequences(bag, propName):
+def calcPropFrequences(bag, propName):
     freqs = bag.pluck(propName).frequencies()
     return sorted(freqs.compute(), key=itemgetter(1), reverse=True)
 
-bag1 = corpusFilesToDaskBag(ioPaths.corpusAll)
+def calcWordFrequences(bag):
+    freqs = bag.pluck('paperAbstract')\
+        .str.split().flatten().frequencies().topk(10, lambda x: x[1])
+    return freqs
+#%%
+bag1 = corpusFilesToDaskBag(ioPaths['corpusAll'])
+# print(calcWordFrequences(bag1).compute())
 bag2 = bag1.filter(filterByVenue)
 
+
 # bag of dicts needs .map(json.dumps). bag of strings doesnt
-bag2.map(json.dumps).to_textfiles(path.join(ioPaths.filtered, 'venueFiltered-*.json'))
+bag2.map(json.dumps).to_textfiles(path.join(ioPaths['cscw'], 'cscw-*.json'))
 #todo: rename venueFiltered here and in the folder/files just filtered-timestamp-*.json
 #todo: rename readS2Corpus to extractFromSemanticScholarCorpusFiles
 

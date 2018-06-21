@@ -20,7 +20,6 @@ nVocab = len(intToString)
 def cos_sim(v1, v2):
     return F.cosine_similarity(T(v1).unsqueeze(0), T(v2).unsqueeze(0)).mean()
 
-
 weightDecay = 1e-7
 backpropThruTime = 70
 batchSize = 250
@@ -64,19 +63,15 @@ m.reset()  # set hidden layers
 # Create reusable func for inference
 # Laid out for readability - will refactor later
 def run_model(X):
-    kk0 = m[0](V(T([X[
-                        0]])))  # first sentence in X - sentence level encoding....10 words 400 dim vecs
-    kk1 = m[0](V(T([X[
-                        1]])))  # second sentence in X - sentence level encoding....10 words 400 dim vecs
-    kk2 = m[0](V(T([X[
-                        2]])))  # third sentence in X - sentence level encoding....10 words 400 dim vecs
+    kk0 = m[0](V(T([X[0]])))
+    kk1 = m[0](V(T([X[1]])))
+    kk2 = m[0](V(T([X[2]])))
 
     kk0 = to_np(kk0)
     kk1 = to_np(kk1)
     kk2 = to_np(kk2)
 
-    kk0 = (kk0[0][2][0][
-        -1])  # 1st sentence encoding 400 dims. -1 is the last element that's supposed to have the final encoded state
+    kk0 = (kk0[0][2][0][-1])
     kk1 = (kk1[0][2][0][-1])  # 2nd sentence encoding 400 dims
     kk2 = (kk2[0][2][0][-1])  # 3rd sentence encoding 400 dims
 
@@ -90,6 +85,7 @@ cos_sim(kk0, kk0), cos_sim(kk0, kk1), cos_sim(kk0, kk2)
 # %%
 import warnings
 warnings.filterwarnings('ignore')
+
 tokenizer = lambda aString: Tokenizer().proc_text(aString)
 str2numsArr = lambda aString: [stringToInt[o] for o in tokenizer(aString)]
 
@@ -114,4 +110,6 @@ def sample_model(m, s, l=40):
         res = m(VV(wordsAsTensors).unsqueeze(1))
     # m[0].bs=bs
     print(allWords)
-sample_model(m, 'neuroscience is important because ')
+
+
+sample_model(m, 'recurrent neural networks are important because ')
