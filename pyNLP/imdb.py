@@ -14,7 +14,7 @@ CLAS_PATH.mkdir(exist_ok=True)
 
 LM_PATH = Path(PATH / 'imdb_lm/')
 LM_PATH.mkdir(exist_ok=True)
-
+tok_trn = np.load(LM_PATH/'tmp'/'tok_trn.npy')
 CLASSES = ['neg', 'pos', 'unsup']
 
 
@@ -24,14 +24,14 @@ def get_texts(path):
         for i, fname in enumerate((path / label).glob('*.*')):
             texts.append(fname.open('r',encoding="utf8").read())
             labels.append(idx)
-            if i > 1000: break;
+            if i > 100: break;
     return np.array(texts), np.array(labels)
 
 
 trn_texts, trn_labels = get_texts(PATH / 'train')
 val_texts, val_labels = get_texts(PATH / 'test')
 
-#%%
+
 col_names = ['labels', 'text']
 
 np.random.seed(42)
@@ -61,7 +61,7 @@ df_trn = pd.DataFrame({'text':trn_texts, 'labels':[0]*len(trn_texts)}, columns=c
 df_val = pd.DataFrame({'text':val_texts, 'labels':[0]*len(val_texts)}, columns=col_names)
 
 
-#%% csv format for each row is just: labelNumber, reviewText
+# csv format for each row is just: labelNumber, reviewText
 df_trn.to_csv(LM_PATH/'train.csv', header=False, index=False)
 df_val.to_csv(LM_PATH/'test.csv', header=False, index=False)
 
@@ -85,27 +85,27 @@ def get_texts(df, n_lbls=1):
                    len(df.columns)): texts += f' {FLD} {i-n_lbls} ' + \
                                               df[i].astype(str)
     texts = texts.apply(fixup).values.astype(str)
-
+    print(texts.shape)
     tok = Tokenizer().proc_all_mp(partition_by_cores(texts))
-    return tok, list(labels)
+    return tok, list(labels),texts
 
 
 def get_all(df, n_lbls):
-    tok, labels = [], []
+    tok, labels, texts = [], [], []
     for i, r in enumerate(df):
         print(i)
-        tok_, labels_ = get_texts(r, n_lbls)
-        tok += tok_;
+        tok_, labels_, texts_ = get_texts(r, n_lbls)
+        tok += tok_
         labels += labels_
-    return tok, labels
+    return tok, labels, texts_
 
 
 df_trn = pd.read_csv(LM_PATH / 'train.csv', header=None, chunksize=chunksize)
 df_val = pd.read_csv(LM_PATH / 'test.csv', header=None, chunksize=chunksize)
 
-tok_trn, trn_labels = get_all(df_trn, 1)
-tok_val, val_labels = get_all(df_val, 1)
-
+tok_trn, trn_labels, trn_texts = get_all(df_trn, 1)
+tok_val, val_labels, val_texts = get_all(df_val, 1)
+#%%
 (LM_PATH / 'tmp').mkdir(exist_ok=True)
 
 np.save(LM_PATH/'tmp'/'trn_labels.npy', trn_labels)
@@ -115,7 +115,7 @@ np.save(LM_PATH/'tmp'/'tok_val.npy', tok_val) #arrays of tokens for validation
 
 tok_trn = np.load(LM_PATH/'tmp'/'tok_trn.npy')
 tok_val = np.load(LM_PATH/'tmp'/'tok_val.npy')
-#%%
+
 freq = Counter(p for o in tok_trn for p in o)
 freq.most_common(25)
 

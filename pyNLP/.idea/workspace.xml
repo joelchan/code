@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fdfdafb-f8b6-495a-b30c-c3f244a3460e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/imdb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loadSemScholJson.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpusFilters.py" beforeDir="false" afterPath="$PROJECT_DIR$/textProcessing/corpusFilters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textProcessing/readS2Corpus.py" beforeDir="false" afterPath="$PROJECT_DIR$/textProcessing/readS2Corpus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ulmfit_wt103.py" beforeDir="false" afterPath="$PROJECT_DIR$/ulmfit_wt103.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/imdb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loadSemScholJson.py" beforeDir="false" afterPath="$PROJECT_DIR$/semanticScholarCorpusIO.py" afterDir="false" />
     </list>
     <ignored mask="*.zip" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,77 +24,29 @@
       <file leaf-file-name="ulmfit_wt103.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1800">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="-831">
+              <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadSemScholJson.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loadSemScholJson.py">
+      <file leaf-file-name="semanticScholarCorpusIO.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/semanticScholarCorpusIO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="360">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
-                <element signature="e#0#16#0" expanded="true" />
+                <element signature="e#31#47#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="corpusFilters.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textProcessing/corpusFilters.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imdb.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="imdb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imdb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1410">
-              <caret line="80" column="28" lean-forward="true" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="readS2Corpus.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textProcessing/readS2Corpus.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="e#4#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gensimFastText.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gensimFastText.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preprocessText.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textProcessing/preprocessText.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="venueFiltered-01.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/filtered/venueFiltered-01.json">
-          <provider selected="true" editor-type-id="LargeFileEditor">
-            <state relative-caret-position="416">
-              <caret line="236" column="7918" selection-start-line="236" selection-start-column="7914" selection-end-line="236" selection-end-column="7918" />
+            <state relative-caret-position="962">
+              <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
             </state>
           </provider>
         </entry>
@@ -113,12 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>learning</find>
-      <find>cog</find>
-      <find>statisti</find>
-      <find>design</find>
-      <find>Interface</find>
-      <find>brain</find>
       <find>systems</find>
       <find>creativi</find>
       <find>creat</find>
@@ -143,6 +86,12 @@
       <find>df_trn.to_csv(LM_PATH/'train.csv', header=False, index=False)</find>
       <find>cscw</find>
       <find>BOSBOS</find>
+      <find>title</find>
+      <find>print</find>
+      <find>trn_labels = trn_labels[trn_idx]</find>
+      <find>ixToVocabIMDB</find>
+      <find>shu</find>
+      <find>default</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,11 +128,13 @@
         <option value="$PROJECT_DIR$/pytorchLearning.py" />
         <option value="$USER_HOME$/Anaconda3/Lib/site-packages/fastai/lm_rnn.py" />
         <option value="$PROJECT_DIR$/ulmfit_wt103.py" />
-        <option value="$PROJECT_DIR$/imdb.py" />
         <option value="$PROJECT_DIR$/corpusFilters.py" />
         <option value="$PROJECT_DIR$/loadSemScholJson.py" />
         <option value="$PROJECT_DIR$/textProcessing/corpusFilters.py" />
         <option value="$PROJECT_DIR$/textProcessing/readS2Corpus.py" />
+        <option value="$PROJECT_DIR$/semanticScholarCorpusETL.py" />
+        <option value="$PROJECT_DIR$/imdb.py" />
+        <option value="$PROJECT_DIR$/semanticScholarCorpusIO.py" />
       </list>
     </option>
   </component>
@@ -194,8 +145,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="983" />
-    <option name="width" value="2309" />
+    <option name="x" value="714" />
+    <option name="y" value="4" />
+    <option name="width" value="2571" />
     <option name="height" value="2127" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -224,6 +176,13 @@
               <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
               <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
               <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
+              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
+              <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
+              <item name="cscw" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -433,17 +392,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="983" y="0" width="2309" height="2127" extended-state="0" />
+    <frame x="714" y="4" width="2571" height="2127" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.32971576" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" weight="0.3622739" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.3617571" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35607237" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33385012" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.2271705" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33385012" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" weight="0.23751687" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.26135853" />
@@ -462,6 +421,33 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32971576" />
       <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="6" sideWeight="0.1694215" weight="0.23751687" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.32971576" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.26135853" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35607237" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32971576" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.3617571" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" x="0" y="0" width="555" height="1927" id="Documentation" order="7" sideWeight="0.8305785" side_tool="true" weight="0.34152335" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33385012" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49953184" weight="0.32971576" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -480,32 +466,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/picf_sentences.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="94" column="22" lean-forward="true" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/picf.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1171">
-          <caret line="623" selection-start-line="623" selection-end-line="623" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/picf_nounphrases.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../learningNLP/main.py" />
     <entry file="file://$PROJECT_DIR$/server/database.py" />
     <entry file="file://$PROJECT_DIR$/server/models.py" />
     <entry file="file://$PROJECT_DIR$/setup.py" />
@@ -667,19 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="205" column="21" lean-forward="true" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,13 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" column="9" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/preprocessText.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -709,11 +653,16 @@
         <state relative-caret-position="-1520096" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gensimFastText.py">
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-10.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        <state relative-caret-position="690">
+          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-18.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17460" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/filtered/venueFiltered-01.json">
@@ -723,59 +672,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-0.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-10.json">
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-08.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-        </state>
+        <state relative-caret-position="-1440" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-09.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1800">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="1500">
+          <caret line="1" column="3159" lean-forward="true" selection-start-line="1" selection-start-column="3159" selection-end-line="1" selection-end-column="3159" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-18.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17460" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/textProcessing/readS2Corpus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#4#20#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="1" selection-start-line="1" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gensimFastText.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/preprocessText.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-00.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/vocab.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/textProcessing/corpusFilters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state relative-caret-position="1140">
+          <caret line="44" column="53" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loadSemScholJson.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1650">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-01.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/imdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1410">
-          <caret line="80" column="28" lean-forward="true" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+        <state relative-caret-position="962">
+          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-831">
+          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/semanticScholarCorpusIO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="e#31#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
