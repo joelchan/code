@@ -23,7 +23,7 @@ ioPaths = {
     'corpusFirstFile':  path.join(ioRoot, "txt", "s2-corpus-01.txt"),
     'filteredDir':     path.join(ioRoot, "filtered"),
     'filteredJSONGlob': path.join(ioRoot, "filtered", "venueFiltered-*.json"),
-    'cscwGlob': path.join(ioRoot,"cscw", "cscw-01.json"),
+    'cscwGlob': path.join(ioRoot,"cscw", "cscw-*.json"),
     'cscwDir': path.join(ioRoot, "cscw")
 }
 

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fdfdafb-f8b6-495a-b30c-c3f244a3460e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/cscw.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/imdb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loadSemScholJson.py" beforeDir="false" afterPath="$PROJECT_DIR$/semanticScholarCorpusIO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imdb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/losses.npy" beforeDir="false" afterPath="$PROJECT_DIR$/losses.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/semanticScholarCorpusIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/semanticScholarCorpusIO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ulmfit_wt103.py" beforeDir="false" afterPath="$PROJECT_DIR$/ulmfit_wt103.py" afterDir="false" />
     </list>
     <ignored mask="*.zip" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,17 +27,20 @@
       <file leaf-file-name="ulmfit_wt103.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-831">
-              <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+            <state relative-caret-position="720">
+              <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+              <folding>
+                <element signature="e#5#30#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="semanticScholarCorpusIO.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="semanticScholarCorpusIO.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semanticScholarCorpusIO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="1641">
+              <caret line="73" column="74" selection-start-line="73" selection-start-column="74" selection-end-line="73" selection-end-column="74" />
               <folding>
                 <element signature="e#31#47#0" expanded="true" />
               </folding>
@@ -42,11 +48,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imdb.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imdb.py">
+      <file leaf-file-name="cscw.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cscw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="962">
-              <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+            <state relative-caret-position="171">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sgdr.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/sgdr.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1210">
+              <caret line="276" column="42" selection-start-line="276" selection-start-column="36" selection-end-line="276" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="text.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1015">
+              <caret line="198" selection-start-line="198" selection-end-line="198" />
             </state>
           </provider>
         </entry>
@@ -62,7 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>systems</find>
       <find>creativi</find>
       <find>creat</find>
       <find>creati</find>
@@ -92,6 +115,7 @@
       <find>ixToVocabIMDB</find>
       <find>shu</find>
       <find>default</find>
+      <find>TH</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,14 +151,15 @@
         <option value="$PROJECT_DIR$/server/dist/index.html" />
         <option value="$PROJECT_DIR$/pytorchLearning.py" />
         <option value="$USER_HOME$/Anaconda3/Lib/site-packages/fastai/lm_rnn.py" />
-        <option value="$PROJECT_DIR$/ulmfit_wt103.py" />
         <option value="$PROJECT_DIR$/corpusFilters.py" />
         <option value="$PROJECT_DIR$/loadSemScholJson.py" />
         <option value="$PROJECT_DIR$/textProcessing/corpusFilters.py" />
         <option value="$PROJECT_DIR$/textProcessing/readS2Corpus.py" />
         <option value="$PROJECT_DIR$/semanticScholarCorpusETL.py" />
+        <option value="$PROJECT_DIR$/ulmfit_wt103.py" />
         <option value="$PROJECT_DIR$/imdb.py" />
         <option value="$PROJECT_DIR$/semanticScholarCorpusIO.py" />
+        <option value="$PROJECT_DIR$/cscw.py" />
       </list>
     </option>
   </component>
@@ -170,19 +195,6 @@
               <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
               <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
-              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
-              <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
-              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
-              <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
-              <item name="cscw" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -276,7 +288,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/imdb.py" />
+      <option name="SCRIPT_NAME" value="E:\code\pyNLP\cscw.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -393,16 +405,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="714" y="4" width="2571" height="2127" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.32971576" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.3617571" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.28062016" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35607237" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.33385012" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" weight="0.23751687" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.23742455" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.26135853" />
@@ -470,7 +481,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/database.py" />
     <entry file="file://$PROJECT_DIR$/server/models.py" />
     <entry file="file://$PROJECT_DIR$/setup.py" />
     <entry file="file://$USER_HOME$/Desktop/dockertest/Dockerfile" />
@@ -724,37 +734,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-01.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/imdb.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="962">
-          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+        <state relative-caret-position="1015">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/sgdr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-831">
-          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        <state relative-caret-position="1210">
+          <caret line="276" column="42" selection-start-line="276" selection-start-column="36" selection-end-line="276" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/semanticScholarCorpusIO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="1641">
+          <caret line="73" column="74" selection-start-line="73" selection-start-column="74" selection-end-line="73" selection-end-column="74" />
           <folding>
             <element signature="e#31#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding>
+            <element signature="e#5#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cscw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
         </state>
       </provider>
     </entry>

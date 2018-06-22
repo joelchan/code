@@ -89,7 +89,7 @@ warnings.filterwarnings('ignore')
 tokenizer = lambda aString: Tokenizer().proc_text(aString)
 str2numsArr = lambda aString: [stringToInt[o] for o in tokenizer(aString)]
 
-def sample_model(m, s, l=40):
+def sample_model(m, s, l=40):PA
     wordsAsInts = str2numsArr(s);
     wordsAsTensors = T(wordsAsInts)
     t = VV(wordsAsTensors).unsqueeze(1)
