@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fdfdafb-f8b6-495a-b30c-c3f244a3460e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/cscw.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ioUtils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imdb.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/losses.npy" beforeDir="false" afterPath="$PROJECT_DIR$/losses.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semanticScholarCorpusIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/semanticScholarCorpusIO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loss_plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/losses.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytorchLearning.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets.py" beforeDir="false" afterPath="$PROJECT_DIR$/snippets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ulmfit_wt103.py" beforeDir="false" afterPath="$PROJECT_DIR$/ulmfit_wt103.py" afterDir="false" />
     </list>
     <ignored mask="*.zip" />
@@ -20,18 +21,29 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/pyNLP$pytorchLearning.coverage" NAME="pytorchLearning Coverage Results" MODIFIED="1529361945105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pyNLP$preprocessText.coverage" NAME="preprocessText Coverage Results" MODIFIED="1525807573580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nlp" />
+    <SUITE FILE_PATH="coverage/pyNLP$readS2Corpus.coverage" NAME="readS2Corpus Coverage Results" MODIFIED="1529881605989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/textProcessing" />
+    <SUITE FILE_PATH="coverage/pyNLP$rnnPyTorch.coverage" NAME="rnnPyTorch Coverage Results" MODIFIED="1529881640884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pyNLP$ulmfit_wt103.coverage" NAME="ulmfit_wt103 Coverage Results" MODIFIED="1529362110023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ulmfit_wt103.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
+      <file leaf-file-name="ioUtils.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ioUtils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+            <state relative-caret-position="901">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
               <folding>
-                <element signature="e#5#30#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cscw.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cscw.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="18" selection-start-line="18" selection-end-line="19" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -39,38 +51,8 @@
       <file leaf-file-name="semanticScholarCorpusIO.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semanticScholarCorpusIO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1641">
-              <caret line="73" column="74" selection-start-line="73" selection-start-column="74" selection-end-line="73" selection-end-column="74" />
-              <folding>
-                <element signature="e#31#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cscw.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cscw.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="114" selection-start-line="114" selection-end-line="114" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sgdr.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/sgdr.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="276" column="42" selection-start-line="276" selection-start-column="36" selection-end-line="276" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="text.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1015">
-              <caret line="198" selection-start-line="198" selection-end-line="198" />
+            <state relative-caret-position="2100">
+              <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -86,8 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>creativi</find>
-      <find>creat</find>
       <find>creati</find>
       <find>creativ</find>
       <find>venue</find>
@@ -106,16 +86,18 @@
       <find>call</find>
       <find>__call</find>
       <find>model</find>
-      <find>df_trn.to_csv(LM_PATH/'train.csv', header=False, index=False)</find>
+      <find />
       <find>cscw</find>
       <find>BOSBOS</find>
       <find>title</find>
       <find>print</find>
-      <find>trn_labels = trn_labels[trn_idx]</find>
+      <find />
       <find>ixToVocabIMDB</find>
       <find>shu</find>
       <find>default</find>
       <find>TH</find>
+      <find>512</find>
+      <find>cudn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,22 +126,27 @@
         <option value="$PROJECT_DIR$/textProcessing/test_semanticScholarCorpus.py" />
         <option value="$PROJECT_DIR$/daskLearning.py" />
         <option value="$PROJECT_DIR$/gensimLearning.py" />
-        <option value="$PROJECT_DIR$/snippets.py" />
         <option value="$PROJECT_DIR$/textProcessing/preprocessText.py" />
         <option value="$PROJECT_DIR$/gensimFastText.py" />
         <option value="$PROJECT_DIR$/server/app.py" />
         <option value="$PROJECT_DIR$/server/dist/index.html" />
-        <option value="$PROJECT_DIR$/pytorchLearning.py" />
         <option value="$USER_HOME$/Anaconda3/Lib/site-packages/fastai/lm_rnn.py" />
         <option value="$PROJECT_DIR$/corpusFilters.py" />
         <option value="$PROJECT_DIR$/loadSemScholJson.py" />
         <option value="$PROJECT_DIR$/textProcessing/corpusFilters.py" />
         <option value="$PROJECT_DIR$/textProcessing/readS2Corpus.py" />
         <option value="$PROJECT_DIR$/semanticScholarCorpusETL.py" />
-        <option value="$PROJECT_DIR$/ulmfit_wt103.py" />
         <option value="$PROJECT_DIR$/imdb.py" />
         <option value="$PROJECT_DIR$/semanticScholarCorpusIO.py" />
         <option value="$PROJECT_DIR$/cscw.py" />
+        <option value="$PROJECT_DIR$/pytorchLearning.py" />
+        <option value="$PROJECT_DIR$/ulmfit_wt103.py" />
+        <option value="$PROJECT_DIR$/rnnPyTorch.py" />
+        <option value="$PROJECT_DIR$/snippets.py" />
+        <option value="$PROJECT_DIR$/create_or_load.py" />
+        <option value="$PROJECT_DIR$/createOrLoad.py" />
+        <option value="$PROJECT_DIR$/testCOL.py" />
+        <option value="$PROJECT_DIR$/ioUtils.py" />
       </list>
     </option>
   </component>
@@ -170,9 +157,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="714" />
-    <option name="y" value="4" />
-    <option name="width" value="2571" />
+    <option name="x" value="1189" />
+    <option name="width" value="2033" />
     <option name="height" value="2127" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -183,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,12 +179,13 @@
             <path>
               <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
-              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -236,7 +222,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.readS2Corpus">
+  <component name="RunManager" selected="Python.testCOL">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="pyNLP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -256,7 +242,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="gensimLearning" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="createOrLoad" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pyNLP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -269,7 +255,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\code\pyNLP\gensimFastText.py" />
+      <option name="SCRIPT_NAME" value="E:\code\pyNLP\ioUtils.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -294,25 +280,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="pytorchLearning" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pyNLP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pytorchLearning.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="readS2Corpus" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pyNLP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -332,7 +299,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="ulmfit_wt103" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="rnnPyTorch" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pyNLP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -345,7 +312,26 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ulmfit_wt103.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rnnPyTorch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="testCOL" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyNLP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testCOL.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -353,18 +339,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.readS2Corpus" />
-      <item itemvalue="Python.gensimLearning" />
-      <item itemvalue="Python.pytorchLearning" />
-      <item itemvalue="Python.ulmfit_wt103" />
       <item itemvalue="Python.imdb" />
+      <item itemvalue="Python.rnnPyTorch" />
+      <item itemvalue="Python.testCOL" />
+      <item itemvalue="Python.createOrLoad" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.testCOL" />
+        <item itemvalue="Python.createOrLoad" />
+        <item itemvalue="Python.rnnPyTorch" />
         <item itemvalue="Python.readS2Corpus" />
         <item itemvalue="Python.imdb" />
-        <item itemvalue="Python.ulmfit_wt103" />
-        <item itemvalue="Python.pytorchLearning" />
-        <item itemvalue="Python.readS2Corpus" />
       </list>
     </recent_temporary>
   </component>
@@ -404,22 +390,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="714" y="4" width="2571" height="2127" extended-state="0" />
+    <frame x="1189" y="0" width="2033" height="2127" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.32971576" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.28062016" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" visible="true" weight="0.32971576" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" weight="0.3137255" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35607237" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.33385012" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.23742455" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.20749871" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.26135853" />
+      <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.22570333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5007752" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -433,27 +420,27 @@
       <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="6" sideWeight="0.1694215" weight="0.23751687" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.32971576" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.26135853" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="6" sideWeight="0.1694215" weight="0.23751687" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35607237" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32971576" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.3617571" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32971576" />
       <window_info anchor="right" x="0" y="0" width="555" height="1927" id="Documentation" order="7" sideWeight="0.8305785" side_tool="true" weight="0.34152335" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.33385012" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
+      <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.26135853" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49953184" weight="0.32971576" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
@@ -477,22 +464,17 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/models.py" />
-    <entry file="file://$PROJECT_DIR$/setup.py" />
-    <entry file="file://$USER_HOME$/Desktop/dockertest/Dockerfile" />
-    <entry file="file://$USER_HOME$/Desktop/dockertest/app.py" />
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/testCOL.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        <state relative-caret-position="120">
+          <caret line="5" selection-start-line="5" selection-end-line="9" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/test_semanticScholarCorpus.py" />
     <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/txt/venue_freqs.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -511,13 +493,6 @@
     <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/filtered/venueFiltered-0.json" />
     <entry file="file://$PROJECT_DIR$/textProcessing/textacyTest.py" />
     <entry file="file://$PROJECT_DIR$/daskLearning.py" />
-    <entry file="file://$PROJECT_DIR$/snippets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -550,13 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="883">
           <caret line="1075" column="53" selection-start-line="1075" selection-start-column="42" selection-end-line="1075" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pytorchLearning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
@@ -658,11 +626,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/ulmfitvocab.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1520096" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/ulmfitvocab.csv" />
     <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-10.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -734,47 +698,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-01.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1015">
+        <state relative-caret-position="5790">
           <caret line="198" selection-start-line="198" selection-end-line="198" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pytorchLearning.py" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/sgdr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
+        <state relative-caret-position="30">
           <caret line="276" column="42" selection-start-line="276" selection-start-column="36" selection-end-line="276" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/semanticScholarCorpusIO.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/layer_optimizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1641">
-          <caret line="73" column="74" selection-start-line="73" selection-start-column="74" selection-end-line="73" selection-end-column="74" />
-          <folding>
-            <element signature="e#31#47#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="594">
+          <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rnnPyTorch.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/torch/nn/modules/linear.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/column_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ulmfit_wt103.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-          <folding>
-            <element signature="e#5#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2760">
+          <caret line="92" column="33" lean-forward="true" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snippets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testCOL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" selection-start-line="5" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/semanticScholarCorpusIO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2100">
+          <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cscw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="390">
+          <caret line="18" selection-start-line="18" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ioUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

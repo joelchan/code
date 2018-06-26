@@ -1,12 +1,11 @@
-#%% paths
+# %% paths
 import gzip, os, sys
 from pathlib import Path
-from operator import itemgetter #for faster sorting
+from operator import itemgetter  # for faster sorting
 
-
-print('terminal dir:  ', os.getcwd() )
-print('path to console py:  ', sys.argv[0] )
-print('string of dir of file:  ', os.path.dirname(os.path.realpath('__file__')) )
+print('terminal dir:  ', os.getcwd())
+print('path to console py:  ', sys.argv[0])
+print('string of dir of file:  ', os.path.dirname(os.path.realpath('__file__')))
 
 # check for file
 if not ('__file__' in vars()):
@@ -17,17 +16,19 @@ if '__file__' not in globals():
 # relative paths that work in ipython dev or via python -r or in some random docker path
 global __file__
 __file__ = globals().get('__file__', 'your_default_here')
-print('path object containing this file:  ', os.path.dirname(os.path.realpath(__file__)) ) #see Path() for other operations
+print('path object containing this file:  ', os.path.dirname(
+    os.path.realpath(__file__)))  # see Path() for other operations
 
-#%% itemgetter is fast
-sorted([(1,2),(2,3)], key=itemgetter(1), reverse=True)
+# %% itemgetter is fast
+sorted([(1, 2), (2, 3)], key=itemgetter(1), reverse=True)
 
-#%% timing stuff
+# %% timing stuff
 import time
-startTime = time.clock()
-print(time.clock()-startTime)
 
-#%% extend path in a py file. useful for non-nested modules
+startTime = time.clock()
+print(time.clock() - startTime)
+
+# %% extend path in a py file. useful for non-nested modules
 sys.path.extend(
     ['server',
      'textProcessing'
