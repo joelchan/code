@@ -1,5 +1,5 @@
-from graphene import ObjectType, Schema, String
-from textProcessing.app import addNLPTagsToPlainText
+from graphene import ObjectType, Schema, String, List
+from textProcessing.app import addNLPTagsToPlainText #todo move this
 
 
 class Query(ObjectType):

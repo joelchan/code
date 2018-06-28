@@ -6,8 +6,8 @@ from dask.distributed import Client
 import dask
 from os import listdir
 from operator import itemgetter
-import html
 import pandas as pd
+from textUtils import wt103RegexFixes
 from fastai.text import *
 
 debugging = 0 #e.g. using ipython
@@ -33,15 +33,6 @@ def corpusFilesToDaskBag(pathWithFilesGlob):
                          encoding='utf-8', linedelimiter='\n')\
                          .str.strip().map(json.loads)
 
-re1 = re.compile(r'  +')
-def fixup(x):
-    x = x.replace('#39;', "'").replace('amp;', '&').replace('#146;', "'") \
-        .replace('nbsp;', ' ').replace('#36;', '$').replace('\\n', "\n") \
-        .replace('quot;',"'") \
-        .replace('<br />', "\n").replace('\\"', '"').replace('<unk>', 'u_n')\
-        .replace(' @.@ ', '.').replace(' @-@ ', '-').replace('\\', ' \\ ')
-    return re1.sub(' ', html.unescape(x))
-
 def combineArticleText(article):
     title = article["title"]
     venue = article["venue"]
@@ -50,7 +41,7 @@ def combineArticleText(article):
 
 def combineFixTokenize(article): # each line is an article as json
     aString = combineArticleText(article)
-    fixedString = fixup(aString)
+    fixedString = wt103RegexFixes(aString)
     return Tokenizer().proc_text(aString) # token arrays
 
 bag2 = corpusFilesToDaskBag(ioPaths['cscwGlob']).map(combineFixTokenize)

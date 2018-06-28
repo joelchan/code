@@ -5,13 +5,14 @@ upDir = Path(thisFilesDir).parent
 import platform
 webDistDir = 'dist'
 
+#todo: don't do this. dev mode with pip install -e instead
 sys.path.extend(
     [str(upDir),
      str(upDir / 'server'),
      str(upDir / 'textProcessing')
      ])
 
-from flask import Flask, make_response, jsonify, request, render_template
+from flask import Flask, render_template
 from flask_graphql import GraphQLView
 from flask_cors import CORS
 

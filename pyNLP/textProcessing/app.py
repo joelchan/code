@@ -1,8 +1,8 @@
 import spacy
 from pyquery import PyQuery as q
 import os, re
-from preprocessText import removeStatsEtc
-
+# from preprocessText import removeStatsEtc
+# get from text utils
 nlp = spacy.load('en')
 
 # %%
