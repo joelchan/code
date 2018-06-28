@@ -1,6 +1,5 @@
 # %%
 from fastai.text import *
-from textUtils import wt103RegexFixes
 import html
 from pathlib import Path
 import scipy.spatial.distance
@@ -24,6 +23,16 @@ def loadModel(ixToVocabPath, modelWeightsPath, encPath, useCuda=0):
     if not useCuda:
         pytorchModel.cpu()
     return pytorchModel, ixToVocab, vocabToIx
+
+
+def wt103RegexFixes(x):
+    re1 = re.compile(r'  +')
+    x = x.replace('#39;', "'").replace('amp;', '&').replace('#146;', "'") \
+        .replace('nbsp;', ' ').replace('#36;', '$').replace('\\n', "\n") \
+        .replace('quot;', "'") \
+        .replace('<br />', "\n").replace('\\"', '"').replace('<unk>', 'u_n') \
+        .replace(' @.@ ', '.').replace(' @-@ ', '-').replace('\\', ' \\ ')
+    return re1.sub(' ', html.unescape(x))
 
 
 def prepareStringsForModel(aStringArr, vocabToIx):
@@ -84,6 +93,7 @@ def textGeneration(aString, aModel, ixToVocab, vocabToIx, useCuda,
         res = aModel(wordsAsTensors.unsqueeze(1))
     print(allWords)
 
+
 class rnnProduction:
     """
     usage:
@@ -123,4 +133,3 @@ class rnnProduction:
         return textGeneration(aString, self.pytorchModel, self.ixToVocab,
                               self.vocabToIx, self.useCuda,
                               nWordsGenerated=nWordsGenerated)
-
