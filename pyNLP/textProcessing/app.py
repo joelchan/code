@@ -1,7 +1,7 @@
 import spacy
 from pyquery import PyQuery as q
 import os, re
-# from preprocessText import removeStatsEtc
+from textUtils import removeStatsFromText
 # get from text utils
 nlp = spacy.load('en')
 
@@ -40,7 +40,7 @@ def addNLPTagsToPlainText(plainText: str):
     """
     :param qxml: PyQuery object, like $ in jquery
     """
-    sentencesFromNLP = nlp(removeStatsEtc(plainText)).sents
+    sentencesFromNLP = nlp(removeStatsFromText(plainText)).sents
     sentencesWithXMLTags = addNounPhraseAndSentenceTags(sentencesFromNLP)
     return sentencesWithXMLTags
 
@@ -50,7 +50,7 @@ def addNLPTagsToXML(*, xmlText: object, qxml: object):
     :param qxml: PyQuery object, like $ in jquery
     """
     for paragraph in xmlText:
-        sentencesFromNLP = nlp(removeStatsEtc(paragraph.text)).sents
+        sentencesFromNLP = nlp(removeStatsFromText(paragraph.text)).sents
         sentencesWithXMLTags = addNounPhraseAndSentenceTags(sentencesFromNLP)
         qxml(paragraph).html('\n' + ' '.join(sentencesWithXMLTags))  # qxml is like jquery
     return qxml
