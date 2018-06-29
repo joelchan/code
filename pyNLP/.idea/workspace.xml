@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fdfdafb-f8b6-495a-b30c-c3f244a3460e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepareTextFiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepareTextFiles.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textProcessing/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/textProcessing/app.py" afterDir="false" />
     </list>
     <ignored mask="*.zip" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,11 +26,11 @@
     <SUITE FILE_PATH="coverage/pyNLP$ulmfit_wt103.coverage" NAME="ulmfit_wt103 Coverage Results" MODIFIED="1529362110023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file leaf-file-name="del_ulmfit_wt103.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/del_ulmfit_wt103.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1933">
+            <state relative-caret-position="120">
               <caret line="6" column="66" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="83" />
             </state>
           </provider>
@@ -38,8 +39,8 @@
       <file leaf-file-name="rnnFineTuning.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rnnFineTuning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1410">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="930">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#5#30#0" expanded="true" />
               </folding>
@@ -47,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prepareTextFiles.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="prepareTextFiles.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prepareTextFiles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+            <state relative-caret-position="34">
+              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
               <folding>
                 <element signature="e#31#47#0" expanded="true" />
               </folding>
@@ -59,56 +60,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schema.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/schema.py">
+      <file leaf-file-name="filterSemanticScholar.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/textProcessing/filterSemanticScholar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#60#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1250">
+              <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rnnProduction.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rnnProduction.py">
+      <file leaf-file-name="ioUtils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ioUtils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="104" column="16" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="109" selection-end-column="73" />
-              <folding>
-                <element signature="e#5#30#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textProcessing/app.py">
+      <file leaf-file-name="gensimFastText.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gensimFastText.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="52" column="73" lean-forward="true" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-553">
+              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="textUtils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textUtils.py">
+      <file leaf-file-name="text.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="13" column="23" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/distributed/client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="486" column="8" selection-start-line="486" selection-start-column="8" selection-end-line="486" selection-end-column="8" />
+            <state relative-caret-position="766">
+              <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -206,12 +189,12 @@
         <option value="$PROJECT_DIR$/textProcessing/filterSemScholSettings.py" />
         <option value="$PROJECT_DIR$/textProcessing/filterSemanticScholar.py" />
         <option value="$PROJECT_DIR$/server/app.py" />
-        <option value="$PROJECT_DIR$/prepareTextFiles.py" />
         <option value="$PROJECT_DIR$/testData.py" />
         <option value="$PROJECT_DIR$/visUtils.py" />
         <option value="$PROJECT_DIR$/rnnProduction.py" />
         <option value="$PROJECT_DIR$/textProcessing/app.py" />
         <option value="$PROJECT_DIR$/server/schema.py" />
+        <option value="$PROJECT_DIR$/prepareTextFiles.py" />
       </list>
     </option>
   </component>
@@ -222,8 +205,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="675" />
-    <option name="width" value="2242" />
+    <option name="x" value="722" />
+    <option name="width" value="2594" />
     <option name="height" value="2127" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -245,6 +228,11 @@
               <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
+              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -455,17 +443,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="675" y="0" width="2242" height="2127" extended-state="0" />
-    <editor active="true" />
+    <frame x="722" y="0" width="2594" height="2127" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.26873386" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" weight="0.321447" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" weight="0.38191214" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32098764" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.21860465" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.15491651" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.31007752" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.13516746" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.41858238" />
@@ -485,11 +472,10 @@
       <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.32971576" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Project" order="6" sideWeight="0.1694215" weight="0.23751687" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
@@ -497,19 +483,20 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35607237" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.3617571" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32971576" />
       <window_info anchor="right" x="0" y="0" width="555" height="1927" id="Documentation" order="7" sideWeight="0.8305785" side_tool="true" weight="0.34152335" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.33385012" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.32971576" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
       <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.26135853" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49953184" weight="0.32971576" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" visible="true" weight="0.3617571" />
+      <window_info id="Favorites" order="0" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,18 +582,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-18.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17460" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/filtered/venueFiltered-01.json">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="416">
-          <caret line="236" column="7918" selection-start-line="236" selection-start-column="7914" selection-end-line="236" selection-end-column="7918" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/cscw/cscw-08.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1440" />
@@ -616,13 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1500">
           <caret line="1" column="3159" lean-forward="true" selection-start-line="1" selection-start-column="3159" selection-end-line="1" selection-end-column="3159" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gensimFastText.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -695,13 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="993">
-          <caret line="200" column="80" selection-start-line="200" selection-start-column="73" selection-end-line="200" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/learner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -771,24 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ioUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/generic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="1294" column="8" selection-start-line="1294" selection-start-column="8" selection-end-line="1294" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/filterSemanticScholar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="10" column="26" selection-start-line="10" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -857,35 +804,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/del_ulmfit_wt103.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1933">
+        <state relative-caret-position="120">
           <caret line="6" column="66" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="83" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rnnFineTuning.py">
+    <entry file="file://$PROJECT_DIR$/server/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#5#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/distributed/client.py">
+    <entry file="file://$PROJECT_DIR$/rnnProduction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="486" column="8" selection-start-line="486" selection-start-column="8" selection-end-line="486" selection-end-column="8" />
+        <state relative-caret-position="870">
+          <caret line="104" column="16" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="109" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prepareTextFiles.py">
+    <entry file="file://$PROJECT_DIR$/textProcessing/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding>
-            <element signature="e#31#47#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1560">
+          <caret line="52" column="73" lean-forward="true" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -896,32 +837,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/textProcessing/app.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/distributed/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="52" column="73" lean-forward="true" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="516">
+          <caret line="486" column="8" selection-start-line="486" selection-start-column="8" selection-end-line="486" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rnnProduction.py">
+    <entry file="file://$PROJECT_DIR$/rnnFineTuning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="104" column="16" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="109" selection-end-column="73" />
+        <state relative-caret-position="930">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#5#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/schema.py">
+    <entry file="file://$PROJECT_DIR$/ioUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="240">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gensimFastText.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-553">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/20180627/modelInputs/tokens-00.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/fastai/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/filterSemanticScholar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textProcessing/corpus-2018-05-03/20180627/tokens/tokens-00.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20250" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepareTextFiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#31#47#0" expanded="true" />
           </folding>
         </state>
       </provider>

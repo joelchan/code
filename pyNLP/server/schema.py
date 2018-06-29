@@ -8,6 +8,7 @@ ixToVocabPath = ioRoot / 'itos_wt103.pkl'
 modelWeightsPath = ioRoot / 'fwd_wt103.h5'
 encPath = ioRoot / 'fwd_wt103_enc.h5'
 rnn = rnnProduction(ixToVocabPath, modelWeightsPath, encPath)
+# todo add these end points
 # pairWiseDist = rnn.getPairWiseDistance(vectors)
 # tsnePoints = rnn.getTSNE(vectors)
 # genText = rnn.getNextWords('cognitive science is important because ')
