@@ -9,7 +9,7 @@ wt103Path = rootPath / 'wt103'  # download files @ http://files.fast.ai/models/*
 wt103FilePath = wt103Path / 'fwd_wt103.h5'
 wt103Weights = torch.load(wt103FilePath,
                           map_location=lambda storage, loc: storage)
-ioRoot = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03\\cscw'
+ioRoot = 'E:\\code\\pyNLP\\textProcessing\\corpus-2018-05-03\\20180627'
 
 ixToVocab = pickle.load(
     open(ioRoot + '\\ixToVocab.pkl', 'rb'))  # int to string
