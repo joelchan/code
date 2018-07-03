@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2fdfdafb-f8b6-495a-b30c-c3f244a3460e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prepareTextFiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepareTextFiles.py" afterDir="false" />
-    </list>
+    <list default="true" id="2fdfdafb-f8b6-495a-b30c-c3f244a3460e" name="Default" comment="" />
     <ignored mask="*.zip" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rnnFineTuning.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rnnFineTuning.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rnnFineTuning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="1359">
+              <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
               <folding>
                 <element signature="e#5#30#0" expanded="true" />
               </folding>
@@ -47,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prepareTextFiles.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prepareTextFiles.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/prepareTextFiles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="55" column="48" lean-forward="true" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+            <state relative-caret-position="1048">
+              <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
               <folding>
                 <element signature="e#31#47#0" expanded="true" />
               </folding>
@@ -194,6 +191,7 @@
         <option value="$PROJECT_DIR$/textProcessing/app.py" />
         <option value="$PROJECT_DIR$/server/schema.py" />
         <option value="$PROJECT_DIR$/prepareTextFiles.py" />
+        <option value="$PROJECT_DIR$/rnnFineTuning.py" />
       </list>
     </option>
   </component>
@@ -206,7 +204,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="722" />
     <option name="width" value="2594" />
-    <option name="height" value="2127" />
+    <option name="height" value="2087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -238,13 +236,6 @@
               <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
               <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
               <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyNLP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyNLP" type="462c0819:PsiDirectoryNode" />
-              <item name="textProcessing" type="462c0819:PsiDirectoryNode" />
-              <item name="corpus-2018-05-03" type="462c0819:PsiDirectoryNode" />
-              <item name="20180627" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -455,8 +446,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="722" y="0" width="2594" height="2127" extended-state="0" />
-    <editor active="true" />
+    <frame x="722" y="0" width="2594" height="2087" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.08754682" side_tool="true" weight="0.74883723" />
@@ -464,8 +454,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49880895" weight="0.26873386" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9124532" weight="0.27080104" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32098764" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3002584" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.13676237" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3002584" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.1694215" visible="true" weight="0.13676237" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="SciView" order="1" sideWeight="0.4996151" weight="0.41858238" />
@@ -867,16 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rnnFineTuning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#5#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ioUtils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -912,10 +892,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/prepareTextFiles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="55" column="48" lean-forward="true" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+        <state relative-caret-position="1048">
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
           <folding>
             <element signature="e#31#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rnnFineTuning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1359">
+          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+          <folding>
+            <element signature="e#5#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
