@@ -104,7 +104,7 @@ function features(diffs, text, $item) {
 }
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(300);
+  $("#page-container").scrollTop(13000);
 
   var paragraphLines = $(".fs6").toArray();
 
@@ -222,19 +222,90 @@ $(document).ready(function() {
         combined[s.elementNumber].text += fixTrailingDash(line.text);
       }
     });
-    return combined
+    return combined;
   };
-  var combined = combinedLines(lines)
+  var combined = combinedLines(lines);
 
   var xml = combined.reduce((state, textChunk, i) => {
-      const tag = `<${textChunk.tag}>\n${textChunk.text}</${textChunk.tag}>\n\n`
-      return state + tag
-  }, '')
+    const tag = `<${textChunk.tag}>\n${textChunk.text}</${textChunk.tag}>\n\n`;
+    return state + tag;
+  }, "");
 
   window.combined = combined;
   window.xml = xml;
-  //   $(".h2,.h7").css("background-color", "orange");
-});
+  // $(".h2,.h7").css("background-color", "orange");
+  $(".fs6, .fs5")
+    .toArray()
+    .forEach((item, index, array) => {
+      const t = getFixText($(item));
+      // const width = $(item).width()
+      // const spaceSize = (t.split(' ').length / 10) * .3
+      $(item)
+        .html(t)
+        .removeClass("ws0")
+        .css("word-spacing", ".7rem");
+      // .css('width', width)
+
+      // .css('display','flex')
+      // .css('justify-content','space-between')
+      // .css('flex-direction','row')
+    });
+
+  $("img")
+    .attr("draggable", "false")
+    .attr("ondragstate", "return false");
+  $rect = $("<div>&nbsp;</div>")
+    .attr("id", "selectionRect")
+    .css({
+      position: "absolute",
+      outline: "1px solid black"
+    });
+  $("body").append($rect)[(slidingWindow, diffs, canDiffsSafely)] = [0, 0, 0];
+  const tableStart = /^[tT]able.*[\d]/;
+  const figStart = /^[Ff]ig.*[\d]/;
+  const figOrTableStart = /(^[Ff]ig.*[\d]|^[tT]able.*[\d])/
+
+  $(".fs0")
+    .toArray()
+    .forEach((item, index, array) => {
+      const middle = 1;
+      [slidingWindow, diffs, canDiffsSafely] = updateSlidingWindow(
+        index,
+        item,
+        middle,
+        windowSize,
+        slidingWindow,
+        diffs
+      );
+
+      const text = getFixText($(item));
+      // const isTableStart = tableStart.test(text)
+      const isFigStart = figOrTableStart.test(text);
+
+      if (isFigStart) {
+        var nAhead = 0;
+        var win = [];
+        var doMore = true;
+        win.push(getPosition($(item)));
+        $(array[index + nAhead]).css("background-color", "orange");
+        while (index + nAhead < array.length - 2 && doMore) {
+          //look ahead
+          nAhead += 1;
+          if (array[index + nAhead] === undefined) console.log(index,nAhead, array.length)
+          win.push(getPosition($(array[index + nAhead])));
+
+          if (win.length > 2) win.shift();
+          const vertDiff = Math.round(win[0].bottom - win[1].bottom);
+          const horDiff = Math.round(win[0].left - win[1].left);
+          if (Math.abs(vertDiff) > 25 || Math.abs(horDiff) > 160 || nAhead > 100) {
+            doMore = false;
+          } else {
+            $(array[index + nAhead]).css("background-color", "orange");
+          }
+        }
+      }
+    });
+}); // on window ready
 
 // from http://jsfiddle.net/timdown/Q9VZT/
 function getSelectionTextAndContainerElement() {
@@ -260,6 +331,65 @@ function getSelectionTextAndContainerElement() {
     containerElement: $(containerElement)
   };
 }
-$(window).mouseup(function() {
-  console.log(getSelectionTextAndContainerElement());
-});
+
+const {
+  Observable,
+  Subject,
+  ReplaySubject,
+  from,
+  of,
+  range,
+  fromEvent,
+  repeat
+} = rxjs;
+const { skipUntil, takeUntil, mergeMap, take, tap, finalize } = rxjs.operators;
+const mouseMove$ = fromEvent(document, "mousemove");
+const mouseDown$ = fromEvent(document, "mousedown");
+const mouseUp$ = fromEvent(document, "mouseup");
+
+const moving$ = downData => {
+  return mouseMove$.pipe(
+    takeUntil(mouseUp$),
+    tap(moveData => {
+      const { offsetX, offsetY, clientX, clientY } = downData;
+      const w = moveData.clientX - clientX; //dragging right positive
+      const h = moveData.clientY - clientY; //dragging down positive
+      const x = w < 0 ? clientX + w : clientX;
+      const y = h < 0 ? clientY + h : clientY;
+      const width = Math.abs(w);
+      const height = Math.abs(h);
+      dragSelect = { x, y, width, height };
+      $("#selectionRect")
+        .css("top", y)
+        .css("left", x)
+        .css("width", width)
+        .css("height", height);
+      $("body").css("userSelect", "none");
+    }),
+    finalize(moveData => {
+      if (dragSelect.width > 10 && dragSelect.height > 10) {
+        console.log(dragSelect);
+      }
+      $("body").css("userSelect", "auto");
+      $("body").css("cursor", "auto");
+    })
+  );
+};
+
+let dragSelect = { x: null, y: null, width: null, height: null };
+const dragSelect$ = mouseDown$.pipe(
+  mergeMap(downData => {
+    dragSelect = { x: null, y: null, width: null, height: null };
+    return moving$(downData);
+  })
+);
+
+// dragSelect$.subscribe(x => console.log(x));
+
+// $(window).mouseup(function() {
+//   console.log(getSelectionTextAndContainerElement());
+// });
+
+// $(window).mousedown(function() {
+//   console.log(getSelectionTextAndContainerElement());
+// });
