@@ -104,7 +104,7 @@ function features(diffs, text, $item) {
 }
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(8350);
+  $("#page-container").scrollTop(6349+413);
 
   var paragraphLines = $(".fs6").toArray();
 
@@ -338,6 +338,13 @@ function getSelectionTextAndContainerElement() {
     text: text,
     containerElement: $(containerElement)
   };
+}
+
+function getScrollTop(el) {
+  const $el = el instanceof jQuery ? el : $(el)
+  const offsetFromPage = $el[0].offsetTop; //can also do offsetLeft
+  const pageOffset = $el.closest('.pf.w0.h0')[0].offsetTop; //basicly a page container
+  return pageOffset + offsetFromPage
 }
 
 const {
