@@ -104,7 +104,7 @@ function features(diffs, text, $item) {
 }
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(6349+413);
+  $("#page-container").scrollTop(0);
 
   var paragraphLines = $(".fs6").toArray();
 
@@ -311,9 +311,9 @@ $(document).ready(function() {
     // console.log($('#Fig1').show().offset())
 }); // on window ready
 
-$(window).mouseup(()=> {
-  console.log(getSelectionTextAndContainerElement())
-})
+// $(window).mouseup(()=> {
+//   console.log(getSelectionTextAndContainerElement())
+// })
 
 // from http://jsfiddle.net/timdown/Q9VZT/
 function getSelectionTextAndContainerElement() {
