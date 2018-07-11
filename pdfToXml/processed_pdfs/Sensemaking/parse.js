@@ -104,7 +104,7 @@ function features(diffs, text, $item) {
 }
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(13000);
+  $("#page-container").scrollTop(8350);
 
   var paragraphLines = $(".fs6").toArray();
 
@@ -144,7 +144,7 @@ $(document).ready(function() {
         titleCount += 1;
         count += 1;
         slidingWindow[0].$item.css("background-color", "pink");
-        state = "title";
+        state = "h3";
         lines.push({
           state: state,
           class: "order" + count,
@@ -173,7 +173,7 @@ $(document).ready(function() {
       }
 
       if (sectionTitleLike && hasHeadClasses) {
-        state = "title";
+        state = "h3";
         titleCount += 1;
         count += 1;
         $item.css("background-color", "pink");
@@ -184,7 +184,7 @@ $(document).ready(function() {
         $item.css("background-color", colors[pCount % colors.length]);
       }
 
-      if (state === "title") {
+      if (state === "h3") {
         $item.addClass("section_title " + "titleCount" + titleCount);
         $item.css("background-color", "pink");
       } else {
@@ -234,7 +234,7 @@ $(document).ready(function() {
   window.combined = combined;
   window.xml = xml;
   // $(".h2,.h7").css("background-color", "orange");
-  $(".fs6, .fs5")
+  $(".fs6, .fs5") // replace spans with spaces
     .toArray()
     .forEach((item, index, array) => {
       const t = getFixText($(item));
@@ -245,7 +245,6 @@ $(document).ready(function() {
         .removeClass("ws0")
         .css("word-spacing", ".7rem");
       // .css('width', width)
-
       // .css('display','flex')
       // .css('justify-content','space-between')
       // .css('flex-direction','row')
@@ -263,7 +262,7 @@ $(document).ready(function() {
   $("body").append($rect)[(slidingWindow, diffs, canDiffsSafely)] = [0, 0, 0];
   const tableStart = /^[tT]able.*[\d]/;
   const figStart = /^[Ff]ig.*[\d]/;
-  const figOrTableStart = /(^[Ff]ig.*[\d]|^[tT]able.*[\d])/
+  const figOrTableStart = /(^[Ff]ig.{0,10}[\d]|^[tT]able.{0,10}[\d])/
 
   $(".fs0")
     .toArray()
@@ -281,13 +280,15 @@ $(document).ready(function() {
       const text = getFixText($(item));
       // const isTableStart = tableStart.test(text)
       const isFigStart = figOrTableStart.test(text);
-
+      
       if (isFigStart) {
+        const id = figOrTableStart.exec(text)[0].replace(' ', '').replace('.','')
         var nAhead = 0;
         var win = [];
         var doMore = true;
         win.push(getPosition($(item)));
-        $(array[index + nAhead]).css("background-color", "orange");
+        
+        $(array[index + nAhead]).css("background-color", "orange").attr('id', id)
         while (index + nAhead < array.length - 2 && doMore) {
           //look ahead
           nAhead += 1;
@@ -305,7 +306,14 @@ $(document).ready(function() {
         }
       }
     });
+
+
+    // console.log($('#Fig1').show().offset())
 }); // on window ready
+
+$(window).mouseup(()=> {
+  console.log(getSelectionTextAndContainerElement())
+})
 
 // from http://jsfiddle.net/timdown/Q9VZT/
 function getSelectionTextAndContainerElement() {
@@ -368,8 +376,15 @@ const moving$ = downData => {
     }),
     finalize(moveData => {
       if (dragSelect.width > 10 && dragSelect.height > 10) {
-        console.log(dragSelect);
+        $("#selectionRect")
+        .css("top", 0)
+        .css("left", 0)
+        .css("width", 0)
+        .css("height", 0);
       }
+      console.log(dragSelect)
+
+
       $("body").css("userSelect", "auto");
       $("body").css("cursor", "auto");
     })
@@ -393,3 +408,4 @@ const dragSelect$ = mouseDown$.pipe(
 // $(window).mousedown(function() {
 //   console.log(getSelectionTextAndContainerElement());
 // });
+
