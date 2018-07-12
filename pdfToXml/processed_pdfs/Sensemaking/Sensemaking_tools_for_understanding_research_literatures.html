@@ -28,11 +28,50 @@ var notSections =['1. Finds the concepts associated with that paper.',
 </style>
 <script>
 $(document).ready(function () {
+    var links = {
+        'score': {
+            selector: '#pf11 > div.pc.pc11.w0.h0 > div.t.m0.x0.hb.y55.ff1.fs6.fc0.sc0.ls0.ptext.pCount84.order107',
+            term: 'score',
+            comment: 'Basicly, how well the authors answered the questions.'
+        },
+        'claimaker': {},
+        'claimapper': {},
+        'networkGroupResult': {selector: '#pf11 > div.pc.pc11.w0.h0 > div.t.m0.xe.h7.y142.ff3.fs0.fc0.sc0.ls0.ws0'},
+        'writtenReviewGroupResult': {selector: '#pf11 > div.pc.pc11.w0.h0 > div.t.m0.xe.h7.ycb.ff3.fs0.fc0.sc0.ls0.ws0'},
+        'networkGroup': {
+            selector: '#pf10 > div.pc.pc10.w0.h0 >  div.t.m0.x2.hb.y70.ff1.fs6.fc0.sc0.ls0.ptext.pCount81.order103',
+            comment: 'They saw the network as in fig 3.'
+        },
+        'writtenReviewGroup': {
+            selector: '#pf10 > div.pc.pc10.w0.h0 >  div.t.m0.x2.hb.y70.ff1.fs6.fc0.sc0.ls0.ptext.pCount81.order103',
+            comment: 'They read a written review'
+        },
+        'page439p6s1': {
+            selector: '#pf14 > div.pc.pc14.w0.h0 > div.t.m0.x14.hb.y454.ff1.fs6.fc0.sc0.ls0.ptext.pCount105.order129'
+        },
+        'question11' : {
+            selector: '#pf10 > div.pc.pc10.w0.h0 > div.t.m0.xf.h2.y3be.ff1.fs0.fc0.sc0.ls0.ws0'
+        },
+        'scholonto': {
+            selector: "#pf19 > div.pc.pc19.w0.h0 > div.t.m0.x0.h2.y535.ff1.fs0.fc0.sc0.ls0.ws0"
+        }, 
+        'claimaker': {
+            selector: '#pf6 > div.pc.pc6.w0.h0 > div.t.m0.xf.hb.y19f.ff1.fs6.fc0.sc0.ls0.ptext.pCount28.order41'
+        }
+    }
+    for (var id in links) {
+        var x = links[id]
+        if (x.hasOwnProperty('selector')) {
+            $(x.selector).attr('id', id)
+        }
+    }
 
     $("a.linkToId").click(function (e) {
         e = e || window.event;
         e.preventDefault();
         var href = $(this).attr("href");
+        const title = links.hasOwnProperty(href) ? links[href]: ''
+        href = href[0] === '#' ? href: '#' + href
         window.location = href;
         // go to the anchor but get away from the very top
         $("#page-container").scrollTop($("#page-container").scrollTop() - 300)
@@ -44,10 +83,56 @@ $(document).ready(function () {
 <title></title>
 </head>
 <body style='height: unset'>
-    <div id='notes' style="position: fixed; left: 600px; height: 650px; width: 230px; outline: 2px solid black; z-index: 100">
-    
+    <div id='notes' style="position: fixed; left: 600px; height: 700px; width: 230px; outline: 2px solid black; z-index: 100">
+    <h3 style='font-size: 12px'>Important Results with Replication Details</h3>
+
     <span style='font-size: 12px'>
-        The authors present a tool @claimaker which enables people to create, store, and search for claims <a id='testing' href='#Fig1' class="linkToId" >@fig1 </a> which are connected with @scholonto link types @fig2 which are ultimately presented as a network @fig3 or table @fig9. Claims and links can be searched for using a simple google link interface @fig13. A comparative evaluation was done with two groups of three research students who either viewed a claim network or read a written review (which was created from the claim network). Both groups then answered 11 comprehension questions @table4 which were timed. The @network-group got 12.8/22 @points and the @written-group got 14.2/22 @points on the @questionaire @table5. @points were calculated from a @gold-standard scoring. The @network-group tool 105 minutes to answer all questions and the @written-group took 43 minutes @table5. All subject we’re able to create new research questions @table6, which suggests concept maps are not worse than written reviews for the ‘most fundamental’ @page2p6s1 question on the @questionare[#11]. </span>
+        The authors present the tools
+        <a id='testing' href='#claimaker' class="linkToId">@claimaker</a> and 
+        <a id='testing' href='#Fig5' class="linkToId">@claimapper</a>
+         which enables people
+        to create, store, and search for claims
+        <a id='testing' href='#Fig1' class="linkToId">@fig1 </a> which are connected with 
+        <a id='testing' href='#scholonto' class="linkToId">@scholonto</a>
+         link types shown in 
+        <a id='testing' href='#Fig2' class="linkToId">@fig2</a> which are ultimately presented as a network
+        <a id='testing' href='#Fig3' class="linkToId">@fig3</a> or table
+        <a id='testing' href='#Fig9' class="linkToId">@fig9</a>. Claims and links can be searched for using a simple google
+        link interface
+        <a id='testing' href='#Fig13' class="linkToId">@fig13</a>. A comparative evaluation was done with two groups of three
+        research students who either viewed a claim network @network-group
+        or read a written review
+    
+        <a id='' href='#writtenReviewGroup' class="linkToId">@written-group</a>
+    
+        (which was created from the claim network, which looks like
+        <a id='testing' href='#Fig3' class="linkToId">@fig3</a>). Both groups then answered 11 comprehension questions
+        <a id='testing' href='#Table4' class="linkToId">@questionaire</a> which were timed and
+        <a id='testing' href='#score'
+            class="linkToId">@scored</a> out of 22 points. The
+        <a id='testing' href='#writtenReviewGroup' class="linkToId">@network-group</a> got
+        <a id='testing' href='#networkGroupResult' class="linkToId">@12.8/22</a>
+    
+        and the
+        <a id='testing' href='#writtenReviewGroup' class="linkToId">@written-group</a> got
+        <a id='testing' href='#networkGroupResult' class="linkToId">@14.2/22</a>
+        on the
+        <a id='testing' href='#Table4' class="linkToId">@questionaire</a>
+        were calculated. The
+        <a id='' href='#writtenReviewGroup' class="linkToId">@network-group</a> took
+        <a id='testing' href='#writtenReviewGroupResult'
+            class="linkToId">@105 minutes</a> to answer all questions and the
+        <a id='testing' href='#writtenReviewGroup' class="linkToId">@written-group</a> took
+        <a id='testing' href='#writtenReviewGroupResult'
+            class="linkToId">@43 minutes</a>. All subject we’re able to create new research questions
+            <a id='testing' href='#Table6' class="linkToId">@table6</a>, which suggests concept maps are not worse than written reviews for the ‘most fundamental’ 
+            
+            <a id='testing' href='#page439p6s1' class="linkToId">@page439p6s1</a>
+            question
+            <a id='testing' href='#question11' class="linkToId">@question 11.</a>
+        </span>
+        <h3 style='font-size: 12px'>Extending The Study</h3>
+        <span style='font-size: 12px'>This study shows weak evidence that concept maps are as good as written reviews, which were created from the concept maps. A more interesting study would look at whether a concept map caused the written review to be of especially high quality and whether or not that quality out weighed the cost of doing the concept map @kitturdistributedsensemaking. </span>
 
     </div>
 <div id="page-container" style="width: 600">

@@ -288,7 +288,7 @@ $(document).ready(function() {
         var doMore = true;
         win.push(getPosition($(item)));
         
-        $(array[index + nAhead]).css("background-color", "orange").attr('id', id)
+        $(array[index + nAhead]).css("background-color", "thistle").attr('id', id)
         while (index + nAhead < array.length - 2 && doMore) {
           //look ahead
           nAhead += 1;
@@ -301,7 +301,7 @@ $(document).ready(function() {
           if (Math.abs(vertDiff) > 25 || Math.abs(horDiff) > 160 || nAhead > 100) {
             doMore = false;
           } else {
-            $(array[index + nAhead]).css("background-color", "orange");
+            $(array[index + nAhead]).css("background-color", "thistle");
           }
         }
       }
