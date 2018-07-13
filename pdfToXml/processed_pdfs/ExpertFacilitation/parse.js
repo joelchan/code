@@ -1,3 +1,23 @@
+const dps2htmlexCss = {'_': 'display:.*?',
+    'm': 'transform',
+    'w': 'width',
+    'h': 'height',
+    'x': 'left',
+    'y': 'bottom',
+    'ff': 'font-family',
+    'fs': 'font-size',
+    'fc': 'color',
+    'sc': 'text-shadow',
+    'ls': 'letter-spacing',
+    'ws': 'word-spacing'}
+
+$(document).ready(function() {
+  
+
+
+ })
+
+const notSections = ['']
 function getPosition(el) {
   return {
     left: +$(el)
@@ -65,17 +85,18 @@ function getFixText($item) {
   return strOut;
 }
 
-function features(diffs, text, $item) {
+//todo: numbered lists, bullet points
+function features(diffs, text, $item, slidingWindow) {
   var isIndented = diffs[1].left > 7 && diffs[1].left < 15;
   var isNormalLine = diffs[1].bottom <= 12;
-  var prevLineFartherUp = diffs[0].bottom >= 18;
-  var isNewParagraph = prevLineFartherUp || isIndented;
+  var prevLineFartherUp = diffs[0].bottom >= 16;
+  var prevIsTitle = slidingWindow[0].$item.hasClass("h8") //todo: param.  var currentIsP = $item
+  var hasHeadClasses = $item.hasClass("h8") //todo: param. || $item.hasClass("h10");
+  var isNewParagraph = (prevLineFartherUp || isIndented) || (!hasHeadClasses && prevIsTitle); //todo or prev is title
   var isTitleDist =
-    (diffs[0].bottom > 22 && diffs[0].bottom < 25) ||
-    (diffs[0].bottom > 22 && diffs[0].bottom < 25);
-  var re = /^\d\./;
+    (diffs[0].bottom > 22 && diffs[0].bottom < 25) //todo: param
+  var re = /^[A-Z]/; // todo: param.
   var sectionTitleLike = re.test(text);
-  var hasHeadClasses = $item.hasClass("ha") || $item.hasClass("h10");
   var notInNotSections = !notSections.includes(text);
   var isPageEnd =
     diffs[1].left > 20 && diffs[1].left < 1000 && diffs[1].bottom < 0;
@@ -103,9 +124,15 @@ function features(diffs, text, $item) {
 }
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(0);
+  
 
-  var paragraphLines = $(".fs6").toArray();
+  $("#page-container").scrollTop(1000);
+  const classes = $('div').toArray().reduce((acc, item, ix, array)=> {
+    return acc.concat(...$(item)[0].classList)
+  },[])
+  const counts = _.countBy(classes.filter(x=>x.includes('fs')))
+  const mostCommonClass = '.' + _.maxBy(_.keys(counts), function (o) { return counts[o]; }) + ', .fs3'
+   var paragraphLines = $(mostCommonClass).toArray();
 
   var state = ""; // title or p
   var titleCount = 0;
@@ -117,7 +144,7 @@ $(document).ready(function() {
   var slidingWindow = [];
   var diffs = [];
   var lines = [];
-
+  var canDiffsSafely = false;
   console.log("Removing super scripts.");
   $(".h11").remove();
 
@@ -163,7 +190,7 @@ $(document).ready(function() {
         sectionTitleLike,
         hasHeadClasses,
         notInNotSections
-      ] = features(diffs, text, $item);
+      ] = features(diffs, text, $item, slidingWindow);
 
       if (isNewParagraph && isNormalLine) {
         state = "p";
@@ -171,7 +198,7 @@ $(document).ready(function() {
         count += 1;
       }
 
-      if (sectionTitleLike && hasHeadClasses) {
+      if (sectionTitleLike && hasHeadClasses && prevLineFartherUp) {
         state = "h3";
         titleCount += 1;
         count += 1;
@@ -233,21 +260,21 @@ $(document).ready(function() {
   window.combined = combined;
   window.xml = xml;
   // $(".h2,.h7").css("background-color", "orange");
-  $(".fs6, .fs5") // replace spans with spaces
-    .toArray()
-    .forEach((item, index, array) => {
-      const t = getFixText($(item));
-      // const width = $(item).width()
-      // const spaceSize = (t.split(' ').length / 10) * .3
-      $(item)
-        .html(t)
-        .removeClass("ws0")
-        .css("word-spacing", ".7rem");
-      // .css('width', width)
-      // .css('display','flex')
-      // .css('justify-content','space-between')
-      // .css('flex-direction','row')
-    });
+  // $(mostCommonClass) // replace spans with spaces
+  //   .toArray()
+  //   .forEach((item, index, array) => {
+  //     const t = getFixText($(item));
+  //     // const width = $(item).width()
+  //     // const spaceSize = (t.split(' ').length / 10) * .3
+  //     $(item)
+  //       .html(t)
+  //       .removeClass("ws0")
+  //       .css("word-spacing", ".2rem");
+  //     // .css('width', width)
+  //     // .css('display','flex')
+  //     // .css('justify-content','space-between')
+  //     // .css('flex-direction','row')
+  //   });
 
   $("img")
     .attr("draggable", "false")
@@ -263,7 +290,7 @@ $(document).ready(function() {
   const figStart = /^[Ff]ig.*[\d]/;
   const figOrTableStart = /(^[Ff]ig.{0,10}[\d]|^[tT]able.{0,10}[\d])/
 
-  $(".fs0")
+  $('.fs3')
     .toArray()
     .forEach((item, index, array) => {
       const middle = 1;
@@ -346,6 +373,7 @@ function getScrollTop(el) {
   return pageOffset + offsetFromPage
 }
 
+// drawing rectanges to capture parts of the paper
 const {
   Observable,
   Subject,
