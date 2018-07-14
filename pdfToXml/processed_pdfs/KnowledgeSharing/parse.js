@@ -13,8 +13,118 @@ const dps2htmlexCss = {
   ws: "word-spacing"
 };
 
+function getScrollTop(el) {
+  const $el = el instanceof jQuery ? el : $(el);
+  const offsetFromPage = $el[0].offsetTop; //can also do offsetLeft
+  const pageOffset = $el.closest(".pf.w0.h0")[0].offsetTop; //basicly a page container
+  return pageOffset + offsetFromPage;
+}
+
+// drawing rectanges to capture parts of the paper
+const {
+  Observable,
+  Subject,
+  ReplaySubject,
+  from,
+  of,
+  range,
+  fromEvent,
+  repeat
+} = rxjs;
+const { skipUntil, takeUntil, mergeMap, take, tap, finalize } = rxjs.operators;
+const mouseMove$ = fromEvent(document, "mousemove");
+const mouseDown$ = fromEvent(document, "mousedown");
+const mouseUp$ = fromEvent(document, "mouseup");
+
+var newRect = () => $("<div>&nbsp;</div>")
+  .css({
+    position: "absolute",
+    outline: "1px solid black",
+    "z-index": 100
+  });
+
+
+
+
+const moving$ = downData => {
+  const $pageClicked = $(downData.srcElement).closest("div.pc.w0.h0")
+  console.log(downData.srcElement, $pageClicked)
+
+  const isHTMLElement = $pageClicked[0] instanceof HTMLElement;
+  const pageClientRect = isHTMLElement
+    ? $pageClicked[0].getBoundingClientRect()
+    : {};
+  // console.log("$pageClicked[0]", $pageClicked[0]);
+
+  return mouseMove$.pipe(
+    takeUntil(mouseUp$),
+    tap(moveData => {
+      const { offsetX, offsetY, clientX, clientY } = downData;
+      const w = moveData.clientX - clientX; //dragging right positive
+      const h = moveData.clientY - clientY; //dragging down positive
+      const x = w < 0 ? clientX + w : clientX;
+      const y = h < 0 ? clientY + h : clientY;
+      const width = Math.abs(w);
+      const height = Math.abs(h);
+      dragSelect = { x, y, width, height };
+      $("#selectionRect")
+        .css("top", y)
+        .css("left", x)
+        .css("width", width)
+        .css("height", height);
+      $("body").css("userSelect", "none");
+    }),
+    finalize(moveData => {
+      if (dragSelect.width > 10 && dragSelect.height > 10 && $pageClicked) {
+        $("#selectionRect")
+          .css("top", 0)
+          .css("left", 0)
+          .css("width", 0)
+          .css("height", 0);
+
+        // //bottom is down from top of screen
+        if (isHTMLElement) {
+          $pageClicked.css("background-color", "lightgrey");
+          const $rect = newRect();
+          const $drawnRect = $rect
+            .css("top", dragSelect.y - pageClientRect.top)
+            .css("left", dragSelect.x + pageClientRect.left)
+            .css("width", dragSelect.width)
+            .css("height", dragSelect.height);
+          $pageClicked.prepend($drawnRect);
+        }
+      }
+      console.log('finalize')
+      $("body").css("userSelect", "auto");
+      $("body").css("cursor", "auto");
+    })
+  );
+};
+
+let dragSelect = { x: null, y: null, width: null, height: null };
+const dragSelect$ = mouseDown$.pipe(
+  mergeMap(downData => {
+    dragSelect = { x: null, y: null, width: null, height: null };
+    return moving$(downData);
+  })
+);
+
+dragSelect$.subscribe(x => console.log(x));
+
 $(document).ready(function() {
   $("#page-container").scrollTop(11398);
+  $("img")
+    .attr("draggable", "false")
+    .attr("ondragstate", "return false");
+  $rect = $("<div>&nbsp;</div>")
+    .attr("id", "selectionRect")
+    .css({
+      position: "absolute",
+      outline: "1px solid black",
+      "z-index": 100
+    });
+  $("body").append($rect);
+
   const classes = $("div")
     .toArray()
     .reduce((acc, item, ix, array) => {
@@ -65,13 +175,12 @@ $(document).ready(function() {
 
   const mostCommonVertDist = countArrays.bottom.sortByCount[0][0];
   const probablyIndentDist = countArrays.left.sortByCount[1][0]; // after zero
-  const titleRegex = /^\d\./
-  console.log(countArrays.left.sortByCount)
+  const titleRegex = /^\d\./;
 
-  let tagState = ''
+  let tagState = "";
   differences.forEach((diff, ix, array) => {
-    const prevIx = ix > 0 ? ix-1 : ix
-    const text = getFixText($(headersAndParagraphs[ix]))
+    const prevIx = ix > 0 ? ix - 1 : ix;
+    const text = getFixText($(headersAndParagraphs[ix]));
 
     const nextVertDistLikeParagraph =
       diff.bottom === mostCommonVertDist || diff.bottom === 0;
@@ -82,28 +191,31 @@ $(document).ready(function() {
     const paragraphLike =
       nextVertDistLikeParagraph || prevVertDistLikeParagraph;
 
-    const newParagraphLikeDist = Math.abs(differences[prevIx].bottom) > Math.abs(mostCommonVertDist)  &&
-    Math.abs(differences[prevIx].bottom) < Math.abs(mostCommonVertDist)*1.8
+    const newParagraphLikeDist =
+      Math.abs(differences[prevIx].bottom) > Math.abs(mostCommonVertDist) &&
+      Math.abs(differences[prevIx].bottom) < Math.abs(mostCommonVertDist) * 1.8;
 
-    const newParagraphLike =  (diff.left === probablyIndentDist)
-    || elementInfo[prevIx].tag === 'h3'
-    || (newParagraphLikeDist && tagState !== '')
+    const newParagraphLike =
+      diff.left === probablyIndentDist ||
+      elementInfo[prevIx].tag === "h3" ||
+      (newParagraphLikeDist && tagState !== "");
 
     // todo: end of paragraph if width shorter and ends in . and...
 
-    const titleLike =   titleRegex.test(text)
+    const titleLike = titleRegex.test(text);
 
     if (paragraphLike) {
-      tagState = 'p'
-      elementInfo[ix].tag = 'p'
+      tagState = "p";
+      elementInfo[ix].tag = "p";
       $(headersAndParagraphs[ix]).css("background-color", "lightblue");
-      if (newParagraphLike)       $(headersAndParagraphs[ix]).css("background-color", "lightgreen");
+      if (newParagraphLike)
+        $(headersAndParagraphs[ix]).css("background-color", "lightgreen");
     } else if (titleLike) {
-      tagState = 'h3'
-      elementInfo[ix].tag = 'h3'
+      tagState = "h3";
+      elementInfo[ix].tag = "h3";
       $(headersAndParagraphs[ix]).css("background-color", "pink");
     } else {
-      tagState = ''
+      tagState = "";
     }
   });
 });
@@ -400,15 +512,6 @@ function getFixText($item) {
 //   //     // .css('flex-direction','row')
 //   //   });
 
-//   $("img")
-//     .attr("draggable", "false")
-//     .attr("ondragstate", "return false");
-//   $rect = $("<div>&nbsp;</div>")
-//     .attr("id", "selectionRect")
-//     .css({
-//       position: "absolute",
-//       outline: "1px solid black"
-//     });
 //   $("body").append($rect)[(slidingWindow, diffs, canDiffsSafely)] = [0, 0, 0];
 //   const tableStart = /^[tT]able.*[\d]/;
 //   const figStart = /^[Ff]ig.*[\d]/;
@@ -489,78 +592,10 @@ function getFixText($item) {
 //   };
 // }
 
-// function getScrollTop(el) {
-//   const $el = el instanceof jQuery ? el : $(el)
-//   const offsetFromPage = $el[0].offsetTop; //can also do offsetLeft
-//   const pageOffset = $el.closest('.pf.w0.h0')[0].offsetTop; //basicly a page container
-//   return pageOffset + offsetFromPage
-// }
+// $(window).mouseup(function() {
+//   console.log(getSelectionTextAndContainerElement());
+// });
 
-// // drawing rectanges to capture parts of the paper
-// const {
-//   Observable,
-//   Subject,
-//   ReplaySubject,
-//   from,
-//   of,
-//   range,
-//   fromEvent,
-//   repeat
-// } = rxjs;
-// const { skipUntil, takeUntil, mergeMap, take, tap, finalize } = rxjs.operators;
-// const mouseMove$ = fromEvent(document, "mousemove");
-// const mouseDown$ = fromEvent(document, "mousedown");
-// const mouseUp$ = fromEvent(document, "mouseup");
-
-// const moving$ = downData => {
-//   return mouseMove$.pipe(
-//     takeUntil(mouseUp$),
-//     tap(moveData => {
-//       const { offsetX, offsetY, clientX, clientY } = downData;
-//       const w = moveData.clientX - clientX; //dragging right positive
-//       const h = moveData.clientY - clientY; //dragging down positive
-//       const x = w < 0 ? clientX + w : clientX;
-//       const y = h < 0 ? clientY + h : clientY;
-//       const width = Math.abs(w);
-//       const height = Math.abs(h);
-//       dragSelect = { x, y, width, height };
-//       $("#selectionRect")
-//         .css("top", y)
-//         .css("left", x)
-//         .css("width", width)
-//         .css("height", height);
-//       $("body").css("userSelect", "none");
-//     }),
-//     finalize(moveData => {
-//       if (dragSelect.width > 10 && dragSelect.height > 10) {
-//         $("#selectionRect")
-//         .css("top", 0)
-//         .css("left", 0)
-//         .css("width", 0)
-//         .css("height", 0);
-//       }
-//       console.log(dragSelect)
-
-//       $("body").css("userSelect", "auto");
-//       $("body").css("cursor", "auto");
-//     })
-//   );
-// };
-
-// let dragSelect = { x: null, y: null, width: null, height: null };
-// const dragSelect$ = mouseDown$.pipe(
-//   mergeMap(downData => {
-//     dragSelect = { x: null, y: null, width: null, height: null };
-//     return moving$(downData);
-//   })
-// );
-
-// // dragSelect$.subscribe(x => console.log(x));
-
-// // $(window).mouseup(function() {
-// //   console.log(getSelectionTextAndContainerElement());
-// // });
-
-// // $(window).mousedown(function() {
-// //   console.log(getSelectionTextAndContainerElement());
-// // });
+// $(window).mousedown(function() {
+//   console.log(getSelectionTextAndContainerElement());
+// });
