@@ -1,4 +1,4 @@
-const dps2htmlexCss = {
+const pdf2htmlexCss = {
   _: "display:.*?",
   m: "transform",
   w: "width",
@@ -20,7 +20,6 @@ function getScrollTop(el) {
   return pageOffset + offsetFromPage;
 }
 
-// drawing rectanges to capture parts of the paper
 const {
   Observable,
   Subject,
@@ -32,29 +31,26 @@ const {
   repeat
 } = rxjs;
 const { skipUntil, takeUntil, mergeMap, take, tap, finalize } = rxjs.operators;
+
 const mouseMove$ = fromEvent(document, "mousemove");
 const mouseDown$ = fromEvent(document, "mousedown");
 const mouseUp$ = fromEvent(document, "mouseup");
 
-var newRect = () => $("<div>&nbsp;</div>")
-  .css({
+var newRect = () =>
+  $("<div>&nbsp;</div>").css({
     position: "absolute",
     outline: "1px solid black",
     "z-index": 100
   });
 
-
-
-
 const moving$ = downData => {
-  const $pageClicked = $(downData.srcElement).closest("div.pc.w0.h0")
-  console.log(downData.srcElement, $pageClicked)
+  const $pageClicked = $(downData.srcElement).closest("div.pc.w0.h0");
+  console.log(downData.srcElement, $pageClicked);
 
   const isHTMLElement = $pageClicked[0] instanceof HTMLElement;
   const pageClientRect = isHTMLElement
     ? $pageClicked[0].getBoundingClientRect()
     : {};
-  // console.log("$pageClicked[0]", $pageClicked[0]);
 
   return mouseMove$.pipe(
     takeUntil(mouseUp$),
@@ -82,7 +78,6 @@ const moving$ = downData => {
           .css("width", 0)
           .css("height", 0);
 
-        // //bottom is down from top of screen
         if (isHTMLElement) {
           $pageClicked.css("background-color", "lightgrey");
           const $rect = newRect();
@@ -94,7 +89,7 @@ const moving$ = downData => {
           $pageClicked.prepend($drawnRect);
         }
       }
-      console.log('finalize')
+      console.log("finalize");
       $("body").css("userSelect", "auto");
       $("body").css("cursor", "auto");
     })
@@ -109,10 +104,10 @@ const dragSelect$ = mouseDown$.pipe(
   })
 );
 
-dragSelect$.subscribe(x => console.log(x));
+// dragSelect$.subscribe(x => console.log(x));
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(11398);
+  $("#page-container").scrollTop(13648);
   $("img")
     .attr("draggable", "false")
     .attr("ondragstate", "return false");
@@ -138,13 +133,26 @@ $(document).ready(function() {
       return counts[o];
     }) +
     ", .h7"; //todo: list of classes
+  const pageHeaderHeight = 620; //todo: better default / param
   const superscript = ".fs2";
   var headersAndParagraphs = $(mostCommonClass)
     .not(superscript)
+    .filter((ix, item) => {
+      const notPageHeader =
+        +$(item)
+          .css("bottom")
+          .replace("px", "") < pageHeaderHeight;
+      return notPageHeader;
+    })
     .toArray();
 
   let elementInfo = headersAndParagraphs.map((item, index, array) => {
-    return { numbers: getPosition(item), classes: $(item)[0].classList, index };
+    return {
+      numbers: getPosition(item),
+      classes: $(item)[0].classList,
+      index,
+      text: getFixText($(item))
+    };
   });
 
   let differences = elementInfo.reduce((state, item, i, array) => {
@@ -163,24 +171,55 @@ $(document).ready(function() {
     }
   }, []);
 
-  const getCountArray = key =>
-    _.toPairs(_.countBy(differences.map(x => x[key]), Math.round));
-
-  const countArrays = ["bottom", "left", "width"].reduce((state, key) => {
-    const countArray = getCountArray(key).map(x => [+x[0], x[1]]);
+  const roundCountSort = anArray => {
+    const countArray = _
+      .toPairs(_.countBy(anArray, Math.round))
+      .map(x => [+x[0], x[1]]);
     const sortByCount = _.sortBy(countArray, x => x[1]).reverse();
     const sortBySize = _.sortBy(countArray, x => x[0]).reverse();
+    return { sortByCount, sortBySize };
+  };
+
+  const countArrays = ["bottom", "left", "width"].reduce((state, key) => {
+    const whatToCount = differences.map(x => x[key]);
+    const { sortByCount, sortBySize } = roundCountSort(whatToCount); //from diffs
     return { ...state, [key]: { sortBySize, sortByCount } };
   }, {});
 
   const mostCommonVertDist = countArrays.bottom.sortByCount[0][0];
+
+  const widthTolerance = 3;
+  const { sortByCount, sortBySize } = roundCountSort(
+    elementInfo.map(x => x.numbers.width)
+  );
+  const mostCommonParagraphLineWidth = sortByCount[0][0];
+
   const probablyIndentDist = countArrays.left.sortByCount[1][0]; // after zero
+
   const titleRegex = /^\d\./;
+  const lastLineRegex = /[\.)]\s*$/;
+
+  const isEndOfParagraph = ix => {
+    //todo: more functions like this
+    return (
+      elementInfo[ix].numbers.width <
+      mostCommonParagraphLineWidth - widthTolerance
+    );
+  };
+
+  const isInVertDistRange = (ix, lowerFactor, upperFactor) => {
+    return (
+      Math.abs(differences[ix].bottom) >
+        Math.abs(mostCommonVertDist) * lowerFactor &&
+      Math.abs(differences[ix].bottom) <
+        Math.abs(mostCommonVertDist) * upperFactor
+    );
+  };
 
   let tagState = "";
   differences.forEach((diff, ix, array) => {
     const prevIx = ix > 0 ? ix - 1 : ix;
-    const text = getFixText($(headersAndParagraphs[ix]));
+    const text = elementInfo[ix].text;
 
     const nextVertDistLikeParagraph =
       diff.bottom === mostCommonVertDist || diff.bottom === 0;
@@ -191,25 +230,45 @@ $(document).ready(function() {
     const paragraphLike =
       nextVertDistLikeParagraph || prevVertDistLikeParagraph;
 
-    const newParagraphLikeDist =
-      Math.abs(differences[prevIx].bottom) > Math.abs(mostCommonVertDist) &&
-      Math.abs(differences[prevIx].bottom) < Math.abs(mostCommonVertDist) * 1.8;
-
     const newParagraphLike =
       diff.left === probablyIndentDist ||
       elementInfo[prevIx].tag === "h3" ||
-      (newParagraphLikeDist && tagState !== "");
-
-    // todo: end of paragraph if width shorter and ends in . and...
+      (isInVertDistRange(prevIx, 1, 1.8) && tagState !== "");
 
     const titleLike = titleRegex.test(text);
+    const endsInPeriod = lastLineRegex.test(text);
 
     if (paragraphLike) {
       tagState = "p";
-      elementInfo[ix].tag = "p";
       $(headersAndParagraphs[ix]).css("background-color", "lightblue");
-      if (newParagraphLike)
+      elementInfo[ix].tag = "p-middle";
+      if (newParagraphLike) {
         $(headersAndParagraphs[ix]).css("background-color", "lightgreen");
+        elementInfo[ix].tag = "p-start";
+        if (
+          !isEndOfParagraph(prevIx) &&
+          lastLineRegex.test(elementInfo[prevIx].text)
+        ) {
+          elementInfo[prevIx].tag = "p-end";
+          $(headersAndParagraphs[prevIx]).css("background-color", "silver");
+        }
+      } else if (elementInfo[prevIx].tag === "p-end") {
+        $(headersAndParagraphs[ix]).css("background-color", "lightgreen");
+        elementInfo[ix].tag = "p-start";
+      }
+      if (isEndOfParagraph(ix) && endsInPeriod && !newParagraphLike) {
+        $(headersAndParagraphs[ix]).css("background-color", "silver");
+        elementInfo[ix].tag = "p-end";
+      }
+      if ($(headersAndParagraphs[ix]).is(":first-child")) {
+        $(headersAndParagraphs[ix]).css("outline", "1px solid black");
+        elementInfo[ix].tag = "page-start";
+      }
+
+      if (isInVertDistRange(ix, 5, Infinity)) {
+        $(headersAndParagraphs[ix]).css("outline", "3px solid orange");
+        elementInfo[ix].tag = "page-start";
+      }
     } else if (titleLike) {
       tagState = "h3";
       elementInfo[ix].tag = "h3";
@@ -218,10 +277,62 @@ $(document).ready(function() {
       tagState = "";
     }
   });
+
+  let initNewState = {
+    top: 0,
+    bottom: 0,
+    width: 0,
+    height: 0,
+    left: 0,
+    width: 0,
+    id: "#",
+    classes: "",
+    text: "",
+    $page: ""
+  };
+  let textChunkCounts = -1;
+
+  const newDivs = elementInfo.reduce((state, item, ix, array) => {
+    const { left, bottom, height, width, right } = item.numbers;
+
+    if (["p-start", "page-start"].includes(item.tag)) {
+      const top_ = bottom + height
+      textChunkCounts += 1;
+      return state.concat({
+        ...initNewState,
+        bottom,
+        left,
+        width,
+        top: top_,
+        height: bottom - top_
+      });
+    } else if (item.tag === "p-middle" && textChunkCounts > -1) {
+      
+
+      const isBiggerWidth = width > state[textChunkCounts].width;
+      const isLowerBottom = bottom < state[textChunkCounts].bottom;
+      const furtherLeft = left < state[textChunkCounts].left;
+      // todo: height
+      return state.concat({
+        ...state[textChunkCounts],
+        width: isBiggerWidth ? width : state[textChunkCounts].width,
+        bottom: isLowerBottom ? bottom : state[textChunkCounts].bottom,
+        left: furtherLeft ? left : state[textChunkCounts].left
+      })
+    } else {
+      return state
+    }
+
+    
+  }, []);
+  console.log(newDivs)
 });
 
 const notSections = [""];
 function getPosition(el) {
+  const right = +$(el)
+    .css("right")
+    .replace("px", "");
   return {
     left: +$(el)
       .css("left")
@@ -229,7 +340,9 @@ function getPosition(el) {
     bottom: +$(el)
       .css("bottom")
       .replace("px", ""),
-    width: +$(el).width()
+    width: +$(el).width() + right,
+    height: +$(el).height(),
+    right: right
   };
 }
 
