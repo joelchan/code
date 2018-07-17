@@ -107,7 +107,16 @@ const dragSelect$ = mouseDown$.pipe(
 // dragSelect$.subscribe(x => console.log(x));
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(13648);
+  $("#page-container").scrollTop(0);
+  $('body').attr('id', 'scrollArea').addClass('clusterize-scroll')
+  $("#page-container").attr('id', 'contentArea').addClass("clusterize-content")
+  var clusterize = new Clusterize({
+    scrollId: 'scrollArea',
+    contentId: 'contentArea'
+  });
+  
+
+
   $("img")
     .attr("draggable", "false")
     .attr("ondragstate", "return false");
@@ -261,13 +270,13 @@ $(document).ready(function() {
         elementInfo[ix].tag = "p-end";
       }
       if ($(headersAndParagraphs[ix]).is(":first-child")) {
-        $(headersAndParagraphs[ix]).css("outline", "1px solid black");
+        $(headersAndParagraphs[ix]).css("outline", "1px solid blue");
         elementInfo[ix].tag = "page-start";
       }
 
       if (isInVertDistRange(ix, 5, Infinity)) {
         $(headersAndParagraphs[ix]).css("outline", "3px solid orange");
-        elementInfo[ix].tag = "page-start";
+        elementInfo[ix].tag = "page-end ";
       }
     } else if (titleLike) {
       tagState = "h3";
@@ -288,15 +297,17 @@ $(document).ready(function() {
     id: "#",
     classes: "",
     text: "",
-    $page: ""
+    $page: "",
+    $item: ""
   };
   let textChunkCounts = -1;
 
+  // todo: get text, delete elements, add div with text
   const newDivs = elementInfo.reduce((state, item, ix, array) => {
     const { left, bottom, height, width, right } = item.numbers;
 
     if (["p-start", "page-start"].includes(item.tag)) {
-      const top_ = bottom + height
+      const top_ = bottom + height;
       textChunkCounts += 1;
       return state.concat({
         ...initNewState,
@@ -304,28 +315,43 @@ $(document).ready(function() {
         left,
         width,
         top: top_,
-        height: bottom - top_
+        height: height,
+        $page: $(headersAndParagraphs[ix]).closest(".pc.w0.h0"),
+        $item: $(headersAndParagraphs[ix])
       });
-    } else if (item.tag === "p-middle" && textChunkCounts > -1) {
-      
-
+    } else if (
+      ["p-middle", "p-end", "page-end"].includes(item.tag) &&
+      textChunkCounts > -1
+    ) {
       const isBiggerWidth = width > state[textChunkCounts].width;
       const isLowerBottom = bottom < state[textChunkCounts].bottom;
       const furtherLeft = left < state[textChunkCounts].left;
-      // todo: height
-      return state.concat({
+      state[textChunkCounts] = {
         ...state[textChunkCounts],
         width: isBiggerWidth ? width : state[textChunkCounts].width,
         bottom: isLowerBottom ? bottom : state[textChunkCounts].bottom,
-        left: furtherLeft ? left : state[textChunkCounts].left
-      })
+        left: furtherLeft ? left : state[textChunkCounts].left,
+        height: state[textChunkCounts].top - bottom
+      };
+      return state;
     } else {
-      return state
+      return state;
     }
-
-    
   }, []);
-  console.log(newDivs)
+
+  console.log(_.countBy(elementInfo.map(x => x.tag)));
+  newDivs.forEach((item, ix) => {
+    const $rect = newRect();
+    const $drawnRect = $rect
+      .css("left", item.left)
+      .css("width", item.width)
+      .css("bottom", item.bottom)
+      .css("height", item.height);
+    item.$rect = $drawnRect;
+    item.$page.prepend($drawnRect);
+  });
+
+  console.log(newDivs);
 });
 
 const notSections = [""];
@@ -340,8 +366,8 @@ function getPosition(el) {
     bottom: +$(el)
       .css("bottom")
       .replace("px", ""),
-    width: +$(el).width() + right,
-    height: +$(el).height(),
+    width: +$(el).width() / 4,
+    height: +$(el).height() / 4,
     right: right
   };
 }
