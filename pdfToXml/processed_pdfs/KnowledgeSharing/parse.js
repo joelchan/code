@@ -113,9 +113,16 @@ const dragSelect$ = mouseDown$.pipe(
 // dragSelect$.subscribe(x => console.log(x));
 
 $(document).ready(function() {
-  // $("#page-container").children(".pf.w0.h0").each(function(i, item){
-  //   if (i > 5) $(this).remove()
-  // })
+  $("#page-container").children(".pf.w0.h0").each(function(i, item){
+    if (i > 5) $(this).remove()
+  })
+
+  $.post('http://localhost:5656/KnowledgeSharing', {a:1 , b:1}, res => {
+    console.log(res)
+  },'json')
+  $.getJSON('save.json', (data) => {
+    console.log('json', data)
+  })
 
   $("body").attr("id", "scrollArea");
   $("#page-container").attr("id", "contentArea");
