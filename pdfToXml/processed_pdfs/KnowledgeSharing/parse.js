@@ -42,54 +42,60 @@ var newRect = () =>
     outline: "1px solid black",
     "z-index": 100
   });
+var getDragSelect = (downData, moveData = { clientX: 1, clientY: 1 }) => {
+  const { offsetX, offsetY, clientX, clientY } = downData;
+  const w = moveData.clientX - clientX; //dragging right positive
+  const h = moveData.clientY - clientY; //dragging down positive
+  const x = w < 0 ? clientX + w : clientX;
+  const y = h < 0 ? clientY + h : clientY;
+  const width = Math.abs(w);
+  const height = Math.abs(h);
+  return { x, y, width, height };
+};
 
 const moving$ = downData => {
   const $pageClicked = $(downData.srcElement).closest("div.pc.w0.h0");
-  console.log(downData.srcElement, $pageClicked);
-
+  
   const isHTMLElement = $pageClicked[0] instanceof HTMLElement;
   const pageClientRect = isHTMLElement
     ? $pageClicked[0].getBoundingClientRect()
     : {};
+  const down = getDragSelect(downData);
+  dragSelect = {x: down.x, y: down.y, width: 1, height: 1}
+  $pageClicked.css("background-color", "lightgrey");
+  const $rect = newRect();
+  const $drawnRect = $rect
+    .css("top", dragSelect.y - pageClientRect.top)
+    .css("left", dragSelect.x + pageClientRect.left)
+    .css("width", dragSelect.width)
+    .css("height", dragSelect.height)
+    .css("will-change", "all")
+  $pageClicked.prepend($drawnRect);
 
   return mouseMove$.pipe(
     takeUntil(mouseUp$),
     tap(moveData => {
-      const { offsetX, offsetY, clientX, clientY } = downData;
-      const w = moveData.clientX - clientX; //dragging right positive
-      const h = moveData.clientY - clientY; //dragging down positive
-      const x = w < 0 ? clientX + w : clientX;
-      const y = h < 0 ? clientY + h : clientY;
-      const width = Math.abs(w);
-      const height = Math.abs(h);
-      dragSelect = { x, y, width, height };
-      $("#selectionRect")
-        .css("top", y)
-        .css("left", x)
-        .css("width", width)
-        .css("height", height);
+      const prev = dragSelect;
+      dragSelect = getDragSelect(downData, moveData);
+      const diffs = ['x', 'y', 'width', 'height'].reduce((state, key) => {
+        if (['x','y'].includes(key)){
+          return {...state, [key]:  dragSelect[key] - prev[key]}
+        } else {
+          return {...state, [key]: dragSelect[key] / prev[key]}
+        }
+      }, {})
+
+      $drawnRect.velocity( // velcoity suppose to be faster
+        {"top": dragSelect.y - pageClientRect.top,
+        "left": dragSelect.x + pageClientRect.left,
+        "width": dragSelect.width,
+        "height": dragSelect.height
+      }, 0, 'linear'
+        )
+
       $("body").css("userSelect", "none");
     }),
     finalize(moveData => {
-      if (dragSelect.width > 10 && dragSelect.height > 10 && $pageClicked) {
-        $("#selectionRect")
-          .css("top", 0)
-          .css("left", 0)
-          .css("width", 0)
-          .css("height", 0);
-
-        if (isHTMLElement) {
-          $pageClicked.css("background-color", "lightgrey");
-          const $rect = newRect();
-          const $drawnRect = $rect
-            .css("top", dragSelect.y - pageClientRect.top)
-            .css("left", dragSelect.x + pageClientRect.left)
-            .css("width", dragSelect.width)
-            .css("height", dragSelect.height);
-          $pageClicked.prepend($drawnRect);
-        }
-      }
-      console.log("finalize");
       $("body").css("userSelect", "auto");
       $("body").css("cursor", "auto");
     })
@@ -107,16 +113,16 @@ const dragSelect$ = mouseDown$.pipe(
 // dragSelect$.subscribe(x => console.log(x));
 
 $(document).ready(function() {
-  $("#page-container").scrollTop(0);
-  $('body').attr('id', 'scrollArea').addClass('clusterize-scroll')
-  $("#page-container").attr('id', 'contentArea').addClass("clusterize-content")
+  // $("#page-container").children(".pf.w0.h0").each(function(i, item){
+  //   if (i > 5) $(this).remove()
+  // })
+
+  $("body").attr("id", "scrollArea");
+  $("#page-container").attr("id", "contentArea");
   var clusterize = new Clusterize({
-    scrollId: 'scrollArea',
-    contentId: 'contentArea'
+    scrollId: "scrollArea",
+    contentId: "contentArea"
   });
-  
-
-
   $("img")
     .attr("draggable", "false")
     .attr("ondragstate", "return false");
@@ -276,7 +282,8 @@ $(document).ready(function() {
 
       if (isInVertDistRange(ix, 5, Infinity)) {
         $(headersAndParagraphs[ix]).css("outline", "3px solid orange");
-        elementInfo[ix].tag = "page-end ";
+        elementInfo[ix].tag = "page-end";
+        console.log(elementInfo[ix].text)
       }
     } else if (titleLike) {
       tagState = "h3";
@@ -302,7 +309,6 @@ $(document).ready(function() {
   };
   let textChunkCounts = -1;
 
-  // todo: get text, delete elements, add div with text
   const newDivs = elementInfo.reduce((state, item, ix, array) => {
     const { left, bottom, height, width, right } = item.numbers;
 
@@ -317,7 +323,8 @@ $(document).ready(function() {
         top: top_,
         height: height,
         $page: $(headersAndParagraphs[ix]).closest(".pc.w0.h0"),
-        $item: $(headersAndParagraphs[ix])
+        $item: $(headersAndParagraphs[ix]),
+        text: item.text
       });
     } else if (
       ["p-middle", "p-end", "page-end"].includes(item.tag) &&
@@ -326,12 +333,14 @@ $(document).ready(function() {
       const isBiggerWidth = width > state[textChunkCounts].width;
       const isLowerBottom = bottom < state[textChunkCounts].bottom;
       const furtherLeft = left < state[textChunkCounts].left;
+
       state[textChunkCounts] = {
         ...state[textChunkCounts],
         width: isBiggerWidth ? width : state[textChunkCounts].width,
         bottom: isLowerBottom ? bottom : state[textChunkCounts].bottom,
         left: furtherLeft ? left : state[textChunkCounts].left,
-        height: state[textChunkCounts].top - bottom
+        height: state[textChunkCounts].top - bottom,
+        text: state[textChunkCounts].text + " " + item.text //todo: if line ends in dash
       };
       return state;
     } else {
@@ -339,14 +348,23 @@ $(document).ready(function() {
     }
   }, []);
 
-  console.log(_.countBy(elementInfo.map(x => x.tag)));
+  // console.log(_.countBy(elementInfo.map(x => x.tag)));
+  $('div.pf.w0.h0').each(function(){
+    $(this).css({width: 1200})
+    $(this).children('div.pc.w0.h0').css({width: 1200})
+  })
+
   newDivs.forEach((item, ix) => {
+    // $(headersAndParagraphs[ix]).remove()
     const $rect = newRect();
     const $drawnRect = $rect
-      .css("left", item.left)
+      .css("left", item.left+400)
       .css("width", item.width)
       .css("bottom", item.bottom)
-      .css("height", item.height);
+      .css("height", item.height)
+      .text(item.text)
+      .css('font-size', '10px')
+      .css('z-index', 200)
     item.$rect = $drawnRect;
     item.$page.prepend($drawnRect);
   });
