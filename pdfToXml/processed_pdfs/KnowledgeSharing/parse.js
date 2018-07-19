@@ -30,7 +30,15 @@ const {
   fromEvent,
   repeat
 } = rxjs;
-const { skipUntil, takeUntil, mergeMap, take, tap, finalize } = rxjs.operators;
+const {
+  skipUntil,
+  takeUntil,
+  mergeMap,
+  take,
+  tap,
+  finalize,
+  filter
+} = rxjs.operators;
 
 const mouseMove$ = fromEvent(document, "mousemove");
 const mouseDown$ = fromEvent(document, "mousedown");
@@ -55,21 +63,22 @@ var getDragSelect = (downData, moveData = { clientX: 1, clientY: 1 }) => {
 
 const moving$ = downData => {
   const $pageClicked = $(downData.srcElement).closest("div.pc.w0.h0");
-  
+
   const isHTMLElement = $pageClicked[0] instanceof HTMLElement;
   const pageClientRect = isHTMLElement
     ? $pageClicked[0].getBoundingClientRect()
     : {};
   const down = getDragSelect(downData);
-  dragSelect = {x: down.x, y: down.y, width: 1, height: 1}
+  dragSelect = { x: down.x, y: down.y, width: 1, height: 1 };
   $pageClicked.css("background-color", "lightgrey");
   const $rect = newRect();
   const $drawnRect = $rect
-    .css("top", dragSelect.y - pageClientRect.top)
-    .css("left", dragSelect.x + pageClientRect.left)
+    .addClass("selectionRect")
+    .css("top", dragSelect.y + pageClientRect.top)
+    .css("left", dragSelect.x - pageClientRect.left)
     .css("width", dragSelect.width)
     .css("height", dragSelect.height)
-    .css("will-change", "all")
+    .css("will-change", "all");
   $pageClicked.prepend($drawnRect);
 
   return mouseMove$.pipe(
@@ -77,25 +86,80 @@ const moving$ = downData => {
     tap(moveData => {
       const prev = dragSelect;
       dragSelect = getDragSelect(downData, moveData);
-      const diffs = ['x', 'y', 'width', 'height'].reduce((state, key) => {
-        if (['x','y'].includes(key)){
-          return {...state, [key]:  dragSelect[key] - prev[key]}
+      const diffs = ["x", "y", "width", "height"].reduce((state, key) => {
+        if (["x", "y"].includes(key)) {
+          return { ...state, [key]: dragSelect[key] - prev[key] };
         } else {
-          return {...state, [key]: dragSelect[key] / prev[key]}
+          return { ...state, [key]: dragSelect[key] / prev[key] };
         }
-      }, {})
+      }, {});
 
-      $drawnRect.velocity( // velcoity suppose to be faster
-        {"top": dragSelect.y - pageClientRect.top,
-        "left": dragSelect.x + pageClientRect.left,
-        "width": dragSelect.width,
-        "height": dragSelect.height
-      }, 0, 'linear'
-        )
+      $drawnRect.velocity(
+        // velcoity suppose to be faster
+        {
+          top: dragSelect.y - pageClientRect.top,
+          left: dragSelect.x + pageClientRect.left,
+          width: dragSelect.width,
+          height: dragSelect.height
+        },
+        0,
+        "linear"
+      );
 
       $("body").css("userSelect", "none");
     }),
     finalize(moveData => {
+      let rectPos = getPosition($drawnRect);
+      rectPos.height *= 4; // since we added this rect unscaled
+      rectPos.width *= 4;
+      // get elements in the rect
+      const selectedElements = $pageClicked
+        .children("div")
+        .filter((ix, item) => {
+          // heigher is heigher
+          const pos = getPosition(item);
+          const aboveBottom = pos.bottom > rectPos.bottom;
+          const bellowTop =
+            pos.height + pos.bottom < rectPos.height + rectPos.bottom;
+          const withinLeft = pos.left > rectPos.left;
+          const withinRight =
+            pos.left + pos.width < rectPos.left + rectPos.width;
+          // return aboveBottom && bellowTop && withinLeft && withinRight
+          return aboveBottom && bellowTop && withinLeft && withinRight;
+        })
+        .toArray();
+
+      if (selectedElements.length > 0) {
+        const topElement = getPosition(selectedElements[0]);
+        const bottomElement = getPosition(
+          selectedElements[selectedElements.length - 1]
+        );
+        const topRight = topElement.left + topElement.width;
+        const bottomRight = bottomElement.left + bottomElement.width;
+        const left = Math.min(topElement.left, bottomElement.left);
+        const width =
+          topRight > bottomRight ? topElement.width : bottomElement.width;
+        const height =
+          topElement.height + topElement.bottom - bottomElement.bottom;
+        const $rect = newRect();
+
+        const text = selectedElements.reduce((state, item, ix) => {
+          return state + " " + getFixText($(item));
+        }, "");
+
+        $rect
+          .css({
+            bottom: bottomElement.bottom,
+            left: left + 400,
+            width: width,
+            height: height,
+            "font-size": "8px",
+            "z-index": 200
+          })
+          .text(text);
+        $pageClicked.append($rect);
+      }
+
       $("body").css("userSelect", "auto");
       $("body").css("cursor", "auto");
     })
@@ -104,25 +168,36 @@ const moving$ = downData => {
 
 let dragSelect = { x: null, y: null, width: null, height: null };
 const dragSelect$ = mouseDown$.pipe(
+  filter(e => e.ctrlKey),
   mergeMap(downData => {
     dragSelect = { x: null, y: null, width: null, height: null };
     return moving$(downData);
   })
 );
 
-// dragSelect$.subscribe(x => console.log(x));
+dragSelect$.subscribe();
+
+// todo: title, abstract, keywords
 
 $(document).ready(function() {
-  $("#page-container").children(".pf.w0.h0").each(function(i, item){
-    if (i > 5) $(this).remove()
-  })
+  $("body").css("margin", 0);
+  $("#page-container")
+    .children(".pf.w0.h0")
+    .each(function(i, item) {
+      if (i > 5) $(this).remove();
+    });
 
-  $.post('http://localhost:5656/KnowledgeSharing', {a:1 , b:1}, res => {
-    console.log(res)
-  },'json')
-  $.getJSON('save.json', (data) => {
-    console.log('json', data)
-  })
+  $.post(
+    "http://localhost:5656/KnowledgeSharing",
+    { a: 111, b: 111 },
+    res => {
+      // console.log(res);
+    },
+    "json"
+  );
+  $.getJSON("save.json", data => {
+    // console.log("json", data);
+  });
 
   $("body").attr("id", "scrollArea");
   $("#page-container").attr("id", "contentArea");
@@ -148,14 +223,13 @@ $(document).ready(function() {
       return acc.concat(...$(item)[0].classList);
     }, []);
   const counts = _.countBy(classes.filter(x => x.includes("h")));
-  console.log(counts);
   const mostCommonClass =
     "." +
     _.maxBy(_.keys(counts), function(o) {
       return counts[o];
     }) +
-    ", .h7"; //todo: list of classes
-  const pageHeaderHeight = 620; //todo: better default / param
+    ", .h7"; //todo: save list of classes
+  const pageHeaderHeight = 620; //todo: filter by position / page combo
   const superscript = ".fs2";
   var headersAndParagraphs = $(mostCommonClass)
     .not(superscript)
@@ -290,7 +364,6 @@ $(document).ready(function() {
       if (isInVertDistRange(ix, 5, Infinity)) {
         $(headersAndParagraphs[ix]).css("outline", "3px solid orange");
         elementInfo[ix].tag = "page-end";
-        console.log(elementInfo[ix].text)
       }
     } else if (titleLike) {
       tagState = "h3";
@@ -356,27 +429,27 @@ $(document).ready(function() {
   }, []);
 
   // console.log(_.countBy(elementInfo.map(x => x.tag)));
-  $('div.pf.w0.h0').each(function(){
-    $(this).css({width: 1200})
-    $(this).children('div.pc.w0.h0').css({width: 1200})
-  })
+  $("div.pf.w0.h0").each(function() {
+    $(this).css({ width: 1200 });
+    $(this)
+      .children("div.pc.w0.h0")
+      .css({ width: 1200 });
+  });
 
   newDivs.forEach((item, ix) => {
     // $(headersAndParagraphs[ix]).remove()
     const $rect = newRect();
     const $drawnRect = $rect
-      .css("left", item.left+400)
+      .css("left", item.left + 400)
       .css("width", item.width)
       .css("bottom", item.bottom)
       .css("height", item.height)
       .text(item.text)
-      .css('font-size', '10px')
-      .css('z-index', 200)
+      .css("font-size", "10px")
+      .css("z-index", 200);
     item.$rect = $drawnRect;
     item.$page.prepend($drawnRect);
   });
-
-  console.log(newDivs);
 });
 
 const notSections = [""];
