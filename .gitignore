@@ -1,3 +1,12 @@
+conservex/.conservex/
+conservex/src/pattern-development/
+conservex/src/rec*/
+*.projection
+*text8
+*.zip
+dictionary_text8
+*.npy
+*.p
 *png
 *.h5
 *.pkl

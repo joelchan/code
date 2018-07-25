@@ -1,0 +1,8 @@
+scipy
+pandas
+gensim
+spacy
+nltk
+pattern3
+boto3
+numpy==1.14.3
